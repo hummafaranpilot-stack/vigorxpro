@@ -62,7 +62,11 @@
       "Bash(ls \"d:/TrustedNutraProducts/VigorXPro/v2/short/lib/img/buy-now\"* \"d:/TrustedNutraProducts/VigorXPro/v2/short/lib/img/cards\"*)",
       "Bash(start \"\" \"d:/TrustedNutraProducts/VigorXPro/v2/long3/index.html\")",
       "Bash(cmd.exe /c start \"\" \"file:///D:/TrustedNutraProducts/VigorXPro/v2/long3/index.html\")",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(start \"d:/TrustedNutraProducts/VigorXPro/v2/long3/index.html\")",
+      "Bash(start d:/TrustedNutraProducts/VigorXPro/v2/long6/index.html)",
+      "Bash(start d:/TrustedNutraProducts/VigorXPro/v2/long6/mobile.html)",
+      "Bash(powershell -Command \":*)"
     ]
   }
 }
