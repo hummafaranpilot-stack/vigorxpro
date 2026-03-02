@@ -1,0 +1,306 @@
+/**
+* Countdown Dynamite widget CSS
+*/
+
+.ucd-countdown {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: middle;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+.ucd-countdown.no-progress {
+    padding-bottom: 2px;
+}
+
+.ucd-countdown .ucd-countdown-dash {
+    width: 110px;
+    height: 120px;
+    line-height: normal;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    background: transparent url('../images/countdown/dash.png') 0 0 no-repeat;
+    background-size: contain;
+    margin-right: 20px;
+    position: relative;
+}
+.ucd-countdown .ucd-countdown-dashes {
+    display: block;
+    margin-right: -20px;
+}
+
+.ucd-countdown .ucd-countdown-dash.ucd-countdown-dash-hidden {
+    display: none;
+}
+
+.ucd-countdown .ucd-countdown-dash .ucd-countdown-digit {
+    display: block;
+    font-size: 73px;
+    float: left;
+    width: 55px;
+    text-align: center;
+    position: relative;
+}
+
+.ucd-countdown .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 94px;
+    line-height: 94px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.ucd-countdown .ucd-countdown-dash_title {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    /*right: 6px;*/
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/**
+* Small size
+*/
+
+.ucd-countdown.ucd-countdown-size-small {
+    padding: 7px;
+    border-radius: 7px;
+}
+.ucd-countdown.ucd-countdown-size-small.no-progress {
+    padding-bottom: 0;
+}
+.ucd-countdown.ucd-countdown-size-small .ucd-countdown-dashes {
+    margin-right: -7px;
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash {
+    height: 45px;
+    width: 40px;
+    margin-right: 7px;
+    background-image: url('../images/countdown/dash-small.png');
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown-size-small .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 34px;
+    line-height: 34px;
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash .ucd-countdown-digit {
+    font-size: 27px;
+    width: 20px;
+}
+
+.ucd-countdown-size-small .ucd-countdown-dash_title {
+    font-size: 8px;
+}
+
+/**
+* Medium size
+*/
+
+.ucd-countdown.ucd-countdown-size-medium {
+    padding: 10px;
+    border-radius: 10px;
+}
+.ucd-countdown.ucd-countdown-size-medium.no-progress {
+    padding-bottom: 0;
+}
+.ucd-countdown.ucd-countdown-size-medium .ucd-countdown-dashes {
+    margin-right: -10px;
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash {
+    height: 57px;
+    width: 53px;
+    margin-right: 10px;
+    background-image: url('../images/countdown/dash-medium.png');
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown-size-medium .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 45px;
+    line-height: 45px;
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash .ucd-countdown-digit {
+    font-size: 35px;
+    width: 26px;
+}
+
+.ucd-countdown-size-medium .ucd-countdown-dash_title {
+    font-size: 9px;
+}
+
+/**
+* Large size
+*/
+
+.ucd-countdown.ucd-countdown-size-large {
+    padding: 13px;
+    border-radius: 13px;
+}
+.ucd-countdown.ucd-countdown-size-large.no-progress {
+    padding-bottom: 0;
+}
+.ucd-countdown.ucd-countdown-size-large .ucd-countdown-dashes {
+    margin-right: -13px;
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash {
+    height: 78px;
+    width: 72px;
+    margin-right: 13px;
+    background-image: url('../images/countdown/dash-large.png');
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash .ucd-countdown-digit,
+.ucd-countdown-size-large .ucd-countdown-dash .ucd-countdown-digit .ucd-figure {
+    height: 62px;
+    line-height: 62px;
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash .ucd-countdown-digit {
+    font-size: 48px;
+    width: 36px;
+}
+
+.ucd-countdown-size-large .ucd-countdown-dash_title {
+    font-size: 12px;
+}
+
+/**
+* Extra stuff
+*/
+
+.ucd-countdown-container {
+    display: block;
+}
+
+.ucd-countdown-content {
+    display: block;
+}
+
+.ucd-countdown-content.ucd-countdown-content-hidden,
+.ucd-countdown-action-content.ucd-countdown-content-hidden {
+    display: none;
+}
+
+.ucd-countdown .ucd-clearfix {
+    display: block;
+    clear: both;
+}
+
+/**
+* AJAX placeholder
+*/
+.ucd-ajax-placeholder {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.ucd-ajax-placeholder-size-small {
+    width: 61px;
+    height: 61px;
+    background: url('../images/ajax-placeholder/small.gif');
+}
+.ucd-ajax-placeholder-size-medium {
+    width: 76px;
+    height: 76px;
+    background: url('../images/ajax-placeholder/medium.gif');
+}
+.ucd-ajax-placeholder-size-large {
+    width: 102px;
+    height: 102px;
+    background: url('../images/ajax-placeholder/large.gif');
+}
+.ucd-ajax-placeholder-size-xl {
+    width: 154px;
+    height: 154px;
+    background: url('../images/ajax-placeholder/xl.gif');
+}
+
+.ucd-invalid {
+    color: red;
+    font-style: italic;
+}
+
+.ucd-countdown .ucd-progress {
+    background-color:rgb(245, 245, 245);
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    box-shadow:rgba(0, 0, 0, 0.1) 0 1px 2px 0 inset;
+    box-sizing:border-box;
+    color:rgb(51, 51, 51);
+    display:block;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:14px;
+    height:20px;
+    line-height:20px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+.ucd-countdown .ucd-progress-bar {
+    animation-delay:0s;
+    animation-direction:normal;
+    animation-duration:2s;
+    animation-fill-mode:none;
+    animation-iteration-count:infinite;
+    animation-name:progress-bar-stripes;
+    animation-play-state:running;
+    animation-timing-function:linear;
+    background-color:#337ab7;
+    background-image:linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+    background-size:40px 40px;
+    box-shadow:rgba(0, 0, 0, 0.15) 0 -1px 0 0 inset;
+    box-sizing:border-box;
+    color:rgb(255, 255, 255);
+    display:block;
+    float:left;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    transition: width 1s linear, background-color 0.6s ease;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+/**
+Transparency
+ */
+
+.ucd-countdown.is-transparent .ucd-countdown-dash {
+    background: none;
+}
+
+.ucd-countdown.is-transparent {
+    padding: 0;
+}
+
+/**
+Bar animations
+ */
+/* WebKit */
+@-webkit-keyframes progress-bar-stripes {
+    from  { background-position: 40px 0; }
+    to    { background-position: 0 0; }
+}
+
+/*  Spec and IE10+ */
+@keyframes progress-bar-stripes {
+    from  { background-position: 40px 0; }
+    to    { background-position: 0 0; }
+}

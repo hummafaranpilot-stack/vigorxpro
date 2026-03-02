@@ -1,0 +1,99 @@
+BROKEN LINKS IN index.html (New Alpha)
+======================================
+
+LOCAL IMAGES (images/ folder) - 74 files needed:
+------------------------------------------------
+images/adam.png
+images/adam-m.png
+images/adam-signature.png
+images/antivirus.png
+images/BiB-Sex-Position-Mastery-400-201x300.png
+images/book-1.jpg
+images/book-2.jpg
+images/book-4.jpg
+images/capsule.png
+images/card-icon.png
+images/cart-2-icon.png
+images/cart-icon.png
+images/cash-bank-logo.png
+images/download.png
+images/fact2.png
+images/fact3.png
+images/free-ship-bot.png
+images/green-tick.png
+images/home-section1-img1.png
+images/home-section2-img1.png
+images/home-section2-img4.png
+images/home-section3-img1.png
+images/home-section3-img2.png
+images/home-section3-new-img1.png
+images/home-section4-img1.jpg
+images/ingredient-1.png
+images/ingredient-10.png
+images/ingredient-11.png
+images/ingredient-2.png
+images/ingredient-3.png
+images/ingredient-4.png
+images/ingredient-5.png
+images/ingredient-6.png
+images/ingredient-7.png
+images/ingredient-8.png
+images/ingredient-pro-bg-m.png
+images/line-3.png
+images/lock.png
+images/mobile-sample10.png
+images/mobile-sample11.png
+images/pack-pro.png
+images/pack-pro-2.png
+images/page-3-section-1-img1.png
+images/paypl-cion.png
+images/pro-img-1.png
+images/risk-free-batch.png
+images/sample-img-1.png
+images/sample-img-10.jpg
+images/sample-img-10-m.jpg
+images/sample-img-11.png
+images/sample-img-12.png
+images/sample-img-13.jpg
+images/sample-img-14.jpg
+images/sample-img-2.png
+images/sample-img-3.png
+images/sample-img-4.jpg
+images/sample-img-5.jpg
+images/sample-img-6.jpg
+images/sample-img-6-m.jpg
+images/sample-img-7.jpg
+images/sample-img-8.jpg
+images/sample-img-9.jpg
+images/signature.png
+images/suppliment.jpg
+images/tag-1.png
+images/tag-2.png
+images/tag-3.png
+images/tag-4.png
+images/tag-5.png
+images/tag-6.png
+images/tag-icon.png
+images/tag-m.png
+images/user-icon.png
+images/visa.jpg
+
+CSS FILES (commented out but may be needed):
+--------------------------------------------
+css/timer.css
+css/part-2-style.css
+css/part-4-style.css
+css/part-5-style.css
+css/responsive-2.css
+
+EXTERNAL LINKS:
+---------------
+- https://cbtb.clickbank.net/
+- https://rockhardx.pay.clickbank.net/ (checkout links)
+- https://www.googletagmanager.com/
+
+TO FIX:
+-------
+1. Create folder: images/
+2. Download/provide all 74 images listed above
+3. CSS files are commented out, may not be needed

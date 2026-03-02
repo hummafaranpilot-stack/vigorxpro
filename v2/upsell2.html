@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="icon" href="lib/img/icon-7.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upsell - 2</title>
+    <style>
+        /* Base */
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: #222;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+.guarantee-seal img {
+max-width: 120px;
+width: 100%;
+height: auto;
+}
+        /* Sticky Banner */
+        .sticky-reminder {
+            position: sticky;
+            text-align: center;
+            top: 0;
+            background: #fff9e6;
+            color: #c00;
+            font-weight: 700;
+            padding: 12px 20px;
+            font-size: 16px;
+            z-index: 999;
+            border-bottom: 2px solid #ffd700;
+            width: 100%;
+        }
+
+        .bottom-reminder {
+            background: #fff4e6;
+            text-align: center;
+            color: #c00;
+            font-weight: 700;
+            padding: 18px 20px;
+            font-size: 16px;
+            border-top: 2px solid #ffd700;
+            margin-top: 40px;
+        }
+
+        /* Timer */
+        .timer-bar {
+            text-align: center;
+            padding: 12px 0;
+            background: linear-gradient(to right, #fff4e6, #fffaf2);
+            font-size: 16px;
+            color: #c00;
+            font-weight: 600;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+
+        .timer-bar span {
+            font-weight: 700;
+            color: #d60000;
+        }
+.upsell-intro {
+font-size: 20px; /* Increase font size */
+line-height: 1.7; /* Add more spacing between lines */
+margin-bottom: 20px; /* Add space below paragraph */
+font-weight: 600; /* Make it slightly bolder */
+color: #0a6bda; /* Optional: make it match the theme */
+}
+        /* Top Section */
+        .top-section h1 {
+            font-size: 28px;
+            color: #0a6bda;
+            margin-bottom: 15px;
+        }
+
+        .top-section p {
+            font-size: 17px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* Upgrade Boxes */
+        .upgrades {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .upgrade-box {
+            flex: 1 1 45%;
+            min-width: 250px;
+            max-width: 450px;
+            background: #f5faff;
+            padding: 25px 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .upgrade-box.highlight {
+            background: #e6f2ff;
+            border: 2px solid #0a6bda;
+        }
+
+        .upgrade-box h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #0a6bda;
+        }
+
+        .upgrade-box img {
+            max-width: 450px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .upgrade-box p {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .cut {
+            text-decoration: line-through;
+            color: #c00;
+            margin-right: 5px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: #0a6bda;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+            transition: .3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            opacity: .95;
+        }
+
+        .no-thanks {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: underline;
+        }
+
+        /* Most Popular Tag */
+        .most-popular .tag {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ffd700;
+            color: #000;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reviews */
+        .reviews {
+            margin: 50px auto;
+        }
+
+        .reviews h2 {
+            font-size: 26px;
+            color: #0a6bda;
+            margin-bottom: 25px;
+        }
+
+        .review-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .review {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 300px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: .3s;
+        }
+
+        .review:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .review p {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .review span {
+            font-size: 13px;
+            color: #555;
+            display: block;
+            text-align: right;
+        }
+
+    .ingredients-section {
+    display: flex;
+    flex-direction: column; /* stack heading + image */
+    justify-content: center; /* vertical alignment if needed */
+    align-items: center; /* horizontal center */
+    margin: 40px auto;
+    text-align: center;
+    }
+    
+    .ingredients-section h2 {
+    font-size: 28px;
+    color: #0a6bda;
+    margin-bottom: 20px;
+    }
+    
+    .ingredients-img-wrapper img {
+    max-width: 100%; /* responsive */
+    height: auto;
+    display: block; /* ensures centering in wrapper */
+    }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .upgrades {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .upgrade-box {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 140%;
+            }
+
+            .upgrade-box img {
+                max-width: 350px;
+            }
+
+            .cta-btn {
+                font-size: 15px;
+                padding: 10px 22px;
+            }
+
+            .top-section h1 {
+                font-size: 22px;
+            }
+
+            .top-section p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .sticky-reminder,
+            .bottom-reminder {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .review-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .ingredients img {
+                max-width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="upsell-wrapper">
+
+        <!-- Sticky Reminder -->
+        <div class="sticky-reminder">
+            Take advantage of the 1 bottle MetaTrim BHB™ bundle for $39 or 3 bottles for $99 — special discount today!
+        </div>
+
+        <!-- Timer -->
+        <div class="timer-bar">
+            ⏳ Wait! Your order is not completed yet. Offer Expires In: <span id="countdown">05:00</span>
+        </div>
+
+        <!-- Top Info -->
+        <div class="container top-section">
+            <h1>Unlock the Power of MetaTrim BHB™ Weight Loss Capsules</h1><br>
+            <p>Most men don’t realize that burning fat also helps your prostate, bladder, energy levels, and overall
+                well-being. </p><br>
+                <p class="upsell-intro">
+                    With the power of premium BHB ketones, MetaTrim BHB™ turns your stored fat into energy, reduces hunger, and keeps
+                    you
+                    energized throughout the day making weight loss easier than ever.
+                </p>
+
+            <h3>MetaTrim BHB™: </h3><p>Converts fat into energy, curbs cravings, keeps you active.</p>
+            
+            <h3>VigorX Pro™:</h3>
+            <p> Supports prostate & bladder health, boosts overall vitality.</p>
+           
+            <h3>Together:</h3>
+            <p> Feel healthier, lighter, and more confident every day. 💪</p>
+            <br>
+            <h1><p>See What MetaTrim BHB™ Can Do for You 🔥:</p></h1>
+            <ul style="text-align:left; max-width:600px; margin:15px auto;">
+                <li>✔ Supports long-term fat loss and helps your body burn fat
+                    efficiently.</li>
+                <li>✔ Fires up your metabolism so you burn fat faster all day, every day.
+                </li>
+                <li>✔ steady fat-burning energy turning your body into a 24/7
+                    fat-melting machine.</li>
+                <li>✔ Burns fat for energy while boosting focus and overall vitality.</li>
+            </ul>
+        </div>
+
+        <!-- Ingredients -->
+        <div class="ingredients-section">
+            <h2>Key Ingredients</h2>
+            <div class="ingredients-img-wrapper">
+                <img src="lib/img/label.jpg" alt="MetaTrim BHB Ingredients">
+            </div>
+        </div>
+
+        <!-- Upgrade Boxes -->
+        <div class="container upgrades">
+
+            <!-- 2 Bottle -->
+            <div class="upgrade-box">
+                <h2>1 Bottle Upgrade</h2>
+                <img src="Images/1-bottles-vigor.webp" alt="1 Bottle MetaTrim BHB™">
+                <p>Regular Price: <span class="cut">$69</span> <strong>$39 Today!</strong></p>
+                <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649232" class="cta-btn">Add 1 Bottles for $39</a><br>
+                <a href="https://www.checkout-ds24.com/answer/no" class="no-thanks">No thanks, continue</a>
+            </div>
+
+            <!-- 3 Bottle Most Popular -->
+            <div class="upgrade-box highlight most-popular">
+                <div class="tag">Most Popular</div>
+                <h2>3 Bottle Upgrade</h2>
+                <img src="Images/4-bottles-vigor.webp" alt="3 Bottle MetaTrim BHB™">
+                <p>Regular Price: <span class="cut">$177</span> <strong>$99 Today!</strong> <em>($33/Bottle)</em></p>
+                <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649233" class="cta-btn">Yes! Add 3 Bottles for $99</a><br>
+                <a href="https://www.checkout-ds24.com/answer/no" class="no-thanks">No thanks, continue</a>
+            </div>
+
+        </div>
+
+        <!-- Reviews -->
+        <div class="container reviews">
+            <h2>Trusted Customer Reviews</h2>
+            <div class="review-list">
+                <div class="review">
+                    <p>“Before MetaTrim BHB™, my blood sugar was unstable and I felt low on energy. After 6 weeks, my
+                        A1C improved and I feel more energetic than ever!”</p>
+                    <span>- Aisha R., Package: 3 Bottles</span>
+                </div>
+                <div class="review">
+                    <p>“I used to struggle with sugar spikes and cravings. MetaTrim BHB™ stabilized my glucose levels -
+                        now I feel in control and healthier.”</p>
+                    <span>- David K., Package: 3 Bottles</span>
+                </div>
+                <div class="review">
+                    <p>“Before taking this, my energy would drop mid-day. After a month with MetaTrim BHB™, my energy is
+                        steady and I feel lighter and active.”</p>
+                    <span>- Maria L., Package: 1 Bottle</span>
+                </div>
+            </div>
+        </div>
+<section class="guarantee-section">
+    <svg class="guarantee-section__wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 C360,-50 1080,50 1440,100 L1440,0 L0,0 Z" fill="white"></path>
+    </svg>
+    <div class="container guarantee-container">
+        <div style="text-align:center; width:100%; margin-top:5 px;">
+            <div style="
+      background:#000; 
+      color:#fff; 
+      padding:10px 10px; 
+      border-radius:25px; 
+      display:inline-block; 
+      font-size:1.2rem; 
+      font-weight:bold;
+  ">
+                Try It. Love It. Or Get Every Penny Back.
+            </div>
+        </div>
+
+
+        <div class="guarantee-content">
+            <div class="guarantee-seal">
+                <img src="lib/img/free-shipping.png" alt="Guarantee">
+            </div>
+            <div class="guarantee-text">
+                <h3>Love It or Your Money Back - 60-Day Guarantee</h3>
+                <p>No Stress. No Worries. Just Results.
+                    Your order today comes with our rock solid 60-day money-back guarantee.<br> If you’re not 100% happy,
+                    just give us a shout - we’ll refund every single penny, no questions asked.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        <div class="bottom-reminder">
+            Take advantage of the 1 bottle MetaTrim BHB™ bundle for $39 or 3 bottles for $99 — special discount today!
+            <br><a href="#" class="no-thanks">No thanks, continue</a>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+    /* TIMER */
+    let t=300;
+    const countdownEl=document.querySelector('.timer-bar span');
+    setInterval(()=>{
+        let m=String(Math.floor(t/60)).padStart(2,'0');
+        let s=String(t%60).padStart(2,'0');
+        countdownEl.textContent=`${m}:${s}`;
+        if(t>0) t--;
+    },1000);
+
+});
+        </script>
+
+<footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+    <p><a href="Privacy policy.html">Privacy Policy</a> | <a href="Terms & Conditions.html">Terms & Conditions</a> | <a href="contact.html">Contact</a> | <a href="Return Policy.html">Return Policy</a></p>
+</footer>
+
+</body>
+
+</html>

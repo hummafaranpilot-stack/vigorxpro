@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="lib/img/icon-7.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VigorX Pro Upsell</title>
+    <style>
+        /* Base */
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: #222;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+.guarantee-seal img {
+max-width: 120px;
+width: 100%;
+height: auto;
+}
+        /* Sticky Banner */
+        .sticky-reminder {
+            position: sticky;
+            text-align: center;
+            top: 0;
+            background: #fff9e6;
+            color: #c00;
+            font-weight: 700;
+            padding: 12px 20px;
+            font-size: 16px;
+            z-index: 999;
+            border-bottom: 2px solid #ffd700;
+            width: 100%;
+        }
+
+        .bottom-reminder {
+            background: #fff4e6;
+            text-align: center;
+            color: #c00;
+            font-weight: 700;
+            padding: 18px 20px;
+            font-size: 16px;
+            border-top: 2px solid #ffd700;
+            margin-top: 40px;
+        }
+
+        /* Timer */
+        .timer-bar {
+            text-align: center;
+            padding: 12px 0;
+            background: linear-gradient(to right, #fff4e6, #fffaf2);
+            font-size: 16px;
+            color: #c00;
+            font-weight: 600;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+
+        .timer-bar span {
+            font-weight: 700;
+            color: #d60000;
+        }
+
+        /* Upgrade Boxes */
+        .upgrades {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .upgrade-box {
+            flex: 1 1 45%;
+            min-width: 250px;
+            max-width: 450px;
+            background: #f5faff;
+            padding: 25px 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .upgrade-box.highlight {
+            background: #e6f2ff;
+            border: 2px solid #0a6bda;
+        }
+
+        .upgrade-box h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #0a6bda;
+        }
+
+        .upgrade-box img {
+            max-width: 350px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .upgrade-box p {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .cut {
+            text-decoration: line-through;
+            color: #c00;
+            margin-right: 5px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: #0a6bda;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+            transition: .3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            opacity: .95;
+        }
+
+        .no-thanks {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: underline;
+        }
+
+        /* Most Popular Tag */
+        .most-popular .tag {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ffd700;
+            color: #000;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reviews */
+        .reviews {
+            margin: 50px auto;
+        }
+
+        .reviews h2 {
+            font-size: 26px;
+            color: #0a6bda;
+            margin-bottom: 25px;
+        }
+
+        .review-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .review {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 300px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: .3s;
+        }
+
+        .review:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .review p {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .review span {
+            font-size: 13px;
+            color: #555;
+            display: block;
+            text-align: right;
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .upgrades {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .upgrade-box {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 140%;
+            }
+
+            .upgrade-box img {
+                max-width: 110%;
+            }
+
+            .cta-btn {
+                font-size: 15px;
+                padding: 10px 22px;
+            }
+
+            .top-section h1 {
+                font-size: 22px;
+            }
+
+            .top-section p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .sticky-reminder,
+            .bottom-reminder {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .review-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="upsell-wrapper">
+
+        <!-- Sticky Reminder Banner -->
+        <div class="sticky-reminder">
+            Take advantage of the 3-bottle bundle  special discount today! 1 bottle is $39, but 3 bottles give full
+            support for $99. Don't miss it!
+        </div>
+
+        <!-- Timer & Notice -->
+        <div class="timer-bar">
+            ⏳ Wait! Your order is not completed yet , Offer Expires In: <span id="countdown">05:00</span>
+        </div>
+
+        <!-- Top Info Section -->
+        <div class="container top-section">
+            <h1>Take Control of Your Prostate Health with VigorX Pro™</h1><br>
+            <p>VigorX Pro™ helps men maintain a healthy prostate, smoother urinary flow, fewer nighttime trips,
+                and improved comfort. Trusted formula used by thousands of men to regain confidence and restful sleep.
+            </p>
+            <br>
+            <p>Consistent use provides optimal results, and the 3-bottle upgrade ensures you get full support at the
+                best value.</p>
+        </div><br>
+
+        <!-- Upgrade Options -->
+        <div class="container upgrades">
+
+            <!-- 1-Bottle -->
+            <div class="upgrade-box">
+                <h2>1 Bottle Upgrade</h2>
+                <img src="Images/1-bottles-vigor.webp" alt="1 Bottle VigorX Pro™">
+                <p>Regular Price: <span class="cut">$69</span> <strong>$39 Today!</strong></p>
+                <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649230" class="cta-btn">Add 1 Bottle for $39</a>
+                <br>
+                <a href="https://www.checkout-ds24.com/answer/no" class="no-thanks">No thanks, continue</a>
+            </div>
+
+            <!-- 3-Bottle Most Popular -->
+            <div class="upgrade-box highlight most-popular">
+                <div class="tag">Most Popular</div>
+                <h2>3 Bottle Upgrade</h2>
+                <img src="Images/4-bottles-vigor.webp" alt="3 Bottle VigorX Pro™">
+                <p>Regular Price: <span class="cut">$177</span> <strong>$99 Today!</strong> <em>($33/Bottle)</em></p>
+
+                <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649231" class="cta-btn">Yes! Add 3 Bottles for $99</a><br>
+                <a href="https://www.checkout-ds24.com/answer/no" class="no-thanks">No thanks, continue</a>
+            </div>
+
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="container reviews">
+            <h2>Trusted Customer Reviews</h2>
+            <div class="review-list">
+
+                <div class="review">
+                    <p>“The 3-bottle bundle gave me noticeable relief in just a few weeks. Highly recommend VigorX Pro
+                        Support™!”</p>
+                    <span>- John D., New York, NY</span>
+                </div>
+
+                <div class="review">
+                    <p>“VigorX Pro™ works! Nights are so much better, fewer bathroom trips, more comfort.”</p>
+                    <span>- Mike S., Los Angeles, CA</span>
+                </div>
+
+                <div class="review">
+                    <p>“I chose the 3-bottle upgrade and it was worth every penny. Best prostate support ever.”</p>
+                    <span>- David K., Chicago, IL</span>
+                </div>
+
+            </div>
+        </div>
+<section class="guarantee-section">
+    <svg class="guarantee-section__wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 C360,-50 1080,50 1440,100 L1440,0 L0,0 Z" fill="white"></path>
+    </svg>
+    <div class="container guarantee-container">
+        <div style="text-align:center; width:100%; margin-top:5 px;">
+            <div style="
+      background:#000; 
+      color:#fff; 
+      padding:10px 10px; 
+      border-radius:25px; 
+      display:inline-block; 
+      font-size:1.2rem; 
+      font-weight:bold;
+  ">
+                Try It. Love It. Or Get Every Penny Back.
+            </div>
+        </div>
+
+
+        <div class="guarantee-content">
+            <div class="guarantee-seal">
+                <img src="lib/img/free-shipping.png" alt="Guarantee">
+            </div>
+            <div class="guarantee-text">
+                <h3>Love It or Your Money Back - 60-Day Guarantee</h3>
+                <p>No Stress. No Worries. Just Results.
+                    Your order today comes with our rock solid 60-day money-back guarantee.<br> If you’re not 100% happy,
+                    just give us a shout - we’ll refund every single penny, no questions asked.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    /* TIMER */
+    let t = 300; // 5 minutes in seconds
+    const countdownEl = document.querySelector('.timer-bar span');
+
+    const timerInterval = setInterval(() => {
+        let minutes = String(Math.floor(t / 60)).padStart(2, '0');
+        let seconds = String(t % 60).padStart(2, '0');
+        countdownEl.textContent = `${minutes}:${seconds}`;
+        if(t > 0) t--;
+        else clearInterval(timerInterval);
+    }, 1000);
+});
+</script>
+        <div class="bottom-reminder">
+            Take advantage of the 3-bottle bundle <br> special discount today! 1 bottle is $39, but 3 bottles give full
+            support for $99. Don't miss it!
+            <br><a href="#" class="no-thanks">No thanks, continue</a>
+        </div>
+
+<footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+    <p><a href="Privacy policy.html">Privacy Policy</a> | <a href="Terms & Conditions.html">Terms & Conditions</a> | <a href="contact.html">Contact</a> | <a href="Return Policy.html">Return Policy</a></p>
+</footer>
+
+</body>
+
+</html>

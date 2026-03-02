@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Begin of Digistore24 Trusted Badge Code -->
+<script type="text/javascript" src="https://www.digistore24.com/trusted-badge/42154/kzg99B0NaoBlnPO/salespage"></script>
+<!-- End of Digistore24 Trusted Badge Code -->
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+
+<script>
+    digistoreUpsell()
+</script>
+<link rel="icon" href="lib/img/icon-7.svg" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upsell 4 - Combo Offers</title>
+<style>
+body {
+    margin:0; 
+    font-family:'Inter',sans-serif; 
+    background:#fff; 
+    color:#000;
+}
+.container {
+    max-width:1200px; 
+    margin:0 auto; 
+    padding:20px; 
+    text-align:center;
+}
+h1, h2, h3 {
+    color:#0a6bda; 
+    margin-bottom:10px;
+}
+p {
+    margin-bottom:12px; 
+    font-size:16px; 
+    line-height:1.6;
+}
+.guarantee-seal img {
+max-width: 120px;
+width: 100%;
+height: auto;
+}
+/* Sticky Reminder - Centered */
+.sticky-reminder {
+    position: sticky;
+    top: 0;
+    background: #fff9e6;
+    color: #c00;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-bottom: 2px solid #ffd700;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Intro Text */
+.intro-text {
+    max-width:900px; 
+    margin:0 auto 40px auto; 
+    text-align:left; 
+    font-size:16px; 
+    line-height:1.6;
+}
+.intro-text p {margin-bottom:12px;}
+
+/* Upgrades container */
+.upgrades {
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: flex-start;   /* vertical alignment at top */
+    gap: 25px;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Each combo box */
+.upgrade-box {
+    flex: 1 1 300px;
+    max-width: 350px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    background: #CEF2EE;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    margin: 0 auto;
+}
+
+/* Highlight popular combo */
+.upgrade-box.popular {border: 2px solid #000000;}
+
+/* Combo title */
+.combo-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #0a6bda;
+}
+
+/* Product block */
+.product-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.product-block img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 5px auto;
+    border-radius:10px;
+}
+
+.product-name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Plus icon */
+.plus-icon {
+    font-size: 36px;
+    font-weight: bold;
+    color: green;
+    display: block;
+    margin: 10px auto;
+    vertical-align: middle;
+}
+
+/* Price */
+.upgrade-box p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* Buttons */
+.cta-btn, .no-thanks {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cta-btn {
+    background: #0a6bda;
+    color: #fff;
+}
+
+.no-thanks {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+/* Popular combo badge */
+.upgrade-box.popular::before {
+    content: "Most Popular";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6f00;
+    color: #fff;
+    font-weight:700;
+    padding:5px 12px;
+    border-radius:8px;
+    font-size:13px;
+}
+
+/* Exclusive Combo Offers Box */
+.exclusive-combo-box {
+    border: 2px solid #000;
+    background: #fff;
+    color: #000000;
+    padding: 20px 30px;
+    text-align: center;
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.exclusive-combo-box h2, .exclusive-combo-box h3 {
+    font-weight:700;
+    margin:10px 0;
+}
+
+/* Reviews Outside */
+.reviews {
+    max-width:1000px; 
+    margin:30px auto; 
+    display:flex; 
+    justify-content:center; 
+    gap:20px; 
+    flex-wrap:wrap;
+}
+.review-card {
+    background:#f9f9f9; 
+    padding:15px; 
+    border-radius:12px; 
+    width:300px; 
+    text-align:left; 
+    box-shadow:0 3px 8px rgba(0,0,0,0.05);
+}
+.review-card p {
+    font-size:14px; 
+    margin-bottom:6px;
+}
+.review-card span {
+    font-size:13px; 
+    color:#555; 
+    text-align:right; 
+    display:block;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .upgrades {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-block img {max-width:120px;}
+    .upgrade-box {max-width:90%;}
+}
+</style>
+</head>
+<body>
+
+<div class="upsell-wrapper">
+
+<div class="sticky-reminder">Select any combo for $29 each. VIP mega discounts appear as you add more!</div>
+
+<!-- Exclusive Combo Offers Box -->
+<div class="exclusive-combo-box">
+    <h2>Exclusive Combo Offers</h2>
+    <h3>Choose any combo below to see the difference:</h3>
+    <p>Each combo includes two premium bottles, full product names clearly displayed, and a VIP pricing that is simple and affordable.</p>
+
+    <p><span style="color:#FF4500; font-weight:bold; font-size:18px;">Combo 1:</span> VigorX Pro™ paired with MetaTrim BHB™ <br> (Offering complete prostate support and effective weight management in one powerful package.)</p>
+
+    <p><span style="color:#1E90FF; font-weight:bold; font-size:18px;">Combo 2:</span> VigorX Pro™ paired with Neurozenix™ Focus+ <br> (Providing prostate health support along with enhanced cognitive function, sharper focus, and mental clarity.)</p>
+
+    <p><span style="color:#32CD32; font-weight:bold; font-size:18px;">Combo 3:</span> MetaTrim BHB™ paired with Neurozenix™ Focus+ <br> (Giving fat burning energy plus boosted brain performance for sharper thinking and focus throughout the day.)</p>
+</div>
+
+<br>
+<p style="text-align:center; font-size:16px;">
+All combos are designed for simplicity and results. VIP customers get special discounts and access to bonus offers as they select more combos.
+</p>
+
+<h2 style="text-align:center; font-size:20px; font-weight:bold;">
+Don’t wait – pick a combo that works best for your goals and unlock the full benefits today!
+</h2>
+
+<br><br>
+
+<div class="upgrades">
+    <!-- Combo 1 -->
+    <div class="upgrade-box" data-combo="1">
+        <div class="combo-title">Combo 1</div>
+        <div class="product-block">
+            <div class="product-name">VigorX Pro™</div>
+            <img src="lib/img/2.png" alt="VigorX Pro Bottle">
+        </div>
+        <span class="plus-icon">+</span>
+        <div class="product-block">
+            <div class="product-name">MetaTrim BHB™</div>
+            <img src="lib/img/3.png" alt="MetaTrim Bottle">
+        </div>
+        <p>Total Price: $29</p>
+        <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649237" class="cta-btn">Yes, Add to Cart</a>
+    </div>
+
+    <!-- Combo 2 -->
+    <div class="upgrade-box popular" data-combo="2">
+        <div class="combo-title">Combo 2</div>
+        <div class="product-block">
+            <div class="product-name">VigorX Pro™</div>
+            <img src="lib/img/2.png" alt="VigorX Pro Bottle">
+        </div>
+        <span class="plus-icon">+</span>
+        <div class="product-block">
+            <div class="product-name">Neurozenix™ Focus+</div>
+            <img src="lib/img/1.png" alt="Neurogenix Bottle">
+        </div>
+        <p>Total Price: $29</p>
+        <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649238" class="cta-btn">Yes, Add to Cart</a>
+    </div>
+
+    <!-- Combo 3 -->
+    <div class="upgrade-box" data-combo="3">
+        <div class="combo-title">Combo 3</div>
+        <div class="product-block">
+            <div class="product-name">MetaTrim BHB™</div>
+            <img src="lib/img/3.png" alt="MetaTrim Bottle">
+        </div>
+        <span class="plus-icon">+</span>
+        <div class="product-block">
+            <div class="product-name">Neurozenix™ Focus+</div>
+            <img src="lib/img/1.png" alt="Neurogenix Bottle">
+        </div>
+        <p>Total Price: $29</p>
+        <a href="https://www.checkout-ds24.com/answer/yes?template=light&product=649239" class="cta-btn">Yes, Add to Cart</a>
+    </div>
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+  <a href="https://www.checkout-ds24.com/answer/no" class="no-thanks" style="text-decoration:none; color:#FF4500; font-weight:bold;">
+    I’ll pass this time and go with my previous order
+  </a>
+</div>
+
+<!-- Reviews -->
+<div class="reviews">
+    <div class="review-card">
+        <p>“Before using these, I had low energy. After trying this combo, my focus and vitality improved.”</p>
+        <span>- John D., Combo 1</span>
+    </div>
+    <div class="review-card">
+        <p>“My bladder and prostate support improved while I lost weight.”</p>
+        <span>- Mike R., Combo 1</span>
+    </div>
+    <div class="review-card">
+        <p>“Great value and results! Feeling healthier and lighter every day.”p>
+        <span>- Sarah L., Combo 1</span>
+    </div>
+
+    <div class="review-card">
+        <p>“Improved my prostate health while my focus and clarity skyrocketed.”p>
+        <span>- Alex P., Combo 2</span>
+    </div>
+    <div class="review-card">
+        <p>“This combo helped me feel sharper and more energized.”p>
+        <span>- James K., Combo 2</span>
+    </div>
+    <div class="review-card">
+        <p>“Amazing value! Both products complement each other perfectly.”p>
+        <span>- David H., Combo 2</span>
+    </div>
+
+    <div class="review-card">
+        <p>“Lost weight and felt sharper in mental clarity at the same time.”p>
+        <span>- Anna W., Combo 3</span>
+    </div>
+    <div class="review-card">
+        <p>“Best combo for energy, fat-burning, and brain support.”p>
+        <span>- Tom L., Combo 3</span>
+    </div>
+    <div class="review-card">
+        <p>“Highly recommend this combo for men who want all-in-one benefits.”p>
+        <span>- chirs A., Combo 3</span>
+    </div>
+</div>
+<section class="guarantee-section">
+    <svg class="guarantee-section__wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 C360,-50 1080,50 1440,100 L1440,0 L0,0 Z" fill="white"></path>
+    </svg>
+    <div class="container guarantee-container">
+        <div style="text-align:center; width:100%; margin-top:5 px;">
+            <div style="
+      background:#000; 
+      color:#fff; 
+      padding:10px 10px; 
+      border-radius:25px; 
+      display:inline-block; 
+      font-size:1.2rem; 
+      font-weight:bold;
+  ">
+                Try It. Love It. Or Get Every Penny Back.
+            </div>
+        </div>
+
+
+        <div class="guarantee-content">
+            <div class="guarantee-seal">
+                <img src="lib/img/free-shipping.png" alt="Guarantee">
+            </div>
+            <div class="guarantee-text">
+                <h3>Love It or Your Money Back - 60-Day Guarantee</h3>
+                <p>No Stress. No Worries. Just Results.
+                    Your order today comes with our rock solid 60-day money-back guarantee.<br> If you’re not 100% happy,
+                    just give us a shout - we’ll refund every single penny, no questions asked.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+</body>
+</html>
