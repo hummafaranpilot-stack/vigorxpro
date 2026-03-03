@@ -49,19 +49,31 @@ var customerStates = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA'
   'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
   'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
 ];
-var customerQuantities = ['2', '4', '7'];
+var spBase = window.socialProofBase || '';
+var customerProducts = [
+  { quantity: '1', image: spBase + 'lib/img/1_bottle_qb.png', label: '1' },
+  { quantity: '1', image: spBase + 'lib/img/1_bottle_qb.png', label: '1' },
+  { quantity: '1', image: spBase + 'lib/img/1_bottle_qb.png', label: '1' },
+  { quantity: '2', image: spBase + 'lib/img/2-bottles-qb.webp', label: '2' },
+  { quantity: '2', image: spBase + 'lib/img/2-bottles-qb.webp', label: '2' },
+  { quantity: '3', image: spBase + 'lib/img/3-bottles-qb.webp', label: '3' },
+  { quantity: '3', image: spBase + 'lib/img/3-bottles-qb.webp', label: '3' },
+  { quantity: '6', image: spBase + 'lib/img/6-bottles-qb.webp', label: '6' },
+  { quantity: '7', image: spBase + 'lib/img/7-bottles-qb.webp', label: '7' }
+];
 function updateSocial() {
   var rCustomerFirst = customerFirst[Math.floor(Math.random() * customerFirst.length)];
   var rCustomerLast = customerLast[Math.floor(Math.random() * customerLast.length)];
   var rStates = customerStates[Math.floor(Math.random() * customerStates.length)];
-  var rQuantities = customerQuantities[Math.floor(Math.random() * customerQuantities.length)];
+  var rProduct = customerProducts[Math.floor(Math.random() * customerProducts.length)];
   var rAgo = Math.floor(Math.random() * 21) + 1;
 
   $('#notify-customer').html(rCustomerFirst + ' ' + rCustomerLast);
   $('#notify-state').html(rStates);
-  $('#notify-quantity').html(rQuantities);
+  $('#notify-quantity').html(rProduct.label);
   $('#notify-ago').html(rAgo + ' minutes ago');
-  if (rQuantities > 1) {
+  $('.custom-notification-image-wrapper img').attr('src', rProduct.image);
+  if (rProduct.quantity > 1) {
     $('#notify-multiple').html('s');
   } else {
     $('#notify-multiple').html('');
