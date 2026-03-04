@@ -8,7 +8,9 @@
     <link rel="icon" href="lib/img/icon-7.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Offer - VigorX Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -23,7 +25,12 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -182,7 +189,7 @@
 
         .hero-title .free-text {
             color: #FF9800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-subtitle {
@@ -422,8 +429,15 @@
         }
 
         @keyframes borderFlicker {
-            0%, 100% { border-color: #7B1FA2; }
-            50% { border-color: #311B92; }
+
+            0%,
+            100% {
+                border-color: #7B1FA2;
+            }
+
+            50% {
+                border-color: #311B92;
+            }
         }
 
         .mt-subscription-info .congrats {
@@ -467,7 +481,8 @@
             gap: 0.2rem;
         }
 
-        .mt-product-price h4, .mt-display-price {
+        .mt-product-price h4,
+        .mt-display-price {
             font-size: 4.5rem;
             color: #4A148C;
             font-weight: 800;
@@ -842,7 +857,8 @@
                 font-size: 0.9rem;
             }
 
-            .mt-product-price h4, .mt-display-price {
+            .mt-product-price h4,
+            .mt-display-price {
                 font-size: 3.5rem;
             }
 
@@ -945,7 +961,8 @@
                 max-width: 200px;
             }
 
-            .mt-product-price h4, .mt-display-price {
+            .mt-product-price h4,
+            .mt-display-price {
                 font-size: 3rem;
             }
 
@@ -1079,6 +1096,102 @@
             }
         }
 
+        /* Product Label Section */
+        .product-label-section {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .product-label-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: #4A148C;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-label-wrapper {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(74, 20, 140, 0.12);
+            border: 2px solid #E1BEE7;
+            border-top: 4px solid #7B1FA2;
+            overflow: hidden;
+            padding: 15px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-label-wrapper:hover {
+            box-shadow: 0 12px 35px rgba(74, 20, 140, 0.2);
+        }
+
+        .product-label-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-label-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .product-label-caption {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #777;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .product-label-section {
+                margin-top: 30px;
+            }
+
+            .product-label-section h3 {
+                font-size: 18px;
+            }
+
+            .product-label-wrapper {
+                padding: 10px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-label-section {
+                margin-top: 25px;
+            }
+
+            .product-label-section h3 {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            .product-label-wrapper {
+                padding: 8px;
+                border-radius: 8px;
+            }
+
+            .product-label-caption {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .product-label-section h3 {
+                font-size: 14px;
+            }
+
+            .product-label-wrapper {
+                padding: 6px;
+            }
+        }
+
         /* Extra Small Screens */
         @media (max-width: 360px) {
             .hero-title {
@@ -1089,7 +1202,8 @@
                 font-size: 12px;
             }
 
-            .mt-product-price h4, .mt-display-price {
+            .mt-product-price h4,
+            .mt-display-price {
                 font-size: 2.5rem;
             }
 
@@ -1231,12 +1345,12 @@
                 font-size: 12px;
             }
         }
-
     </style>
 
-<!-- BuyGoods Tracking -->
-<script>var mysrc = "https://tracking.buygoods.com/track/?a=12172&firstcookie=0"+"&tracking_redirect=&referrer="+encodeURIComponent(document.referrer)+"&sessid2="+ReadCookie('sessid2')+"&product=syn1u,syn1us&vid1=&vid2=&vid3=&caller_url="+encodeURIComponent(window.location.href); if(typeof add_to_cart !== 'undefined') { mysrc = mysrc+'&add_to_cart='+add_to_cart; } var newScript = document.createElement('script'); newScript.type = 'text/javascript'; newScript.defer = true; newScript.src = mysrc; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(newScript, s); function ReadCookie(name){name += '='; var parts = document.cookie.split(/;\s*/);for (var i = 0; i < parts.length; i++) {var part = parts[i]; if (part.indexOf(name) == 0) return part.substring(name.length)} return '';}</script>
-<script type="text/javascript">var i = document.createElement("iframe"),oid = new URLSearchParams(window.location.search);i.async = true;i.style="display:none";i.setAttribute("src", "https://buygoods.com/affiliates/go/conversion/iframe/bg?a=12172&t=be4964308821518c976a495854c7b441&conversion=1&s="+ReadCookie('sessid2')+"&o="+oid.get('order_id_global')+"&ut="+oid.get('token'));document.body.appendChild(i);</script>
+    <!-- BuyGoods Tracking -->
+    <script>var mysrc = "https://tracking.buygoods.com/track/?a=12172&firstcookie=0" + "&tracking_redirect=&referrer=" + encodeURIComponent(document.referrer) + "&sessid2=" + ReadCookie('sessid2') + "&product=syn1u,syn1us&vid1=&vid2=&vid3=&caller_url=" + encodeURIComponent(window.location.href); if (typeof add_to_cart !== 'undefined') { mysrc = mysrc + '&add_to_cart=' + add_to_cart; } var newScript = document.createElement('script'); newScript.type = 'text/javascript'; newScript.defer = true; newScript.src = mysrc; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(newScript, s); function ReadCookie(name) { name += '='; var parts = document.cookie.split(/;\s*/); for (var i = 0; i < parts.length; i++) { var part = parts[i]; if (part.indexOf(name) == 0) return part.substring(name.length) } return ''; }</script>
+    <script
+        type="text/javascript">var i = document.createElement("iframe"), oid = new URLSearchParams(window.location.search); i.async = true; i.style = "display:none"; i.setAttribute("src", "https://buygoods.com/affiliates/go/conversion/iframe/bg?a=12172&t=be4964308821518c976a495854c7b441&conversion=1&s=" + ReadCookie('sessid2') + "&o=" + oid.get('order_id_global') + "&ut=" + oid.get('token')); document.body.appendChild(i);</script>
 </head>
 
 <body>
@@ -1245,7 +1359,7 @@
     <div class="success-header">
         <span class="checkmark">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
         </span>
         <p>Your Order Is Complete!</p>
@@ -1303,26 +1417,42 @@
                             </div>
                             <div class="mt-product-price">
                                 <h4 class="mt-display-price">$0</h4>
-                                <div class="mt-price-info"><p>/Bottle</p></div>
+                                <div class="mt-price-info">
+                                    <p>/Bottle</p>
+                                </div>
                             </div>
                             <!-- Subscription Info -->
                             <div class="mt-subscription-info" id="sub-info-trial">
                                 <div class="congrats">Congrats!</div>
-                                <p>After <span class="highlight">30 Days</span>, 1 Bottle for <span class="highlight">$69+Shipping</span> will start delivering <span class="highlight">every Month</span>.</p>
+                                <p>After <span class="highlight">30 Days</span>, 1 Bottle for <span
+                                        class="highlight">$69+Shipping</span> will start delivering <span
+                                        class="highlight">every Month</span>.</p>
                                 <span class="mt-cancel-badge">Cancel Subscription Anytime!</span>
                             </div>
                             <div class="mt-savings-badge">YOU SAVE $159!</div>
 
-                            <a href="https://buygoods.com/secure/upsell/?account_id=12172&product_codename=syn1u&redirect=aHR0cHM6Ly9xdWlja2J1cm4udHJ1c3RlZG51dHJhcHJvZHVjdC5jb20vdjIvVGhhbmt5b3UuaHRtbA==" class="mt-buy-now-btn" id="buy-btn-trial">
+                            <a href="https://buygoods.com/secure/upsell/?account_id=12172&product_codename=syn1u&redirect=aHR0cHM6Ly9xdWlja2J1cm4udHJ1c3RlZG51dHJhcHJvZHVjdC5jb20vdjIvVGhhbmt5b3UuaHRtbA=="
+                                class="mt-buy-now-btn" id="buy-btn-trial">
                                 <img src="lib/img/buy-now2.webp" alt="Buy Now" id="buy-img-trial">
                             </a>
                             <p class="mt-shipping-text">+ $19.99 Shipping</p>
-                            <p class="mt-total-line">TOTAL: <span class="mt-strikethrough">$179</span> <span class="mt-final-price">$19.99</span></p>
+                            <p class="mt-total-line">TOTAL: <span class="mt-strikethrough">$179</span> <span
+                                    class="mt-final-price">$19.99</span></p>
                             <div class="mt-payment-icons"><img src="lib/img/cards.webp" alt="Payment Methods"></div>
-                            <a href="https://buygoods.com/thankyou?account_id=12172" class="no-thanks-link">No thanks, continue</a>
+                            <a href="https://buygoods.com/thankyou?account_id=12172" class="no-thanks-link">No thanks,
+                                continue</a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Product Label -->
+            <div class="product-label-section">
+                <h3>What's Inside the Bottle</h3>
+                <div class="product-label-wrapper">
+                    <img src="label.jpg" alt="VigorX Pro Supplement Facts Label - Ingredients & Dosage Information">
+                </div>
+                <p class="product-label-caption">Full supplement facts & ingredient transparency</p>
             </div>
 
         </div>
@@ -1333,28 +1463,40 @@
         <div class="benefits-grid">
             <div class="benefit-item">
                 <div class="benefit-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
                 </div>
                 <h4>Sharp Memory</h4>
                 <p>Enhanced recall</p>
             </div>
             <div class="benefit-item">
                 <div class="benefit-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
                 </div>
                 <h4>Laser Focus</h4>
                 <p>Better concentration</p>
             </div>
             <div class="benefit-item">
                 <div class="benefit-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z" />
+                    </svg>
                 </div>
                 <h4>Mental Clarity</h4>
                 <p>Clear thinking</p>
             </div>
             <div class="benefit-item">
                 <div class="benefit-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                    </svg>
                 </div>
                 <h4>Brain Energy</h4>
                 <p>Mental vitality</p>
@@ -1373,21 +1515,24 @@
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"My memory has improved so much! After just a month on VigorX Pro, I can recall names and details effortlessly. My focus at work is razor-sharp too!"</p>
+                    <p class="review-text">"My memory has improved so much! After just a month on VigorX Pro, I can
+                        recall names and details effortlessly. My focus at work is razor-sharp too!"</p>
                     <span class="review-author">- Jennifer W.</span>
                     <span class="verified-badge">&#10003; Verified Buyer</span>
                 </div>
 
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"I've struggled with brain fog for years. VigorX Pro has been a game-changer for my mental clarity. Plus my energy levels are up - win win!"</p>
+                    <p class="review-text">"I've struggled with brain fog for years. VigorX Pro has been a game-changer
+                        for my mental clarity. Plus my energy levels are up - win win!"</p>
                     <span class="review-author">- Marcus T.</span>
                     <span class="verified-badge">&#10003; Verified Buyer</span>
                 </div>
 
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"The trial offer made it easy to try. Now I'm a subscriber! My focus is better, my thinking is clearer, and I feel mentally sharper overall. Highly recommend!"</p>
+                    <p class="review-text">"The trial offer made it easy to try. Now I'm a subscriber! My focus is
+                        better, my thinking is clearer, and I feel mentally sharper overall. Highly recommend!"</p>
                     <span class="review-author">- Lisa M.</span>
                     <span class="verified-badge">&#10003; Verified Buyer</span>
                 </div>
@@ -1397,8 +1542,10 @@
 
     <!-- Bottom CTA Banner -->
     <div class="bottom-cta">
-        <p>Don't miss this <span class="highlight">exclusive trial offer</span>! Try VigorX Pro for just <span class="highlight">$19.99 shipping</span>!</p>
-        <a href="https://buygoods.com/thankyou?account_id=12172" class="no-thanks-link">No thanks, I'll pass on this exclusive offer</a>
+        <p>Don't miss this <span class="highlight">exclusive trial offer</span>! Try VigorX Pro for just <span
+                class="highlight">$19.99 shipping</span>!</p>
+        <a href="https://buygoods.com/thankyou?account_id=12172" class="no-thanks-link">No thanks, I'll pass on this
+            exclusive offer</a>
     </div>
 
     <!-- Footer -->
@@ -1410,13 +1557,19 @@
             <a href="contact.html" target="_blank">Contact Us</a>
         </div>
         <p class="footer-disclaimer">
-            BuyGoods is the retailer of products on this site. BuyGoods is a registered trademark of BuyGoods Inc. BuyGoods' role as retailer does not constitute an endorsement, approval or review of these products or any claim, statement or opinion used in promotion of these products.
+            BuyGoods is the retailer of products on this site. BuyGoods is a registered trademark of BuyGoods Inc.
+            BuyGoods' role as retailer does not constitute an endorsement, approval or review of these products or any
+            claim, statement or opinion used in promotion of these products.
         </p>
         <p class="footer-disclaimer">
-            Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure or prevent any disease. If you are pregnant, nursing, taking medication, or have a medical condition, consult your physician before using our products.
+            Statements on this website have not been evaluated by the Food and Drug Administration. Products are not
+            intended to diagnose, treat, cure or prevent any disease. If you are pregnant, nursing, taking medication,
+            or have a medical condition, consult your physician before using our products.
         </p>
         <p class="footer-disclaimer">
-            Testimonials, case studies, and examples found on this page are results that have been forwarded to us by users of VigorX Pro products and related products are not intended to represent or guarantee that anyone will achieve the same or similar results.
+            Testimonials, case studies, and examples found on this page are results that have been forwarded to us by
+            users of VigorX Pro products and related products are not intended to represent or guarantee that anyone
+            will achieve the same or similar results.
         </p>
     </footer>
 
@@ -1425,7 +1578,7 @@
 
     <!-- Timer Script -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             let t = 300; // 5 minutes in seconds
             const countdownEl = document.getElementById('countdown');
 
@@ -1433,7 +1586,7 @@
                 let minutes = String(Math.floor(t / 60)).padStart(2, '0');
                 let seconds = String(t % 60).padStart(2, '0');
                 countdownEl.textContent = `${minutes}:${seconds}`;
-                if(t > 0) t--;
+                if (t > 0) t--;
                 else clearInterval(timerInterval);
             }, 1000);
         });
@@ -1441,7 +1594,7 @@
 
     <!-- Subscribe Toggle Script -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const checkbox = document.getElementById('subscribe-checkbox');
             const buyBtn = document.getElementById('buy-btn-trial');
             const subscriptionInfo = document.getElementById('sub-info-trial');
@@ -1450,7 +1603,7 @@
             const subscribeUrl = "https://buygoods.com/secure/upsell/?account_id=12172&product_codename=syn1us&redirect=aHR0cHM6Ly9xdWlja2J1cm4udHJ1c3RlZG51dHJhcHJvZHVjdC5jb20vdjIvVGhhbmt5b3UuaHRtbA==";
             const oneTimeUrl = "https://buygoods.com/secure/upsell/?account_id=12172&product_codename=syn1u&redirect=aHR0cHM6Ly9xdWlja2J1cm4udHJ1c3RlZG51dHJhcHJvZHVjdC5jb20vdjIvVGhhbmt5b3UuaHRtbA==";
 
-            checkbox.addEventListener('change', function() {
+            checkbox.addEventListener('change', function () {
                 if (this.checked) {
                     buyBtn.href = subscribeUrl;
                     subscriptionInfo.classList.add('show');
@@ -1461,7 +1614,7 @@
             });
 
             // Make entire checkbox wrapper clickable
-            document.querySelector('.mt-subscribe-checkbox').addEventListener('click', function(e) {
+            document.querySelector('.mt-subscribe-checkbox').addEventListener('click', function (e) {
                 if (e.target.tagName !== 'INPUT') {
                     checkbox.checked = !checkbox.checked;
                     checkbox.dispatchEvent(new Event('change'));
@@ -1480,7 +1633,9 @@
                 </div>
                 <div class="custom-notification-content-wrapper">
                     <p class="custom-notification-content">
-                        <span id="notify-customer">Jennifer W</span> - <span id="notify-state">CA</span><br> Purchased <strong>Trial</strong> of <b>VigorX Pro</b> <small><span id="notify-ago">3 minutes ago</span></small>
+                        <span id="notify-customer">Jennifer W</span> - <span id="notify-state">CA</span><br> Purchased
+                        <strong>Trial</strong> of <b>VigorX Pro</b> <small><span id="notify-ago">3 minutes
+                                ago</span></small>
                     </p>
                 </div>
             </div>
@@ -1490,51 +1645,51 @@
 
     <!-- Custom Social Proof Script -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const notifications = [
-            { name: 'Jennifer W', state: 'CA', ago: '2 minutes ago' },
-            { name: 'Marcus T', state: 'TX', ago: '4 minutes ago' },
-            { name: 'Lisa M', state: 'FL', ago: '7 minutes ago' },
-            { name: 'David R', state: 'NY', ago: '11 minutes ago' },
-            { name: 'Sarah P', state: 'OH', ago: '14 minutes ago' },
-            { name: 'Kevin B', state: 'WA', ago: '17 minutes ago' },
-            { name: 'Nicole H', state: 'AZ', ago: '21 minutes ago' },
-            { name: 'Chris C', state: 'IL', ago: '24 minutes ago' },
-            { name: 'Rachel S', state: 'GA', ago: '27 minutes ago' },
-            { name: 'Mike J', state: 'NC', ago: '31 minutes ago' }
-        ];
+        document.addEventListener('DOMContentLoaded', function () {
+            const notifications = [
+                { name: 'Jennifer W', state: 'CA', ago: '2 minutes ago' },
+                { name: 'Marcus T', state: 'TX', ago: '4 minutes ago' },
+                { name: 'Lisa M', state: 'FL', ago: '7 minutes ago' },
+                { name: 'David R', state: 'NY', ago: '11 minutes ago' },
+                { name: 'Sarah P', state: 'OH', ago: '14 minutes ago' },
+                { name: 'Kevin B', state: 'WA', ago: '17 minutes ago' },
+                { name: 'Nicole H', state: 'AZ', ago: '21 minutes ago' },
+                { name: 'Chris C', state: 'IL', ago: '24 minutes ago' },
+                { name: 'Rachel S', state: 'GA', ago: '27 minutes ago' },
+                { name: 'Mike J', state: 'NC', ago: '31 minutes ago' }
+            ];
 
-        let currentIndex = 0;
-        const popup = document.querySelector('.custom-social-proof');
-        const notification = document.querySelector('.custom-notification');
+            let currentIndex = 0;
+            const popup = document.querySelector('.custom-social-proof');
+            const notification = document.querySelector('.custom-notification');
 
-        function showNotification() {
-            const data = notifications[currentIndex];
+            function showNotification() {
+                const data = notifications[currentIndex];
 
-            document.getElementById('notify-customer').textContent = data.name;
-            document.getElementById('notify-state').textContent = data.state;
-            document.getElementById('notify-ago').textContent = data.ago;
+                document.getElementById('notify-customer').textContent = data.name;
+                document.getElementById('notify-state').textContent = data.state;
+                document.getElementById('notify-ago').textContent = data.ago;
 
-            notification.classList.add('show');
+                notification.classList.add('show');
 
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    currentIndex = (currentIndex + 1) % notifications.length;
+                }, 5000);
+            }
+
+            // Initial delay then show first notification
             setTimeout(() => {
+                showNotification();
+                // Then show every 12 seconds
+                setInterval(showNotification, 12000);
+            }, 3000);
+
+            // Close button
+            document.querySelector('.custom-close').addEventListener('click', function () {
                 notification.classList.remove('show');
-                currentIndex = (currentIndex + 1) % notifications.length;
-            }, 5000);
-        }
-
-        // Initial delay then show first notification
-        setTimeout(() => {
-            showNotification();
-            // Then show every 12 seconds
-            setInterval(showNotification, 12000);
-        }, 3000);
-
-        // Close button
-        document.querySelector('.custom-close').addEventListener('click', function() {
-            notification.classList.remove('show');
+            });
         });
-    });
     </script>
 
     <div class="popup-loading-wrapper" style="display:none;">
@@ -1556,96 +1711,96 @@
 
     <!-- URL Parameter Preservation Scripts -->
     <script>
-    // Preserve URL parameters across page navigation
-    (function() {
-      var urlParams = new URLSearchParams(window.location.search);
-      var paramString = urlParams.toString();
+        // Preserve URL parameters across page navigation
+        (function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var paramString = urlParams.toString();
 
-      if (paramString) {
-        var links = document.querySelectorAll('a[href]');
+            if (paramString) {
+                var links = document.querySelectorAll('a[href]');
 
-        links.forEach(function(link) {
-          var href = link.getAttribute('href');
+                links.forEach(function (link) {
+                    var href = link.getAttribute('href');
 
-          if (!href ||
-              href.startsWith('http://') ||
-              href.startsWith('https://') ||
-              href.startsWith('mailto:') ||
-              href.startsWith('tel:') ||
-              href.startsWith('javascript:') ||
-              href.startsWith('#')) {
-            return;
-          }
+                    if (!href ||
+                        href.startsWith('http://') ||
+                        href.startsWith('https://') ||
+                        href.startsWith('mailto:') ||
+                        href.startsWith('tel:') ||
+                        href.startsWith('javascript:') ||
+                        href.startsWith('#')) {
+                        return;
+                    }
 
-          var separator = href.includes('?') ? '&' : '?';
-          link.setAttribute('href', href + separator + paramString);
-        });
-      }
-    })();
+                    var separator = href.includes('?') ? '&' : '?';
+                    link.setAttribute('href', href + separator + paramString);
+                });
+            }
+        })();
     </script>
     <script>
-    // Preserve ALL URL parameters on checkout/buy buttons (with redirect parameter support)
-    (function() {
-      var urlParams = new URLSearchParams(window.location.search);
-      var paramString = urlParams.toString();
+        // Preserve ALL URL parameters on checkout/buy buttons (with redirect parameter support)
+        (function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var paramString = urlParams.toString();
 
-      if (!paramString) return;
+            if (!paramString) return;
 
-      function appendParams(url) {
-        if (!url) return url;
+            function appendParams(url) {
+                if (!url) return url;
 
-        try {
-          var urlObj = new URL(url);
-          var redirectParam = urlObj.searchParams.get('redirect');
+                try {
+                    var urlObj = new URL(url);
+                    var redirectParam = urlObj.searchParams.get('redirect');
 
-          if (redirectParam) {
-            try {
-              var decodedRedirect = atob(redirectParam);
-              var separator = decodedRedirect.includes('?') ? '&' : '?';
-              var updatedRedirect = decodedRedirect + separator + paramString;
-              urlObj.searchParams.set('redirect', btoa(updatedRedirect));
-            } catch (e) {
-              var separator = redirectParam.includes('?') ? '&' : '?';
-              urlObj.searchParams.set('redirect', redirectParam + separator + paramString);
+                    if (redirectParam) {
+                        try {
+                            var decodedRedirect = atob(redirectParam);
+                            var separator = decodedRedirect.includes('?') ? '&' : '?';
+                            var updatedRedirect = decodedRedirect + separator + paramString;
+                            urlObj.searchParams.set('redirect', btoa(updatedRedirect));
+                        } catch (e) {
+                            var separator = redirectParam.includes('?') ? '&' : '?';
+                            urlObj.searchParams.set('redirect', redirectParam + separator + paramString);
+                        }
+                    }
+
+                    paramString.split('&').forEach(function (param) {
+                        var parts = param.split('=');
+                        if (parts[0] && parts[1]) {
+                            urlObj.searchParams.set(parts[0], parts[1]);
+                        }
+                    });
+
+                    return urlObj.toString();
+                } catch (e) {
+                    var separator = url.includes('?') ? '&' : '?';
+                    return url + separator + paramString;
+                }
             }
-          }
 
-          paramString.split('&').forEach(function(param) {
-            var parts = param.split('=');
-            if (parts[0] && parts[1]) {
-              urlObj.searchParams.set(parts[0], parts[1]);
+            function updateAllLinks() {
+                var externalLinks = document.querySelectorAll('a[href^="http"], a[href^="https"]');
+                externalLinks.forEach(function (link) {
+                    var href = link.getAttribute('href');
+                    link.setAttribute('href', appendParams(href));
+                });
+
+                var dataUrlElements = document.querySelectorAll('[data-url^="http"], [data-url^="https"]');
+                dataUrlElements.forEach(function (element) {
+                    var dataUrl = element.getAttribute('data-url');
+                    element.setAttribute('data-url', appendParams(dataUrl));
+                });
             }
-          });
 
-          return urlObj.toString();
-        } catch (e) {
-          var separator = url.includes('?') ? '&' : '?';
-          return url + separator + paramString;
-        }
-      }
-
-      function updateAllLinks() {
-        var externalLinks = document.querySelectorAll('a[href^="http"], a[href^="https"]');
-        externalLinks.forEach(function(link) {
-          var href = link.getAttribute('href');
-          link.setAttribute('href', appendParams(href));
-        });
-
-        var dataUrlElements = document.querySelectorAll('[data-url^="http"], [data-url^="https"]');
-        dataUrlElements.forEach(function(element) {
-          var dataUrl = element.getAttribute('data-url');
-          element.setAttribute('data-url', appendParams(dataUrl));
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updateAllLinks);
-      } else {
-        updateAllLinks();
-      }
-    })();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', updateAllLinks);
+            } else {
+                updateAllLinks();
+            }
+        })();
     </script>
 
 </body>
-</html>
 
+</html>
