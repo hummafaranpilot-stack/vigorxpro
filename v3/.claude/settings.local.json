@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File cleanup.ps1)",
+      "Bash(del \"d:\\\\TrustedNutraProducts\\\\prostaprime.trustednutraproduct.com\\\\prostaprime.trustednutraproduct.com\\\\public_html\\\\v1 revamped\\\\long9\\\\cleanup.ps1\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File find-section.ps1:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File move-section.ps1:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File update-cards.ps1:*)",
+      "Bash(for file in 1bottle.png logo.png 6-bottles.png prostatelabel.jpg prod1.png 2-bottle.png buy-now.webp cards.webp 3-bottle-buy-btn.png prostate-bottle.png ebook1.png powerplan.png)",
+      "Bash(do ls \"d:\\\\TrustedNutraProducts\\\\prostaprime.trustednutraproduct.com\\\\prostaprime.trustednutraproduct.com\\\\public_html\\\\v1 revamped\\\\lib\\\\img/$file\")",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(start \"\" \"D:\\\\TrustedNutraProducts\\\\prostaprime.trustednutraproduct.com\\\\prostaprime.trustednutraproduct.com\\\\public_html\\\\v1 revamped\\\\aff\\\\aff_details\\\\aff\\\\afftools.html\")",
+      "Bash(xxd:*)",
+      "Bash(start \"\" \"d:\\\\TrustedNutraProducts\\\\prostaprime.trustednutraproduct.com\\\\prostaprime.trustednutraproduct.com\\\\public_html\\\\v1 revamped\\\\v2\\\\long9\\\\index.html\")",
+      "Bash(findstr:*)",
+      "Bash(python:*)",
+      "Bash(where:*)",
+      "Bash(for word in \"pain\" \"painful\" \"treatment\" \"prevent\" \"instant\" \"instantly\" \"reverse\" \"restore\" \"study\" \"studies\")",
+      "Bash(do echo -n \"$word: \")",
+      "Bash(for word in cure disease cancer alzheimer \"heart attack\" stroke AIDS herpes diabetes amputation kill death coronavirus covid)",
+      "Bash(do echo -n \" $word: \")",
+      "Bash(for word in pain solution treatment permanent prevent instant reverse restore)",
+      "Bash(for word in dick cock pussy fuck bang bitch porn throbbing boner soak)"
+    ]
+  }
+}
