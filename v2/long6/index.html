@@ -817,7 +817,6 @@
               </div>
               -->
               <div class="second-row" style="font-size:27px; font-weight: bold;padding-left: 20px;">
-                "Yes... yes... don't stop..." she called out breathlessly...
               </div>
             </div>
           </div>
@@ -1757,7 +1756,10 @@
                     <div class="col section-13-content" style="padding:30px;text-align:left;padding-top:40px;">
                       <p>Because as more water rushes in... it keeps coming in faster and faster...</p>
                       <p>Pretty soon, nothing you do can keep your boat from sinking!</p>
+                      <!-- ORIGINAL - Pending BuyGoods Approval to restore
                       <p>Unless you deal with the true root cause... the Masculine Scourge attacking your testicles...</p>
+                      -->
+                      <p>Unless you deal with the true underlying factor... the Masculine Scourge attacking your testicles...</p>
                       <p>Everything you do from exercise, to getting better sleep, and even eating more healthy fats is doomed to fail.</p>
                     </div>
                   </div>
@@ -2741,9 +2743,14 @@
                   style="font-weight: 500;">
                   <img src="./images/main/Quote_Pic.png" class="quote-image" style="margin-top: 10px;"
                     alt="Responsive image" width="50" height="50"> <br />
+                  <!-- ORIGINAL - Pending BuyGoods Approval to restore
                   The fact is... Trusted Nutra Product spends <span style="color: #c31b35;">$16,438,356 <strong><u>EVERY
                         DAY</u></i></strong></span>
                   advertising their artificial chemical solutions! <br />
+                  -->
+                  The fact is... Big Pharma spends <span style="color: #c31b35;">$16,438,356 <strong><u>EVERY
+                        DAY</u></i></strong></span>
+                  advertising their artificial chemical alternatives! <br />
                   That breaks down to over <span style="color: #c31b35;">$4071</span> dollars every minute!
             </div>
             <p style="margin-top:50px;">There's just no way a "little guy" like me can compete with that.</p>
@@ -3776,19 +3783,31 @@
       'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
     ];
 
-    var customerQuantities = ['2', '4', '7'];
+    var customerProducts = [
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+      { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+      { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+      { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+      { quantity: '4', image: '../Images/4-bottles-vigor.webp', label: '4' },
+      { quantity: '6', image: '../Images/6-bottles-vigor.webp', label: '6' },
+      { quantity: '7', image: '../Images/7-bottles-vigor.webp', label: '7' }
+    ];
 
     function updateSocial() {
       var rCustomerFirst = customerFirst[Math.floor(Math.random() * customerFirst.length)];
       var rCustomerLast = customerLast[Math.floor(Math.random() * customerLast.length)];
       var rStates = customerStates[Math.floor(Math.random() * customerStates.length)];
-      var rQuantities = customerQuantities[Math.floor(Math.random() * customerQuantities.length)];
+      var rProduct = customerProducts[Math.floor(Math.random() * customerProducts.length)];
       var rAgo = Math.floor(Math.random() * 21) + 1;
 
       $('#notify-customer').html(rCustomerFirst + ' ' + rCustomerLast);
       $('#notify-state').html(rStates);
-      $('#notify-quantity').html(rQuantities);
+      $('#notify-quantity').html(rProduct.label);
       $('#notify-ago').html(rAgo + ' minutes ago');
+      $('.custom-notification-image-wrapper img').attr('src', rProduct.image);
     }
 
     setInterval(function() {

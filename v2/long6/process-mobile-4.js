@@ -57,7 +57,7 @@ const newSecondBookTitle = `<p class="text-danger fw-bold fs-1"> $67 VALUE </p>
 
                 <p class="fs-4 text-dark">This is your comprehensive A-Z guide to understanding and improving your prostate health...</p>
 
-                <p class="fs-4 text-dark">Backed by the latest scientific research, this guide reveals the root causes of prostate problems and exactly how to address them naturally.</p>
+                <p class="fs-4 text-dark">Backed by the latest scientific research, this guide reveals the key determinants of prostate problems and exactly how to address them naturally.</p>
 
                 <p class="fs-4 text-dark">You'll discover which foods heal your prostate, which supplements actually work, and the warning signs you should never ignore...
                 </p>

@@ -38,6 +38,7 @@ var customerProducts = [
   { quantity: '2', image: spBase + 'Images/2-bottles-vigor.webp', label: '2' },
   { quantity: '3', image: spBase + 'Images/3-bottles-vigor.webp', label: '3' },
   { quantity: '3', image: spBase + 'Images/3-bottles-vigor.webp', label: '3' },
+  { quantity: '4', image: spBase + 'Images/4-bottles-vigor.webp', label: '4' },
   { quantity: '6', image: spBase + 'Images/6-bottles-vigor.webp', label: '6' },
   { quantity: '7', image: spBase + 'Images/7-bottles-vigor.webp', label: '7' }
 ];

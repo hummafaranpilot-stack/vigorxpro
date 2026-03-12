@@ -1943,19 +1943,31 @@ color:#ff0000;
       'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
       'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
     ];
-    var customerQuantities = ['2', '4', '7'];
+    var customerProducts = [
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+      { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+      { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+      { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+      { quantity: '4', image: '../Images/4-bottles-vigor.webp', label: '4' },
+      { quantity: '6', image: '../Images/6-bottles-vigor.webp', label: '6' },
+      { quantity: '7', image: '../Images/7-bottles-vigor.webp', label: '7' }
+    ];
 
     function updateSocial() {
       var rCustomerFirst = customerFirst[Math.floor(Math.random() * customerFirst.length)];
       var rCustomerLast = customerLast[Math.floor(Math.random() * customerLast.length)];
       var rStates = customerStates[Math.floor(Math.random() * customerStates.length)];
-      var rQuantities = customerQuantities[Math.floor(Math.random() * customerQuantities.length)];
+      var rProduct = customerProducts[Math.floor(Math.random() * customerProducts.length)];
       var rAgo = Math.floor(Math.random() * 21) + 1;
 
       $('#notify-customer').html(rCustomerFirst + ' ' + rCustomerLast);
       $('#notify-state').html(rStates);
-      $('#notify-quantity').html(rQuantities);
+      $('#notify-quantity').html(rProduct.label);
       $('#notify-ago').html(rAgo + ' minutes ago');
+      $('.custom-notification-image-wrapper img').attr('src', rProduct.image);
     }
 
     setInterval(function() {

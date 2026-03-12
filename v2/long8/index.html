@@ -1561,12 +1561,14 @@
                 <p>And consciously choosing to let your woman down, and refusing her the sexual pleasure she desperately craves.</p>
                 <p><strong>Do you really want to go through life without the raging erections and stamina</strong> that you deserve as a man?</p>
                 
+                <!-- ORIGINAL - Pending BuyGoods Approval to restore
                 <div class="card card-left">
                     <img class="card-img-top" src="images/MDSM2022Image%20(15).jpg">
                     <div class="card-body">
                         <p class="card-text">Rock Her World in the Bedroom</p>
                     </div>
                 </div>
+                -->
                 
                 
                 <p>Can you bare to watch your woman hold back her disappointment, and pretend not to notice if she looks at another man?</p>
@@ -1671,15 +1673,14 @@
                     <p>Though once you start using VigorX Pro, you'll find that your systems get optimized, and your sex drive, stamina and sensitivity all become high.</p>
                     <p>That will happen no matter what age you are.</p>    
                 </div>
+                <!-- ORIGINAL - Pending BuyGoods Approval to restore
                 <h3>5. Will this work if I've got a small penis?</h3>
                 <div class="faq-text">
                     <p>Yes. 100% yes.</p>
                     <p>With VigorX Pro boosting your stamina and performance, you'll be able to make your penis feel bigger inside her by using angles, and positioning her legs and hips.</p>
-                    <!-- ORIGINAL - Pending BuyGoods Approval to restore
                     <p>Plus, with the enhanced energy from VigorX Pro, you'll have the drive to get her orgasming before you even start penetrating. When you make her squirt before you penetrate her, she won't mind if you're not the biggest guy in the world.</p>
-                    -->
-                    <p>Plus, with the enhanced energy from VigorX Pro, you'll have the drive to fully satisfy her. When you give her intense pleasure, she'll be completely fulfilled.</p>
                 </div>
+                -->
 
                 <h1>Choose Your Package</h1>
 
@@ -1993,19 +1994,31 @@
       'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
     ];
 
-    var customerQuantities = ['2', '4', '7'];
+    var customerProducts = [
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+      { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+      { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+      { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+      { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+      { quantity: '4', image: '../Images/4-bottles-vigor.webp', label: '4' },
+      { quantity: '6', image: '../Images/6-bottles-vigor.webp', label: '6' },
+      { quantity: '7', image: '../Images/7-bottles-vigor.webp', label: '7' }
+    ];
 
     function updateSocial() {
       var rCustomerFirst = customerFirst[Math.floor(Math.random() * customerFirst.length)];
       var rCustomerLast = customerLast[Math.floor(Math.random() * customerLast.length)];
       var rStates = customerStates[Math.floor(Math.random() * customerStates.length)];
-      var rQuantities = customerQuantities[Math.floor(Math.random() * customerQuantities.length)];
+      var rProduct = customerProducts[Math.floor(Math.random() * customerProducts.length)];
       var rAgo = Math.floor(Math.random() * 21) + 1;
 
       $('#notify-customer').html(rCustomerFirst + ' ' + rCustomerLast);
       $('#notify-state').html(rStates);
-      $('#notify-quantity').html(rQuantities);
+      $('#notify-quantity').html(rProduct.label);
       $('#notify-ago').html(rAgo + ' minutes ago');
+      $('.custom-notification-image-wrapper img').attr('src', rProduct.image);
     }
 
     setInterval(function() {

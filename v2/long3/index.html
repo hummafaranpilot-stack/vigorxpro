@@ -1083,10 +1083,11 @@ function showPopup() {
 </div>
 </section>
 
-<!-- Hook Image after Hero -->
+<!-- ORIGINAL - Pending BuyGoods Approval to restore
 <div class="text-center my-3">
   <img class="img-fluid" src="img/Webimage_7.png" alt="VigorX Pro Results" style="max-width:100%;border-radius:8px;">
 </div>
+-->
 
 <section>
 
@@ -1413,7 +1414,9 @@ function showPopup() {
 	<p class="text-left dft-font">The General was also celebrated for his penetrating power and all-night romps with dozens of the land’s most beautiful women…</p>
 	-->
 	<p class="text-left dft-font">The General was also celebrated for his lasting stamina and all-night romps with dozens of the land’s most beautiful women…</p>
+	<!-- ORIGINAL - Pending BuyGoods Approval to restore
 	<img class="img-fluid" src="img/Webimage_7.png" />
+	-->
 	<p></p>
 	<!-- ORIGINAL - Pending BuyGoods Approval to restore
 	<p class="text-left dft-font">He was able to overwhelm his lovers with such intense, body-quivering climaxes with his thick, rock-hard member…</p>
@@ -2797,10 +2800,11 @@ And with <span class="highlight-red">no side effects&hellip;</span></p>
 </div>
 
 
-<!-- Hook Image after Pricing Cards -->
+<!-- ORIGINAL - Pending BuyGoods Approval to restore
 <div class="text-center my-3">
   <img class="img-fluid" src="img/Webimage_7.png" alt="VigorX Pro Results" style="max-width:100%;border-radius:8px;">
 </div>
+-->
 
 <div class="container shadow dirty-white">
 <div class="row">
@@ -3046,20 +3050,32 @@ var customerStates = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA'
   'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
 ];
 
-var customerQuantities = ['2', '4', '7'];
+var customerProducts = [
+  { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+  { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+  { quantity: '1', image: '../Images/1-bottles-vigor.webp', label: '1' },
+  { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+  { quantity: '2', image: '../Images/2-bottles-vigor.webp', label: '2' },
+  { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+  { quantity: '3', image: '../Images/3-bottles-vigor.webp', label: '3' },
+  { quantity: '4', image: '../Images/4-bottles-vigor.webp', label: '4' },
+  { quantity: '6', image: '../Images/6-bottles-vigor.webp', label: '6' },
+  { quantity: '7', image: '../Images/7-bottles-vigor.webp', label: '7' }
+];
 
 function updateSocial() {
   var rCustomerFirst = customerFirst[Math.floor(Math.random() * customerFirst.length)];
   var rCustomerLast = customerLast[Math.floor(Math.random() * customerLast.length)];
   var rStates = customerStates[Math.floor(Math.random() * customerStates.length)];
-  var rQuantities = customerQuantities[Math.floor(Math.random() * customerQuantities.length)];
+  var rProduct = customerProducts[Math.floor(Math.random() * customerProducts.length)];
   var rAgo = Math.floor(Math.random() * 21) + 1;
 
   $('#notify-customer').html(rCustomerFirst + ' ' + rCustomerLast);
   $('#notify-state').html(rStates);
-  $('#notify-quantity').html(rQuantities);
+  $('#notify-quantity').html(rProduct.label);
   $('#notify-ago').html(rAgo + ' minutes ago');
-  if (rQuantities > 1) {
+  $('.custom-notification-image-wrapper img').attr('src', rProduct.image);
+  if (rProduct.quantity > 1) {
     $('#notify-multiple').html('s');
   } else {
     $('#notify-multiple').html('');
