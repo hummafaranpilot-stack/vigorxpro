@@ -216,6 +216,77 @@ requirements. Do NOT uncomment without explicit BG approval.
    Current: Replaced with "Maybe you want to improve the firm..."
    Action:  Remove new lines, uncomment originals
 
+------------------------------------------------------------
+20. short2 - "rock hard" × 2 → "fully erect"
+------------------------------------------------------------
+   Page:    short2/index.html
+   Lines:   ~339, ~441
+   Content: "rock-hard" / "rock hard"
+   Current: Replaced with "fully erect"
+   Action:  Remove new lines, uncomment originals
+
+------------------------------------------------------------
+21. short2 - "thick/thickening/thicken" × 3 → blood flow language
+------------------------------------------------------------
+   Page:    short2/index.html
+   Line:    ~369
+   Content: "thicken your penis / thickening / thick erection"
+   Current: Replaced with "strengthen your blood flow /
+            improving the circulation / strong erection"
+   Action:  Remove new lines, uncomment originals
+
+------------------------------------------------------------
+22. long3 - Webimage_7.png image removed
+------------------------------------------------------------
+   Page:    long3/index.html
+   Lines:   3 instances
+   Content: <img src="img/Webimage_7.png"> image tag
+   Current: Commented out (all 3 instances)
+   Action:  Remove comment tags to restore
+
+------------------------------------------------------------
+23. long4/go - "solutions" → "formulas"
+------------------------------------------------------------
+   Page:    long4/go/index.html
+   Content: Remaining instances of "solutions"
+   Current: Replaced with "formulas"
+   Action:  Remove new lines, uncomment originals
+
+------------------------------------------------------------
+24. long9 - "fixed" → "helped with"
+------------------------------------------------------------
+   Page:    long9/index.html
+   Content: "fixed" in context of ED/prostate claims
+   Current: Replaced with "helped with"
+   Action:  Remove new lines, uncomment originals
+
+------------------------------------------------------------
+25. long9 - a16.png image removed
+------------------------------------------------------------
+   Page:    long9/index.html
+   Content: Image: wp-content/uploads/2020/11/a16.png
+   Current: Commented out
+   Action:  Remove comment tags to restore
+
+------------------------------------------------------------
+26. best/go/go.html - Discovery of the Decade headline
+------------------------------------------------------------
+   Page:    best/go/go.html
+   Content: "Experts Are Calling This the Biggest Prostate
+            Health Discovery of the Decade"
+   Current: Replaced with "New Research Highlights Emerging
+            Approaches to Prostate Health"
+   Action:  Remove new line, uncomment original
+
+------------------------------------------------------------
+27. best/go/go.html - "literally changes the prostate cells"
+------------------------------------------------------------
+   Page:    best/go/go.html
+   Content: "VigorX Pro literally changes the prostate cells."
+   Current: Replaced with "VigorX Pro provides powerful
+            prostate support."
+   Action:  Remove new line, uncomment original
+
 ============================================================
-  Last Updated: 2026-03-12
+  Last Updated: 2026-03-19
 ============================================================
