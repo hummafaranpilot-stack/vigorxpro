@@ -326,6 +326,50 @@ window.__lo_site_id = 329229;
 		@media (max-width: 767px) { .creative-grid .creative-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); } }
 		.download-category-btn { display: inline-block; margin-top: 15px; }
 
+		/* Video Tab Prominent Styling */
+		#creativeTab .nav-link.video-tab-btn {
+			background: linear-gradient(135deg, #1a1a1a, #333) !important;
+			color: #f0c040 !important;
+			border: 2px solid #f0c040 !important;
+			font-weight: 700 !important;
+			letter-spacing: 0.5px;
+			position: relative;
+		}
+		#creativeTab .nav-link.video-tab-btn.active {
+			background: linear-gradient(135deg, #f0c040, #d4a017) !important;
+			color: #1a1a1a !important;
+			border-color: #f0c040 !important;
+		}
+		#creativeTab .nav-link.video-tab-btn:hover:not(.active) {
+			background: linear-gradient(135deg, #333, #444) !important;
+		}
+
+		/* Video Grid */
+		.video-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+		.video-grid .video-card { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); position: relative; border-radius: 10px; overflow: hidden; background: #111; cursor: pointer; }
+		@media (max-width: 991px) { .video-grid .video-card { flex: 0 0 calc(50% - 16px); max-width: calc(50% - 16px); } }
+		@media (max-width: 575px) { .video-grid .video-card { flex: 0 0 100%; max-width: 100%; } }
+
+		.video-card video { width: 100%; display: block; border-radius: 10px; }
+		.video-card .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); transition: opacity 0.3s; pointer-events: none; border-radius: 10px; }
+		.video-card:hover .video-overlay { opacity: 0; }
+		.video-card .play-icon { width: 56px; height: 56px; background: rgba(240,192,64,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+		.video-card .play-icon::after { content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #1a1a1a; margin-left: 3px; }
+		.video-card .video-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; font-size: 12px; font-weight: 600; pointer-events: none; }
+		.video-card .video-label .video-type { color: #f0c040; font-size: 13px; }
+		.video-card .video-label .video-niche { color: #aaa; font-size: 11px; }
+
+		/* Video progress bar */
+		.video-card .video-progress { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.2); z-index: 5; }
+		.video-card .video-progress-bar { height: 100%; width: 0%; background: #f0c040; transition: width 0.1s linear; }
+
+		/* Video Fullscreen Modal */
+		#videoModal .modal-content { background: #000; border: none; border-radius: 12px; overflow: hidden; }
+		#videoModal .modal-body { padding: 0; }
+		#videoModal video { width: 100%; max-height: 85vh; display: block; }
+		#videoModal .video-modal-progress { width: 100%; height: 6px; background: #333; cursor: pointer; }
+		#videoModal .video-modal-progress-bar { height: 100%; width: 0%; background: #f0c040; transition: width 0.05s linear; }
+
 		/* Header Adjustments */
 		.banner-line { display: none !important; }
 		span.banner-logo {
@@ -1516,6 +1560,9 @@ window.__lo_site_id = 329229;
 					<li class="nav-item m-1" role="presentation">
 						<button class="nav-link" id="tab-logos" data-bs-toggle="pill" data-bs-target="#pane-logos" type="button" role="tab" aria-controls="pane-logos" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Logos &amp; Branding</button>
 					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link video-tab-btn" id="tab-videos" data-bs-toggle="pill" data-bs-target="#pane-videos" type="button" role="tab" aria-controls="pane-videos" aria-selected="false" style="font-weight:700;font-size:14px;padding:8px 20px;border-radius:20px;"><i class="fas fa-video me-1"></i> Video Clips <span class="new-blink-badge">NEW</span></button>
+					</li>
 				</ul>
 
 				<!-- Tab Content -->
@@ -1810,6 +1857,100 @@ window.__lo_site_id = 329229;
 						</div>
 					</div>
 
+				<!-- Tab 15: Video Clips -->
+					<div class="tab-pane fade" id="pane-videos" role="tabpanel" aria-labelledby="tab-videos">
+						<p class="text-muted text-center mb-3">Professional AI-generated video clips — hover to preview, click to enlarge</p>
+						<div class="video-grid">
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/2_id-2-type-Capsule-Close-Up-niche-Product-Detail-im.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Capsule Close-Up</div><div class="video-niche">Product Detail</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Energy Transformation</div><div class="video-niche">Vitality / Anti-Aging</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/4_id-4-type-Nature-Ingredients-niche-Natural-Organic.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Nature Ingredients</div><div class="video-niche">Natural / Organic</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/5_id-5-type-Morning-Routine-niche-Daily-Performance-.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Morning Routine</div><div class="video-niche">Daily Performance</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/7_id-7-type-Doctor-Recommendation-niche-Trust-Author.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Doctor Recommendation</div><div class="video-niche">Trust / Authority</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/8_id-8-type-Active-Outdoor-Lifestyle-niche-Energy-Fi.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Active Outdoor Lifestyle</div><div class="video-niche">Energy / Fitness</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/9_id-9-type-Romantic-Confidence-niche-Relationship-C.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Romantic Confidence</div><div class="video-niche">Relationship / Confidence</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/10_id-10-type-Prostate-Health-Relief-niche-Health-Com.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Prostate Health Relief</div><div class="video-niche">Health / Comfort</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/11_id-11-type-Multi-Bottle-Display-niche-Offer-Produc.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Multi-Bottle Display</div><div class="video-niche">Offer / Product</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Testimonial Setup</div><div class="video-niche">Social Proof</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/13_id-13-type-Gym-Performance-niche-Strength-Fitness-.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Gym Performance</div><div class="video-niche">Strength / Fitness</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/14_id-14-type-Gratitude-Outro-niche-Emotional-Close-i.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Gratitude Outro</div><div class="video-niche">Emotional Close</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/15_id-15-type-CTA-Urgency-Display-niche-Conversion-im.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">CTA Urgency Display</div><div class="video-niche">Conversion</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+							<div class="video-card" onclick="openVideoModal(this)">
+								<video src="../../../creative-assets/videos/17_id-17-type-Container-Full-of-Product-niche-Product.mp4" muted loop preload="metadata"></video>
+								<div class="video-overlay"><div class="play-icon"></div></div>
+								<div class="video-label"><div class="video-type">Container Full of Product</div><div class="video-niche">Product Transparency</div></div>
+								<div class="video-progress"><div class="video-progress-bar"></div></div>
+							</div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/videos.zip" class="btn btn-sm btn-outline-warning" download style="border-width:2px;font-weight:700;"><i class="fas fa-download me-1"></i>Download All Video Clips (ZIP)</a>
+						</div>
+					</div>
+
 				</div><!-- end tab-content -->
 			</section>
 
@@ -1830,6 +1971,78 @@ window.__lo_site_id = 329229;
 					document.getElementById('zoomModalImage').src = src;
 					new bootstrap.Modal(document.getElementById('zoomModal')).show();
 				}
+			</script>
+
+			<!-- Video Fullscreen Modal -->
+			<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-xl">
+					<div class="modal-content" style="background:#000;border:none;border-radius:12px;overflow:hidden;">
+						<div class="modal-body" style="padding:0;">
+							<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="z-index:10;font-size:1.5rem;"></button>
+							<video id="modalVideo" controls autoplay style="width:100%;max-height:85vh;display:block;"></video>
+							<div class="video-modal-progress" id="modalProgressWrap" style="width:100%;height:6px;background:#333;cursor:pointer;">
+								<div class="video-modal-progress-bar" id="modalProgressBar" style="height:100%;width:0%;background:#f0c040;transition:width 0.05s linear;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+			// Hover-to-play for video cards
+			document.querySelectorAll('.video-card').forEach(function(card) {
+				var vid = card.querySelector('video');
+				var bar = card.querySelector('.video-progress-bar');
+				var overlay = card.querySelector('.video-overlay');
+				var raf;
+
+				function updateBar() {
+					if (vid.duration) bar.style.width = (vid.currentTime / vid.duration * 100) + '%';
+					if (!vid.paused) raf = requestAnimationFrame(updateBar);
+				}
+
+				card.addEventListener('mouseenter', function() {
+					vid.play().catch(function(){});
+					overlay.style.opacity = '0';
+					raf = requestAnimationFrame(updateBar);
+				});
+				card.addEventListener('mouseleave', function() {
+					vid.pause();
+					vid.currentTime = 0;
+					bar.style.width = '0%';
+					overlay.style.opacity = '1';
+					cancelAnimationFrame(raf);
+				});
+			});
+
+			// Open video in modal
+			function openVideoModal(card) {
+				var src = card.querySelector('video').src;
+				var modalVid = document.getElementById('modalVideo');
+				var modalBar = document.getElementById('modalProgressBar');
+				modalVid.src = src;
+				modalVid.play().catch(function(){});
+
+				modalVid.ontimeupdate = function() {
+					if (modalVid.duration) modalBar.style.width = (modalVid.currentTime / modalVid.duration * 100) + '%';
+				};
+
+				document.getElementById('modalProgressWrap').onclick = function(e) {
+					var rect = this.getBoundingClientRect();
+					var pct = (e.clientX - rect.left) / rect.width;
+					modalVid.currentTime = pct * modalVid.duration;
+				};
+
+				new bootstrap.Modal(document.getElementById('videoModal')).show();
+			}
+
+			// Stop video when modal closes
+			document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
+				var v = document.getElementById('modalVideo');
+				v.pause();
+				v.src = '';
+				document.getElementById('modalProgressBar').style.width = '0%';
+			});
 			</script>
 
 
@@ -1926,7 +2139,7 @@ window.__lo_site_id = 329229;
 		let btnText = document.querySelector(".btn-text");
 
 		// Base URL for Meta Trim landing pages
-		const baseUrl = 'https://metatrim.trustednutraproduct.com/v1';
+		const baseUrl = 'https://vigorxpro.trustednutraproduct.com/v2';
 
 		submit.addEventListener("click", function (e) {
 			e.preventDefault();
