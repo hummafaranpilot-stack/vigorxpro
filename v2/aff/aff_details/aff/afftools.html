@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+<script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2"></script>
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
@@ -94,6 +96,248 @@ window.__lo_site_id = 329229;
 			width: 23px;
 			height: 23px;
 		}
+
+		/* Blinking NEW badge */
+		.top-banner-red-links .new-blink-badge,
+		span.new-blink-badge {
+			background: #000000 !important;
+			color: #ffffff !important;
+			font-size: 11px !important;
+			font-weight: 700 !important;
+			padding: 4px 12px !important;
+			border-radius: 4px !important;
+			margin-left: 6px !important;
+			vertical-align: middle !important;
+			line-height: 1 !important;
+			display: inline-block !important;
+			letter-spacing: 0.5px !important;
+			animation: blink-green 1.5s ease-in-out infinite;
+		}
+		@keyframes blink-green {
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0.3; }
+		}
+
+		/* Updated badge blinking with rounded border */
+		.updated-badge {
+			display: inline-block;
+			background: #28a745;
+			color: white;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 13px;
+			font-weight: 600;
+			padding: 6px 18px;
+			border-radius: 8px;
+			border: 2px solid #1e8e3e;
+			animation: blink-border 1.5s ease-in-out infinite;
+		}
+		@keyframes blink-border {
+			0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(40,167,69,0.4); }
+			50% { opacity: 0.6; box-shadow: 0 0 8px 2px rgba(40,167,69,0.3); }
+		}
+
+		/* Navigation Styles */
+		.top-banner-red-links {
+			text-align: center;
+			margin: 20px auto;
+			max-width: 1000px;
+			background: #a93226 !important;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+			border-radius: 12px !important;
+			display: flex !important;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 10px 25px;
+			padding: 18px 25px !important;
+			position: relative !important;
+			top: 0 !important;
+			width: auto !important;
+			border: none !important;
+		}
+		.top-banner-red-links a, .top-banner-red-links span {
+			color: white !important;
+			font-weight: 700;
+			font-size: 15px !important;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			text-decoration: none !important;
+			display: inline-block;
+			margin: 0;
+			background: none !important;
+			border: none !important;
+		}
+		.top-banner-red-links a:hover {
+			color: rgba(255,255,255,0.8) !important;
+			text-decoration: underline !important;
+		}
+		@media (max-width: 768px) {
+			.top-banner-red-links {
+				gap: 8px 15px;
+				padding: 15px !important;
+				border-radius: 15px !important;
+				margin: 20px 10px;
+			}
+			.top-banner-red-links a, .top-banner-red-links span {
+				font-size: 13px !important;
+			}
+		}
+
+		/* Stats Styling */
+		.stat-item {
+			display: flex;
+			align-items: center;
+		}
+		.icon-box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 10px;
+			color: #184579;
+		}
+		.stat-info {
+			display: flex;
+			align-items: center;
+		}
+		.stat-label {
+			font-weight: 700;
+			margin-right: 5px;
+		}
+		.stat-value {
+			color: #dc3545;
+		}
+
+		/* Mobile Stats Styling */
+		@media (max-width: 768px) {
+			#offer-stats .bg-bright {
+				background: #FDF7F0 !important;
+				border: 1px solid #eee !important;
+				padding: 30px 20px !important;
+			}
+			#offer-stats h3 {
+				font-size: 1.6rem !important;
+				color: #184579 !important;
+				margin-bottom: 30px !important;
+			}
+			.stat-item {
+				display: flex !important;
+				align-items: flex-start !important;
+				margin-bottom: 25px !important;
+				text-align: left !important;
+			}
+			.check-icon {
+				color: #28a745 !important;
+				font-size: 18px !important;
+				margin-right: 12px !important;
+				margin-top: 4px !important;
+				font-weight: 800 !important;
+			}
+			.icon-box {
+				background: #184579 !important;
+				color: white !important;
+				padding: 4px !important;
+				border-radius: 4px !important;
+				margin-right: 12px !important;
+				width: 32px !important;
+				height: 32px !important;
+				flex-shrink: 0 !important;
+			}
+			.stat-info {
+				display: flex !important;
+				flex-direction: column !important;
+				align-items: flex-start !important;
+			}
+			.stat-label {
+				font-weight: 800 !important;
+				color: #184579 !important;
+				font-size: 15px !important;
+				line-height: 1.3 !important;
+				margin-bottom: 2px !important;
+				margin-right: 0 !important;
+			}
+			.stat-value {
+				color: #d9534f !important;
+				font-size: 14px !important;
+				font-weight: 500 !important;
+			}
+		}
+
+		/* Image Preview Cursor */
+		.proof-img, .campaign-img {
+			cursor: zoom-in;
+			transition: transform 0.2s;
+		}
+		.proof-img:hover {
+			transform: scale(1.01);
+		}
+
+		/* Zoom Modal Styling */
+		#zoomModal .modal-content {
+			background-color: rgba(0,0,0,0.9);
+			border: none;
+		}
+		#zoom-container {
+			overflow: auto;
+			max-height: 80vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#zoomed-image {
+			transition: transform 0.2s;
+			max-width: 100%;
+		}
+		.zoom-controls {
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1060;
+			background: rgba(255,255,255,0.2);
+			padding: 10px 20px;
+			border-radius: 30px;
+			backdrop-filter: blur(5px);
+		}
+		.zoom-btn {
+			background: white;
+			border: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin: 0 5px;
+			font-size: 20px;
+			font-weight: bold;
+			color: #333;
+			cursor: pointer;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+		}
+		.zoom-btn:hover {
+			background: #eee;
+		}
+
+		/* Creative Tabs */
+		#creativeTab .nav-link { background: #f0f0f0; color: #333; border: 1px solid #ddd; }
+		#creativeTab .nav-link.active { background: #a93226; color: white; border-color: #a93226; }
+		#creativeTab .nav-link:hover:not(.active) { background: #e0e0e0; }
+		.creative-img { cursor: zoom-in; width: 100%; height: auto; object-fit: contain; border-radius: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+		.creative-img:hover { transform: scale(1.02); }
+		.creative-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+		.creative-grid .creative-item { flex: 0 0 calc(25% - 12px); max-width: calc(25% - 12px); }
+		@media (max-width: 991px) { .creative-grid .creative-item { flex: 0 0 calc(33.333% - 12px); max-width: calc(33.333% - 12px); } }
+		@media (max-width: 767px) { .creative-grid .creative-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); } }
+		.download-category-btn { display: inline-block; margin-top: 15px; }
+
+		/* Header Adjustments */
+		.banner-line { display: none !important; }
+		span.banner-logo {
+			background: #2a2a2a !important;
+			padding: 20px 25px !important;
+			border-radius: 16px !important;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+			top: 0 !important;
+			margin: 20px 0 !important;
+		}
+		.top-heading h1.text-blue { color: #1a1a1a !important; }
+		.top-heading h3 { color: #333 !important; }
 	</style>
 
 
@@ -117,6 +361,7 @@ window.__lo_site_id = 329229;
 			<div class="top-heading">
 				<h1 class="text-blue">MONSTER OFFER <br class="br-xr br-14pm">VigorX Pro<sup class="tm">TM</sup>!</h1>
 				<h3>is going to supercharge <br class="br-se br-14pm br-12p br-xr">your commissions!
+				<br><span style="color: #d9534f; font-size: 0.85em; font-weight: 800;">AOV: $271.83 | EPC: $3.81+ | Up to $150 CPA or 70% Revshare</span>
 				</h3>
 				<p class="text-center mt-3"><span
 						style="display: inline-block; border: 2px dashed #1a4b8c; color: #1a4b8c; font-size: 16px; font-weight: 600; padding: 10px 25px; border-radius: 8px; background: #fff;">BuyGoods
@@ -137,7 +382,7 @@ window.__lo_site_id = 329229;
 							</div>
 							<div class="col-12 col-lg-6 col-md-10 mx-auto prod-description px-1 px-md-3 my-auto">
 								<ul class="text-left my-lg-4 col-12 col-md-10 mx-auto pl-4 pl-md-0 new-list">
-									<li class="mb-2 mb-lg-4 pb-md-2">Massive payouts - <strong>$140-$170 per
+									<li class="mb-2 mb-lg-4 pb-md-2">Massive payouts - <strong>$150-$170 per
 											sale</strong> with subscription upsells</li>
 									<li class="mb-2 mb-lg-4 pb-md-2">Premium prostate health supplement - converts well
 										with men 40+ audience</li>
@@ -162,19 +407,20 @@ window.__lo_site_id = 329229;
 		<main>
 			<div class="inner-wrapper py-2">
 				<div class="top-banner-red-links">
-					<span>Offer Information <span class="slash">|</span></span>
-					<a href="#traffic-tips">Traffic Tips <span class="slash">|</span></a>
-					<a href="#landing-pages">Landing Pages <span class="slash">|</span></a>
-					<a href="#google-ads-guide">Google Ads Guide <span class="slash">|</span></a>
-					<br class="d-md-block d-none"><a href="#offer-details">Offer Details <span
-							class="slash">|</span></a>
-					<a href="#email-swipes">Email Swipes <span class="slash">|</span></a>
-					<a href="#product-images">Product Images <span class="slash">|</span></a>
-					<a href="#ad-images">Campaign Images <span class="slash">|</span></a>
+					<a href="#offer-info">Offer Information</a>
+					<a href="#traffic-tips">Traffic Tips</a>
+					<a href="#landing-pages">Landing Pages</a>
+					<a href="#google-ads-guide">Google Ads Guide</a>
+					<a href="#offer-details">Offer Details</a>
+					<a href="#email-swipes">Email Swipes</a>
+					<a href="#product-images">Product Images</a>
 					<a href="#install-pixels">Install Pixel</a>
+					<span style="flex-basis:100%;height:0;"></span>
+					<a href="#ad-copy" style="background:rgba(255,255,255,0.15) !important;border-radius:6px;padding:6px 12px !important;">Ad Copy Swipes <span class="new-blink-badge">NEW</span></a>
+					<a href="#ad-images" style="background:rgba(255,255,255,0.15) !important;border-radius:6px;padding:6px 12px !important;">Campaign Creatives <span class="new-blink-badge">NEW</span></a>
 				</div>
 
-				<section class="container-md first-section section-paragraphs">
+				<section class="container-md first-section section-paragraphs" id="offer-info">
 					<h3 class="section-header section-header-2">Offer Information<span></span></h3>
 					<div class="row">
 						<div class="col-12 col-md-10 mx-auto">
@@ -204,8 +450,82 @@ window.__lo_site_id = 329229;
 					</div>
 				</section>
 
-
-
+				<!-- Performance Stats & Why Promote Section -->
+				<section id="offer-stats" class="container-md py-4">
+					<div class="row">
+						<div class="col-12 col-lg-10 mx-auto">
+							<div class="bg-bright py-4 px-4 px-md-5 rounded shadow-sm border">
+								<h3 class="text-blue text-center mb-4" style="font-weight: 800; font-size: 1.8rem; text-transform: uppercase;">Offer Performance Statistics</h3>
+								<p class="text-center mb-4" style="font-size: 1.1rem; color: #333; font-weight: 600;">Skyrocket your earnings with these industry-leading metrics!</p>
+								<div class="row mb-4">
+									<div class="col-md-6 mb-3">
+										<ul class="list-unstyled mb-0">
+											<li class="mb-4 mb-md-3 stat-item">
+												<i class="material-icons check-icon d-md-none">check</i>
+												<div class="icon-box"><i class="material-icons" style="font-size: 20px;">analytics</i></div>
+												<div class="stat-info">
+													<strong class="stat-label">Average Order Value (AOV):</strong>
+													<span class="stat-value">$271.83</span>
+												</div>
+											</li>
+											<li class="mb-4 mb-md-3 stat-item">
+												<i class="material-icons check-icon d-md-none">check</i>
+												<div class="icon-box"><i class="material-icons" style="font-size: 20px;">trending_up</i></div>
+												<div class="stat-info">
+													<strong class="stat-label">Average Customer LTV:</strong>
+													<span class="stat-value">$398.71</span>
+												</div>
+											</li>
+											<li class="mb-4 mb-md-3 stat-item">
+												<i class="material-icons check-icon d-md-none">check</i>
+												<div class="icon-box"><i class="material-icons" style="font-size: 20px;">paid</i></div>
+												<div class="stat-info">
+													<strong class="stat-label">Commission Rate:</strong>
+													<span class="stat-value">70-90% Range</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div class="col-md-6 mb-3">
+										<ul class="list-unstyled mb-0">
+											<li class="mb-4 mb-md-3 stat-item">
+												<i class="material-icons check-icon d-md-none">check</i>
+												<div class="icon-box"><i class="material-icons" style="font-size: 20px;">shopping_cart</i></div>
+												<div class="stat-info">
+													<strong class="stat-label">Checkout Conversion Rate:</strong>
+													<span class="stat-value">53.50%</span>
+												</div>
+											</li>
+											<li class="mb-4 mb-md-3 stat-item">
+												<i class="material-icons check-icon d-md-none">check</i>
+												<div class="icon-box"><i class="material-icons" style="font-size: 20px;">group</i></div>
+												<div class="stat-info">
+													<strong class="stat-label">Monthly Visitors:</strong>
+													<span class="stat-value">76,987 (+5.46%)</span>
+												</div>
+											</li>
+											<li class="mb-4 mb-md-3 stat-item">
+												<i class="material-icons check-icon d-md-none">check</i>
+												<div class="icon-box"><i class="material-icons" style="font-size: 20px;">bolt</i></div>
+												<div class="stat-info">
+													<strong class="stat-label">Earnings Per Click (EPC):</strong>
+													<span class="stat-value">$3.81+</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<p class="text-center font-italic text-muted mb-4" style="font-size: 0.95rem;">* These stats are from BuyGoods Launched Offer!</p>
+								<hr>
+								<div class="mt-4">
+									<h4 class="text-blue mb-3" style="font-weight: 700;">WHY THIS OFFER IS WORTH PROMOTING</h4>
+									<p style="font-size: 1.1rem; line-height: 1.7;">The <strong>AOV sits at $271.83</strong> and is climbing — that directly means larger commissions in your pocket per sale. The <strong>Customer LTV of $398.71</strong> tells you buyers aren't one-and-done; there's repeat value baked in. Most importantly, the <strong>checkout conversion rate is 53.50%</strong>, which means once your traffic hits the cart, more than half of them actually buy. That's rare.</p>
+									<p style="font-size: 1.1rem; line-height: 1.7;">Prostate health is a <strong>massive, evergreen niche</strong> — men 40+ are actively searching for solutions. VigorX Pro converts because it solves a real, urgent problem. This isn't a test — it's a proven, scaled offer with active traffic and real buyers coming in every day.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
 				<section class="container-md first-section section-paragraphs">
 
@@ -494,8 +814,8 @@ window.__lo_site_id = 329229;
 							<div class="col-12 col-lg-9 col-md-10 mx-auto">
 								<div class="bg-bright py-4 px-5">
 									<h2 class="text-center text-blue" id="traffic-tips">Traffic Tips</h2>
-									<p>Affiliates promoting VigorX Pro&#8482; can earn <strong>$140-$170 per sale</strong>
-										with subscription upsells!</p>
+									<p>Affiliates promoting VigorX Pro&#8482; can earn <strong>$150-$170 per sale</strong>
+										with subscription upsells! (Average Order Value: <strong>$271.83</strong>)</p>
 									<p>We have made the best conversions among people who are: </p>
 									<ul class="new-list my-0 py-0 px-0 px-lg-4 mx-lg-4 mx-0">
 										<li class="mb-md-4">Men experiencing frequent urination or weak urine flow</li>
@@ -720,6 +1040,9 @@ window.__lo_site_id = 329229;
 				<!-- Google Ads Traffic Guide Section -->
 				<section class="container-md py-4" id="google-ads-guide">
 					<h3 class="section-header text-center mb-3">Google Ads Traffic Guide</h3>
+					<p class="text-center mb-4">
+						<a href="../../../lib/docs/VigorXPro_Google_Ads.html" class="btn btn-danger" target="_blank">View Full Google Ads Copy Swipes</a>
+					</p>
 
 					<div class="row">
 						<!-- Row 1 -->
@@ -807,9 +1130,9 @@ window.__lo_site_id = 329229;
 							<div class="card-dashed">
 								<h5>Commission Structure</h5>
 								<ul class="orange-check-list">
-									<li><strong>Frontend:</strong> 65% per initial sale</li>
+									<li><strong>Frontend:</strong> 70-90% per initial sale</li>
 									<li><strong>Backend:</strong> 40% per upsell</li>
-									<li><strong>Fixed CPA:</strong> Starting from $140/Sale</li>
+									<li><strong>Fixed CPA:</strong> Starting from $150/Sale</li>
 									<li><strong>Payout:</strong> NET 15, Monthly</li>
 								</ul>
 							</div>
@@ -840,7 +1163,7 @@ window.__lo_site_id = 329229;
 								<strong>BASE OFFER (What You Publicly List)</strong>
 							</div>
 							<div class="bg-light p-4 mb-3" style="border: 1px solid #ddd; border-top: 0;">
-								<h3 class="text-success text-center mb-1" style="font-weight: 700;">$140</h3>
+								<h3 class="text-success text-center mb-1" style="font-weight: 700;">$150</h3>
 								<p class="text-center text-muted mb-3" style="font-size: 16px;">Flat CPA</p>
 								<ul class="mb-0 text-center" style="font-size: 15px; list-style: none; padding: 0;">
 									<li>Applies to all packages</li>
@@ -854,7 +1177,7 @@ window.__lo_site_id = 329229;
 							<!-- Performance Tiers -->
 							<div class="bg-warning text-dark text-center py-2 mb-0"
 								style="border-radius: 8px 8px 0 0; font-size: 15px;">
-								<strong>PERFORMANCE TIERS (How You Reach $160-$170)</strong>
+								<strong>PERFORMANCE TIERS (How You Reach $150-$170)</strong>
 							</div>
 							<div style="border: 1px solid #ddd; border-top: 0;">
 								<!-- Tier 1 -->
@@ -863,11 +1186,11 @@ window.__lo_site_id = 329229;
 									<div>
 										<strong style="font-size: 16px;">Tier 1 - Starter</strong>
 										<p class="mb-0 text-muted" style="font-size: 14px;">0-19 sales/day</p>
-										<p class="mb-0" style="font-size: 15px;"><strong>Standard Rate:</strong> $140
+										<p class="mb-0" style="font-size: 15px;"><strong>Standard Rate:</strong> $150
 											CPA on ALL packages</p>
 									</div>
 									<span class="badge bg-success"
-										style="font-size: 16px; padding: 10px 20px;">$140</span>
+										style="font-size: 16px; padding: 10px 20px;">$150</span>
 								</div>
 								<!-- Tier 2 -->
 								<div class="d-flex justify-content-between align-items-center p-3"
@@ -875,11 +1198,11 @@ window.__lo_site_id = 329229;
 									<div>
 										<strong style="font-size: 16px;">Tier 2 - Scalers</strong>
 										<p class="mb-0 text-muted" style="font-size: 14px;">20-49 sales/day</p>
-										<p class="mb-0" style="font-size: 15px;"><strong>Elevated Rate:</strong> $150
+										<p class="mb-0" style="font-size: 15px;"><strong>Elevated Rate:</strong> $160
 											CPA on ALL packages</p>
 									</div>
 									<span class="badge"
-										style="font-size: 16px; padding: 10px 20px; background: #f5a623;">$150</span>
+										style="font-size: 16px; padding: 10px 20px; background: #f5a623;">$160</span>
 								</div>
 								<!-- Tier 3 -->
 								<div class="d-flex justify-content-between align-items-center p-3"
@@ -888,10 +1211,10 @@ window.__lo_site_id = 329229;
 										<strong style="font-size: 16px;">Tier 3 - Whales</strong>
 										<p class="mb-0 text-muted" style="font-size: 14px;">50+ sales/day</p>
 										<p class="mb-0" style="font-size: 15px;"><strong>Premium Rate:</strong>
-											$160-$170 CPA on ALL packages</p>
+											$170 CPA on ALL packages</p>
 									</div>
 									<span class="badge bg-danger"
-										style="font-size: 16px; padding: 10px 20px;">$160-$170</span>
+										style="font-size: 16px; padding: 10px 20px;">$170</span>
 								</div>
 							</div>
 						</div>
@@ -1099,536 +1422,415 @@ window.__lo_site_id = 329229;
 				</section>
 
 
-				<section class="container-md py-4">
-					<h3 id="ad-images" class="section-header">Campaign Images</h3>
-					<div class="row">
-						<div class="col-12 col-lg-10 mx-auto">
-							<p class="text-center">Here are the campaign images you can use in your promotions. Click
-								any image to view full size.</p>
-							<div class="text-center mt-3 mb-4">
-								<a href="../../../All%20Image%20Assets/Graphics.zip" download
-									class="btn btn-primary btn-lg">
-									<i class="fas fa-download me-2"></i>Download All Graphics (ZIP)
-								</a>
-							</div>
+				<!-- Ad Copy Swipes Section -->
+			<section class="container-md py-4" id="ad-copy">
+				<h3 class="section-header text-center mb-3">Ad Copy Swipes</h3>
+				<p class="text-center mb-4 text-muted">Ready-to-use ad copy for every platform. Download, customize with your affiliate link, and launch.</p>
+				<div class="row justify-content-center g-3">
+					<div class="col-6 col-md-3 mb-3">
+						<div class="card-dashed text-center h-100" style="padding: 25px 15px;">
+							<i class="fab fa-facebook" style="font-size: 40px; color: #1877F2; margin-bottom: 15px;"></i>
+							<h5 style="font-weight: 700; font-size: 1rem;">Facebook Ads</h5>
+							<p class="text-muted" style="font-size: 13px;">35+ ads, 20 hooks, compliance guide</p>
+							<a href="../../../lib/docs/VigorXPro_Facebook_Ads.html" class="btn btn-sm btn-danger mt-2" target="_blank">Download</a>
 						</div>
 					</div>
-
-					<!-- Campaign Images Slider Styles -->
-					<style>
-						.campaign-slider-wrapper {
-							position: relative;
-							padding: 20px 50px;
-							overflow: hidden;
-						}
-
-						.campaign-slider {
-							display: flex;
-							transition: transform 0.5s ease;
-							align-items: center;
-						}
-
-						.campaign-slide {
-							flex: 0 0 33.333%;
-							padding: 10px;
-							transition: all 0.4s ease;
-							opacity: 0.6;
-							transform: scale(0.85);
-						}
-
-						.campaign-slide.active {
-							opacity: 1;
-							transform: scale(1.1);
-							z-index: 10;
-						}
-
-						.campaign-slide img {
-							width: 100%;
-							height: 220px;
-							object-fit: cover;
-							border-radius: 12px;
-							box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-							cursor: pointer;
-							transition: box-shadow 0.3s ease;
-						}
-
-						.campaign-slide.active img {
-							height: 280px;
-							box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-						}
-
-						.campaign-slide img:hover {
-							box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-						}
-
-						.slider-btn {
-							position: absolute;
-							top: 50%;
-							transform: translateY(-50%);
-							width: 45px;
-							height: 45px;
-							background: #1a4b8c;
-							color: white;
-							border: none;
-							border-radius: 50%;
-							font-size: 20px;
-							cursor: pointer;
-							z-index: 20;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-							transition: all 0.3s ease;
-							box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-						}
-
-						.slider-btn:hover {
-							background: #0d3a6e;
-							transform: translateY(-50%) scale(1.1);
-						}
-
-						.slider-btn:focus {
-							outline: 2px solid #ffc107;
-							outline-offset: 2px;
-						}
-
-						.slider-btn.prev {
-							left: 0;
-						}
-
-						.slider-btn.next {
-							right: 0;
-						}
-
-						.slider-dots {
-							display: flex;
-							justify-content: center;
-							gap: 8px;
-							margin-top: 20px;
-						}
-
-						.slider-dot {
-							width: 10px;
-							height: 10px;
-							border-radius: 50%;
-							background: #ccc;
-							cursor: pointer;
-							transition: all 0.3s ease;
-							border: none;
-						}
-
-						.slider-dot.active {
-							background: #1a4b8c;
-							transform: scale(1.2);
-						}
-
-						.slider-dot:focus {
-							outline: 2px solid #ffc107;
-							outline-offset: 2px;
-						}
-
-						/* Mobile styles */
-						@media (max-width: 767px) {
-							.campaign-slider-wrapper {
-								padding: 20px 40px;
-							}
-
-							.campaign-slide {
-								flex: 0 0 100%;
-								opacity: 1;
-								transform: scale(1);
-							}
-
-							.campaign-slide.active {
-								transform: scale(1);
-							}
-
-							.campaign-slide img,
-							.campaign-slide.active img {
-								height: 250px;
-							}
-
-							.slider-btn {
-								width: 35px;
-								height: 35px;
-								font-size: 16px;
-							}
-						}
-					</style>
-
-					<!-- Campaign Images Slider -->
-					<div class="campaign-slider-wrapper" role="region" aria-label="Campaign Images Carousel">
-						<button class="slider-btn prev" aria-label="Previous image" onclick="moveSlide(-1)">
-							<i class="fas fa-chevron-left"></i>
-						</button>
-
-						<div class="campaign-slider" id="campaignSlider">
-							<!-- Non-suggestive images first -->
-							<div class="campaign-slide" data-index="0">
-								<img src="../../../All%20Image%20Assets/Persons/nate.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="1">
-								<img src="../../../All%20Image%20Assets/Persons/mark.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="2">
-								<img src="../../../All%20Image%20Assets/Persons/chad-slide1.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="3">
-								<img src="../../../All%20Image%20Assets/Persons/chad-howse-264-282_mini.jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="4">
-								<img src="../../../All%20Image%20Assets/Persons/teachinglive.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="5">
-								<img src="../../../All%20Image%20Assets/Persons/CharlieResearch.jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="6">
-								<img src="../../../All%20Image%20Assets/Persons/demoonscreen.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="7">
-								<img src="../../../All%20Image%20Assets/Persons/happy.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="8">
-								<img src="../../../All%20Image%20Assets/Persons/happy.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="9">
-								<img src="../../../All%20Image%20Assets/Persons/image3.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="10">
-								<img src="../../../All%20Image%20Assets/Persons/image04.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="11">
-								<img src="../../../All%20Image%20Assets/Persons/image09-1.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="12">
-								<img src="../../../All%20Image%20Assets/Persons/image102.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="13">
-								<img src="../../../All%20Image%20Assets/Persons/TestNumber3-min.jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="14">
-								<img src="../../../All%20Image%20Assets/Persons/topbgs-1.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="15">
-								<img src="../../../All%20Image%20Assets/Persons/introtruth.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="16">
-								<img src="../../../All%20Image%20Assets/Persons/upset.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="17">
-								<img src="../../../All%20Image%20Assets/Persons/upset2.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="18">
-								<img src="../../../All%20Image%20Assets/Persons/black.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="19">
-								<img src="../../../All%20Image%20Assets/Persons/Image_6.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="20">
-								<img src="../../../All%20Image%20Assets/Persons/Image_8.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="21">
-								<img src="../../../All%20Image%20Assets/Persons/Image_11.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="22">
-								<img src="../../../All%20Image%20Assets/Persons/Image_12.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="23">
-								<img src="../../../All%20Image%20Assets/Persons/Image_17.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="24">
-								<img src="../../../All%20Image%20Assets/Persons/Image_18.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="25">
-								<img src="../../../All%20Image%20Assets/Persons/Image_19.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="26">
-								<img src="../../../All%20Image%20Assets/Persons/Webimage_5.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="27">
-								<img src="../../../All%20Image%20Assets/Persons/Webimage_6.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="28">
-								<img src="../../../All%20Image%20Assets/Persons/Webimage_7.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="29">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (9).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="30">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (10).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="31">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (13).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="32">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (14).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="33">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (15).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="34">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (18).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="35">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (19).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="36">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (20).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="37">
-								<img src="../../../All%20Image%20Assets/Persons/MDSM2022Image (21).jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="38">
-								<img src="../../../All%20Image%20Assets/Persons/a6.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="39">
-								<img src="../../../All%20Image%20Assets/Persons/a9.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="40">
-								<img src="../../../All%20Image%20Assets/Persons/a10.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="41">
-								<img src="../../../All%20Image%20Assets/Persons/a11.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="42">
-								<img src="../../../All%20Image%20Assets/Persons/TopTierDopamineHijacker.jpg"
-									alt="Campaign Image" class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="43">
-								<img src="../../../All%20Image%20Assets/Persons/FeltLikeAMan.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="44">
-								<img src="../../../All%20Image%20Assets/Persons/ManWithED.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<!-- More suggestive/intimate images last -->
-							<div class="campaign-slide" data-index="45">
-								<img src="../../../All%20Image%20Assets/Persons/woman.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="46">
-								<img src="../../../All%20Image%20Assets/Persons/a13.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="47">
-								<img src="../../../All%20Image%20Assets/Persons/a14.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="48">
-								<img src="../../../All%20Image%20Assets/Persons/a16.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="49">
-								<img src="../../../All%20Image%20Assets/Persons/a17.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="50">
-								<img src="../../../All%20Image%20Assets/Persons/a18.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="51">
-								<img src="../../../All%20Image%20Assets/Persons/top.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="52">
-								<img src="../../../All%20Image%20Assets/Persons/backview.jpg" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="53">
-								<img src="../../../All%20Image%20Assets/Persons/s1.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="54">
-								<img src="../../../All%20Image%20Assets/Persons/s2.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="55">
-								<img src="../../../All%20Image%20Assets/Persons/s3.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="56">
-								<img src="../../../All%20Image%20Assets/Persons/wifebed2.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="57">
-								<img src="../../../All%20Image%20Assets/Persons/last.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-							<div class="campaign-slide" data-index="58">
-								<img src="../../../All%20Image%20Assets/Persons/sex-on-carpet.png" alt="Campaign Image"
-									class="campaign-img">
-							</div>
-						</div>
-
-						<button class="slider-btn next" aria-label="Next image" onclick="moveSlide(1)">
-							<i class="fas fa-chevron-right"></i>
-						</button>
-
-						<div class="slider-dots" role="tablist" aria-label="Slide indicators">
-							<!-- Dots will be generated by JavaScript -->
+					<div class="col-6 col-md-3 mb-3">
+						<div class="card-dashed text-center h-100" style="padding: 25px 15px;">
+							<i class="fab fa-google" style="font-size: 40px; color: #4285F4; margin-bottom: 15px;"></i>
+							<h5 style="font-weight: 700; font-size: 1rem;">Google Ads</h5>
+							<p class="text-muted" style="font-size: 13px;">YouTube scripts, PMax, Display assets</p>
+							<a href="../../../lib/docs/VigorXPro_Google_Ads.html" class="btn btn-sm btn-danger mt-2" target="_blank">Download</a>
 						</div>
 					</div>
-				</section>
-
-				<!-- Image Lightbox Modal -->
-				<div class="modal fade" id="imageLightbox" tabindex="-1" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered modal-xl">
-						<div class="modal-content bg-transparent border-0">
-							<div class="modal-body p-0 text-center">
-								<button type="button"
-									class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
-									data-bs-dismiss="modal" aria-label="Close"
-									style="z-index: 1; font-size: 1.5rem;"></button>
-								<img src="" id="lightboxImage" class="img-fluid"
-									style="max-height: 90vh; border-radius: 8px;">
-							</div>
+					<div class="col-6 col-md-3 mb-3">
+						<div class="card-dashed text-center h-100" style="padding: 25px 15px;">
+							<i class="fas fa-ad" style="font-size: 40px; color: #FF6B00; margin-bottom: 15px;"></i>
+							<h5 style="font-weight: 700; font-size: 1rem;">Native Ads</h5>
+							<p class="text-muted" style="font-size: 13px;">40+ headlines, advertorial templates</p>
+							<a href="../../../lib/docs/VigorXPro_Native_Ads.html" class="btn btn-sm btn-danger mt-2" target="_blank">Download</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-3 mb-3">
+						<div class="card-dashed text-center h-100" style="padding: 25px 15px;">
+							<i class="fas fa-search" style="font-size: 40px; color: #34A853; margin-bottom: 15px;"></i>
+							<h5 style="font-weight: 700; font-size: 1rem;">Search Ads</h5>
+							<p class="text-muted" style="font-size: 13px;">Keywords, headlines, descriptions</p>
+							<a href="../../../lib/docs/VigorXPro_Search_Ads.html" class="btn btn-sm btn-danger mt-2" target="_blank">Download</a>
 						</div>
 					</div>
 				</div>
+			</section>
 
-				<script>
-					// Campaign Slider Script
-					(function () {
-						const slider = document.getElementById('campaignSlider');
-						const slides = document.querySelectorAll('.campaign-slide');
-						const dotsContainer = document.querySelector('.slider-dots');
-						const totalSlides = slides.length;
-						let currentIndex = 1; // Start at second slide so first is visible on left
-						let autoSlideInterval;
-						let isMobile = window.innerWidth < 768;
+			<!-- Campaign Creative Assets Section -->
+			<section class="container-md py-4" id="ad-images">
+				<h3 class="section-header text-center mb-3">Campaign Creative Assets</h3>
+				<div class="text-center mb-3">
+					<a href="../../../creative-assets/zips/all-creatives.zip" class="btn btn-primary btn-lg" download>
+						<i class="fas fa-download me-2"></i>Download All HD Images (ZIP)
+					</a>
+				</div>
+				<p class="text-center mb-4 text-muted">Click any image to view full size. 135+ professional images organized by category.</p>
 
-						// Generate dots
-						for (let i = 0; i < totalSlides; i++) {
-							const dot = document.createElement('button');
-							dot.className = 'slider-dot' + (i === currentIndex ? ' active' : '');
-							dot.setAttribute('role', 'tab');
-							dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-							dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
-							dot.onclick = () => goToSlide(i);
-							dotsContainer.appendChild(dot);
-						}
+				<!-- Tab Navigation -->
+				<ul class="nav nav-pills justify-content-center flex-wrap mb-4" id="creativeTab" role="tablist">
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link active" id="tab-banner" data-bs-toggle="pill" data-bs-target="#pane-banner" type="button" role="tab" aria-controls="pane-banner" aria-selected="true" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Banner Ads</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-intimacy" data-bs-toggle="pill" data-bs-target="#pane-intimacy" type="button" role="tab" aria-controls="pane-intimacy" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Intimacy &amp; Desire</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-ugc" data-bs-toggle="pill" data-bs-target="#pane-ugc" type="button" role="tab" aria-controls="pane-ugc" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">UGC</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-beforeafter" data-bs-toggle="pill" data-bs-target="#pane-beforeafter" type="button" role="tab" aria-controls="pane-beforeafter" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Before &amp; After</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-unboxing" data-bs-toggle="pill" data-bs-target="#pane-unboxing" type="button" role="tab" aria-controls="pane-unboxing" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Unboxing</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-menshealth" data-bs-toggle="pill" data-bs-target="#pane-menshealth" type="button" role="tab" aria-controls="pane-menshealth" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Men's Health</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-doctorcomp" data-bs-toggle="pill" data-bs-target="#pane-doctorcomp" type="button" role="tab" aria-controls="pane-doctorcomp" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Doctor Comparison</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-prostate" data-bs-toggle="pill" data-bs-target="#pane-prostate" type="button" role="tab" aria-controls="pane-prostate" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Prostate Pain Point</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-hookclips" data-bs-toggle="pill" data-bs-target="#pane-hookclips" type="button" role="tab" aria-controls="pane-hookclips" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Hook Clips</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-influencer" data-bs-toggle="pill" data-bs-target="#pane-influencer" type="button" role="tab" aria-controls="pane-influencer" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Influencer</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-testimonials" data-bs-toggle="pill" data-bs-target="#pane-testimonials" type="button" role="tab" aria-controls="pane-testimonials" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Testimonials</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-lifestyle" data-bs-toggle="pill" data-bs-target="#pane-lifestyle" type="button" role="tab" aria-controls="pane-lifestyle" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Lifestyle</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-trustbadges" data-bs-toggle="pill" data-bs-target="#pane-trustbadges" type="button" role="tab" aria-controls="pane-trustbadges" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Trust Badges</button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link" id="tab-logos" data-bs-toggle="pill" data-bs-target="#pane-logos" type="button" role="tab" aria-controls="pane-logos" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Logos &amp; Branding</button>
+					</li>
+				</ul>
 
-						function updateSlider() {
-							isMobile = window.innerWidth < 768;
-							const slideWidth = isMobile ? 100 : 33.333;
-							const offset = isMobile ? currentIndex * slideWidth : (currentIndex - 1) * slideWidth;
+				<!-- Tab Content -->
+				<div class="tab-content" id="creativeTabContent">
 
-							slider.style.transform = `translateX(-${offset}%)`;
+					<!-- Tab 1: Banner Ads -->
+					<div class="tab-pane fade show active" id="pane-banner" role="tabpanel" aria-labelledby="tab-banner">
+						<p class="text-muted text-center mb-3">Professional ad banners for display campaigns</p>
+						<div class="creative-grid">
+							<!-- Product bottle shots first -->
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/1_id-1-imagereference-1-bottles-vigorpng-prompt-Sing.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/2_id-2-imagereference-6-bottles-vigorpng-prompt-Six-.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/3_id-3-imagereference-1-bottles-vigorpng-prompt-Vigo.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/4_id-4-imagereference-3-bottles-vigorpng-prompt-Thre.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/5_id-5-imagereference-7-bottles-vigorpng-prompt-Seve.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/6_id-6-imagereference-1-bottles-vigorpng-prompt-Vigo.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/banner-ads/7_id-7-imagereference-1-bottles-vigorpng-prompt-Vigo.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/28_id-28-imagereference-1-bottles-vigorpng-prompt-Ext.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/29_id-29-imagereference-1-bottles-vigorpng-prompt-A-s.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/30_id-30-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/31_id-31-imagereference-1-bottles-vigorpng-prompt-Mac.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/32_id-32-imagereference-1-bottles-vigorpng-prompt-Vig.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/33_id-33-imagereference-2-bottles-vigorpng-prompt-Two.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<!-- Text/graphic banners stacked -->
+							<div class="creative-item">
+								<img src="../../../creative-assets/banner-ads/a12.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy" style="margin-bottom:8px;">
+								<img src="../../../creative-assets/banner-ads/button2.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
+							</div>
+							<div class="creative-item">
+								<img src="../../../creative-assets/banner-ads/a15.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy" style="margin-bottom:8px;">
+								<img src="../../../creative-assets/banner-ads/a7.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
+							</div>
+							<div class="creative-item">
+								<img src="../../../creative-assets/banner-ads/topbgs-1.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
+							</div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/banner-ads.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Banner Ads (ZIP)</a>
+						</div>
+					</div>
 
-							// Update active states
-							slides.forEach((slide, index) => {
-								slide.classList.remove('active');
-								if (index === currentIndex) {
-									slide.classList.add('active');
-								}
-							});
+					<!-- Tab 2: Influencer -->
+					<div class="tab-pane fade" id="pane-influencer" role="tabpanel" aria-labelledby="tab-influencer">
+						<p class="text-muted text-center mb-3">Expert and authority endorsement images</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/influencer/10_id-10-imagereference-1-bottles-vigorpng-prompt-A-f.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/11_id-11-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/12_id-12-imagereference-1-bottles-vigorpng-prompt-A-w.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/13_id-13-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/8_id-8-imagereference-1-bottles-vigorpng-prompt-A-co.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/chad-howse-264-282_mini.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/chad-slide1.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/image09-1.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/image3.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/influencer/teachinglive.jpg" alt="Influencer" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/influencer.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Influencer (ZIP)</a>
+						</div>
+					</div>
 
-							// Update dots
-							document.querySelectorAll('.slider-dot').forEach((dot, index) => {
-								dot.classList.toggle('active', index === currentIndex);
-								dot.setAttribute('aria-selected', index === currentIndex ? 'true' : 'false');
-							});
-						}
+					<!-- Tab 3: Testimonials -->
+					<div class="tab-pane fade" id="pane-testimonials" role="tabpanel" aria-labelledby="tab-testimonials">
+						<p class="text-muted text-center mb-3">Quote card designs with customer stories</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/testimonials/14_id-14-imagereference-1-bottles-vigorpng-prompt-A-r.jpg" alt="Testimonial" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/testimonials/15_id-15-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" alt="Testimonial" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/testimonials/16_id-16-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Testimonial" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/testimonials/17_id-17-imagereference-1-bottles-vigorpng-prompt-An-.jpg" alt="Testimonial" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/testimonials/18_id-18-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" alt="Testimonial" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/testimonials.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Testimonials (ZIP)</a>
+						</div>
+					</div>
 
-						window.moveSlide = function (direction) {
-							currentIndex += direction;
-							if (currentIndex < 0) currentIndex = totalSlides - 1;
-							if (currentIndex >= totalSlides) currentIndex = 0;
-							updateSlider();
-							resetAutoSlide();
-						};
+					<!-- Tab 4: Lifestyle -->
+					<div class="tab-pane fade" id="pane-lifestyle" role="tabpanel" aria-labelledby="tab-lifestyle">
+						<p class="text-muted text-center mb-3">Aspirational lifestyle photography</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/21_id-21-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/22_id-22-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/23_id-23-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/24_id-24-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/25_id-25-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/circle-img1b26.webp" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/cirle-mob1b26.webp" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/image04.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/lifestyle/image102.jpg" alt="Lifestyle" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/lifestyle.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Lifestyle (ZIP)</a>
+						</div>
+					</div>
 
-						window.goToSlide = function (index) {
-							currentIndex = index;
-							updateSlider();
-							resetAutoSlide();
-						};
+					<!-- Tab 5: Hook Clips -->
+					<div class="tab-pane fade" id="pane-hookclips" role="tabpanel" aria-labelledby="tab-hookclips">
+						<p class="text-muted text-center mb-3">Attention-grabbing visuals for ads</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/28_id-28-imagereference-1-bottles-vigorpng-prompt-Ext.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/29_id-29-imagereference-1-bottles-vigorpng-prompt-A-s.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/30_id-30-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/31_id-31-imagereference-1-bottles-vigorpng-prompt-Mac.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/32_id-32-imagereference-1-bottles-vigorpng-prompt-Vig.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/33_id-33-imagereference-2-bottles-vigorpng-prompt-Two.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/CharlieResearch.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/TopTierDopamineHijacker.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/Webimage_2.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/Webimage_6.png" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/a13.png" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/hook-clips/introtruth.jpg" alt="Hook Clip" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/hook-clips.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Hook Clips (ZIP)</a>
+						</div>
+					</div>
 
-						function autoSlide() {
-							if (isMobile) {
-								currentIndex++;
-								if (currentIndex >= totalSlides) currentIndex = 0;
-								updateSlider();
-							}
-						}
+					<!-- Tab 6: UGC -->
+					<div class="tab-pane fade" id="pane-ugc" role="tabpanel" aria-labelledby="tab-ugc">
+						<p class="text-muted text-center mb-3">User-generated content style images</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/ugc/34_id-34-imagereference-1-bottles-vigorpng-prompt-Pho.jpg" alt="UGC" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/ugc/36_id-36-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="UGC" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/ugc/37_id-37-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="UGC" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/ugc/38_id-38-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="UGC" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/ugc/39_id-39-imagereference-1-bottles-vigorpng-prompt-Two.jpg" alt="UGC" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/ugc/40_id-40-imagereference-1-bottles-vigorpng-prompt-A-w.jpg" alt="UGC" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/ugc.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download UGC (ZIP)</a>
+						</div>
+					</div>
 
-						function resetAutoSlide() {
-							clearInterval(autoSlideInterval);
-							if (isMobile) {
-								autoSlideInterval = setInterval(autoSlide, 7000);
-							}
-						}
+					<!-- Tab 7: Before & After -->
+					<div class="tab-pane fade" id="pane-beforeafter" role="tabpanel" aria-labelledby="tab-beforeafter">
+						<p class="text-muted text-center mb-3">Transformation and results imagery</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/before-after/41_id-41-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/42_id-42-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/43_id-43-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/44_id-44-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/45_id-45-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/46_id-46-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/TestNumber3-min.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/mark.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/before-after/nate.jpg" alt="Before After" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/before-after.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Before &amp; After (ZIP)</a>
+						</div>
+					</div>
 
-						// Initialize
-						updateSlider();
-						resetAutoSlide();
+					<!-- Tab 8: Unboxing -->
+					<div class="tab-pane fade" id="pane-unboxing" role="tabpanel" aria-labelledby="tab-unboxing">
+						<p class="text-muted text-center mb-3">Product unboxing and packaging photos</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/unboxing/47_id-47-imagereference-1-bottles-vigorpng-prompt-Clo.jpg" alt="Unboxing" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/unboxing/48_id-48-imagereference-3-bottles-vigorpng-prompt-Cle.jpg" alt="Unboxing" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/unboxing/49_id-49-imagereference-1-bottles-vigorpng-prompt-Mal.jpg" alt="Unboxing" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/unboxing/50_id-50-imagereference-6-bottles-vigorpng-prompt-A-m.jpg" alt="Unboxing" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/unboxing/51_id-51-imagereference-1-bottles-vigorpng-prompt-A-w.jpg" alt="Unboxing" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/unboxing/52_id-52-imagereference-1-bottles-vigorpng-prompt-Cle.jpg" alt="Unboxing" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/unboxing.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Unboxing (ZIP)</a>
+						</div>
+					</div>
 
-						// Handle resize
-						window.addEventListener('resize', () => {
-							updateSlider();
-							resetAutoSlide();
-						});
+					<!-- Tab 9: Doctor Comparison -->
+					<div class="tab-pane fade" id="pane-doctorcomp" role="tabpanel" aria-labelledby="tab-doctorcomp">
+						<p class="text-muted text-center mb-3">Medical authority and comparison visuals</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/doctor-comparison/53_id-53-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" alt="Doctor Comparison" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/doctor-comparison/54_id-54-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Doctor Comparison" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/doctor-comparison/55_id-55-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Doctor Comparison" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/doctor-comparison/56_id-56-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Doctor Comparison" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/doctor-comparison/57_id-57-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Doctor Comparison" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/doctor-comparison/demoonscreen.png" alt="Doctor Comparison" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/doctor-comparison.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Doctor Comparison (ZIP)</a>
+						</div>
+					</div>
 
-						// Lightbox for campaign images
-						document.querySelectorAll('.campaign-img').forEach(img => {
-							img.addEventListener('click', function (e) {
-								e.preventDefault();
-								document.getElementById('lightboxImage').src = this.src;
-								new bootstrap.Modal(document.getElementById('imageLightbox')).show();
-							});
-						});
+					<!-- Tab 10: Prostate Pain Point -->
+					<div class="tab-pane fade" id="pane-prostate" role="tabpanel" aria-labelledby="tab-prostate">
+						<p class="text-muted text-center mb-3">Problem-aware imagery for prostate health</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/58_id-58-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/59_id-59-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/60_id-60-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/61_id-61-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/62_id-62-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/Image_8.png" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/ManWithED.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/a11.png" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/upset.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/prostate-pain-point/upset2.jpg" alt="Prostate Pain Point" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/prostate-pain-point.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Prostate Pain Point (ZIP)</a>
+						</div>
+					</div>
 
-						// Keyboard navigation
-						document.querySelector('.campaign-slider-wrapper').addEventListener('keydown', function (e) {
-							if (e.key === 'ArrowLeft') moveSlide(-1);
-							if (e.key === 'ArrowRight') moveSlide(1);
-						});
-					})();
-				</script>
+					<!-- Tab 11: Men's Health -->
+					<div class="tab-pane fade" id="pane-menshealth" role="tabpanel" aria-labelledby="tab-menshealth">
+						<p class="text-muted text-center mb-3">Health awareness and wellness imagery</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/63_id-63-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/64_id-64-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/65_id-65-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/66_id-66-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/67_id-67-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/Image_12.png" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/MAN-DIET-GRAPH.jpg" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/Webimage_5.png" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/mens-health-awareness/small-muscle1b26.webp" alt="Mens Health" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/mens-health-awareness.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Men's Health (ZIP)</a>
+						</div>
+					</div>
 
+					<!-- Tab 12: Intimacy & Desire -->
+					<div class="tab-pane fade" id="pane-intimacy" role="tabpanel" aria-labelledby="tab-intimacy">
+						<p class="text-muted text-center mb-3">Couple and relationship imagery</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/FeltLikeAMan.jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/Image_11.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/Image_17.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/Image_18.jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/Image_19.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/Image_6.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(10).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(13).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(14).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(15).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(18).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(19).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(20).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(21).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/MDSM2022Image%20(9).jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/Webimage_7.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a10.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a14.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a16.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a17.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a18.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a6.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/a9.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/backview.jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/black.jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/couple1b26.webp" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/happy.jpg" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/happy.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/last.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/man-depressed1b26.webp" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/s1.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/s2.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/s3.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/sex-on-carpet.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/top.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/wifebed2.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/intimacy-desire/woman.png" alt="Intimacy Desire" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/intimacy-desire.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Intimacy &amp; Desire (ZIP)</a>
+						</div>
+					</div>
 
+					<!-- Tab 13: Trust Badges -->
+					<div class="tab-pane fade" id="pane-trustbadges" role="tabpanel" aria-labelledby="tab-trustbadges">
+						<p class="text-muted text-center mb-3">Trust and credibility signals</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/trust-badges/grt-background-dsk5ed3.webp" alt="Trust Badge" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/trust-badges/style-5-top.png" alt="Trust Badge" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/trust-badges.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Trust Badges (ZIP)</a>
+						</div>
+					</div>
+
+					<!-- Tab 14: Logos & Branding -->
+					<div class="tab-pane fade" id="pane-logos" role="tabpanel" aria-labelledby="tab-logos">
+						<p class="text-muted text-center mb-3">Brand logos and assets</p>
+						<div class="creative-grid">
+							<div class="creative-item"><img src="../../../creative-assets/logos-branding/Barbell+LOGO+GOOD.png" alt="Logo" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+							<div class="creative-item"><img src="../../../creative-assets/logos-branding/Company-logos.png" alt="Logo" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
+						</div>
+						<div class="text-center mt-3">
+							<a href="../../../creative-assets/zips/logos-branding.zip" class="btn btn-sm btn-outline-primary" download><i class="fas fa-download me-1"></i>Download Logos &amp; Branding (ZIP)</a>
+						</div>
+					</div>
+
+				</div><!-- end tab-content -->
+			</section>
+
+			<!-- Image Zoom Modal -->
+			<div class="modal fade" id="zoomModal" tabindex="-1" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-xl">
+					<div class="modal-content bg-transparent border-0">
+						<div class="modal-body p-0 text-center">
+							<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="z-index: 1; font-size: 1.5rem;"></button>
+							<img src="" id="zoomModalImage" class="img-fluid" style="max-height: 90vh; border-radius: 8px;">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				function openZoomModal(src) {
+					document.getElementById('zoomModalImage').src = src;
+					new bootstrap.Modal(document.getElementById('zoomModal')).show();
+				}
+			</script>
 
 
 
