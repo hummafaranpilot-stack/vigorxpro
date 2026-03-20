@@ -328,6 +328,45 @@ window.__lo_site_id = 329229;
 		@media (max-width: 767px) { .creative-grid .creative-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); } }
 		.download-category-btn { display: inline-block; margin-top: 15px; }
 
+		/* Intimacy Tab Premium Styling */
+		@keyframes intimacy-glow {
+			0%, 100% { border-color: #e84393; box-shadow: 0 0 6px rgba(232,67,147,0.3); }
+			25% { border-color: #fd79a8; box-shadow: 0 0 12px rgba(253,121,168,0.5); }
+			50% { border-color: #e17055; box-shadow: 0 0 14px rgba(225,112,85,0.5); }
+			75% { border-color: #d63031; box-shadow: 0 0 10px rgba(214,48,49,0.4); }
+		}
+		#creativeTab .nav-link.intimacy-tab-btn {
+			background: linear-gradient(135deg, #2d1528, #4a1942) !important;
+			color: #fd79a8 !important;
+			border: 2px solid #e84393 !important;
+			font-weight: 700 !important;
+			letter-spacing: 0.3px;
+			animation: intimacy-glow 3s ease-in-out infinite;
+		}
+		#creativeTab .nav-link.intimacy-tab-btn.active {
+			background: linear-gradient(135deg, #e84393, #d63031) !important;
+			color: #fff !important;
+			border-color: #e84393 !important;
+			box-shadow: 0 0 18px rgba(232,67,147,0.6) !important;
+			animation: none;
+		}
+		#creativeTab .nav-link.intimacy-tab-btn:hover:not(.active) {
+			background: linear-gradient(135deg, #4a1942, #6c2158) !important;
+			box-shadow: 0 0 16px rgba(232,67,147,0.5);
+		}
+		#creativeTab .nav-link.intimacy-tab-btn .hot-badge {
+			background: #d63031;
+			color: #fff;
+			font-size: 9px;
+			padding: 1px 5px;
+			border-radius: 6px;
+			margin-left: 6px;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			vertical-align: middle;
+			animation: blink 1.2s ease-in-out infinite;
+		}
+
 		/* Video Tab Prominent Styling */
 		#creativeTab .nav-link.video-tab-btn {
 			background: linear-gradient(135deg, #1a1a1a, #333) !important;
@@ -1524,7 +1563,7 @@ window.__lo_site_id = 329229;
 						<button class="nav-link active" id="tab-banner" data-bs-toggle="pill" data-bs-target="#pane-banner" type="button" role="tab" aria-controls="pane-banner" aria-selected="true" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Banner Ads</button>
 					</li>
 					<li class="nav-item m-1" role="presentation">
-						<button class="nav-link" id="tab-intimacy" data-bs-toggle="pill" data-bs-target="#pane-intimacy" type="button" role="tab" aria-controls="pane-intimacy" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Intimacy &amp; Desire</button>
+						<button class="nav-link intimacy-tab-btn" id="tab-intimacy" data-bs-toggle="pill" data-bs-target="#pane-intimacy" type="button" role="tab" aria-controls="pane-intimacy" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">Intimacy &amp; Desire <span class="hot-badge">HOT</span></button>
 					</li>
 					<li class="nav-item m-1" role="presentation">
 						<button class="nav-link" id="tab-ugc" data-bs-toggle="pill" data-bs-target="#pane-ugc" type="button" role="tab" aria-controls="pane-ugc" aria-selected="false" style="font-weight:600;font-size:14px;padding:8px 16px;border-radius:20px;">UGC</button>
@@ -1589,15 +1628,15 @@ window.__lo_site_id = 329229;
 							<div class="creative-item"><img src="../../../creative-assets/hook-clips/32_id-32-imagereference-1-bottles-vigorpng-prompt-Vig.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
 							<div class="creative-item"><img src="../../../creative-assets/hook-clips/33_id-33-imagereference-2-bottles-vigorpng-prompt-Two.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
 							<!-- Text/graphic banners stacked -->
-							<div class="creative-item" style="background:#1a1a1a; border-radius:8px; padding:6px;">
+							<div class="creative-item" style="border-radius:8px; padding:6px;">
 								<img src="../../../creative-assets/banner-ads/a12.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy" style="margin-bottom:8px;">
 								<img src="../../../creative-assets/banner-ads/button2.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
 							</div>
-							<div class="creative-item" style="background:#1a1a1a; border-radius:8px; padding:6px;">
+							<div class="creative-item" style="border-radius:8px; padding:6px;">
 								<img src="../../../creative-assets/banner-ads/a15.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy" style="margin-bottom:8px;">
 								<img src="../../../creative-assets/banner-ads/a7.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
 							</div>
-							<div class="creative-item" style="background:#1a1a1a; border-radius:8px; padding:6px;">
+							<div class="creative-item" style="border-radius:8px; padding:6px;">
 								<img src="../../../creative-assets/banner-ads/topbgs-1.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
 							</div>
 						</div>
