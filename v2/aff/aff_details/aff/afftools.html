@@ -318,13 +318,9 @@ window.__lo_site_id = 329229;
 		#creativeTab .nav-link { background: #f0f0f0; color: #333; border: 1px solid #ddd; }
 		#creativeTab .nav-link.active { background: #a93226; color: white; border-color: #a93226; }
 		#creativeTab .nav-link:hover:not(.active) { background: #e0e0e0; }
-		.creative-img { cursor: zoom-in; width: 100%; height: auto; object-fit: contain; border-radius: 8px; transition: transform 0.2s, filter 0.6s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1); filter: blur(15px); }
-		.creative-img.loaded { filter: blur(0); }
+		.creative-img { cursor: zoom-in; width: 100%; height: auto; object-fit: contain; border-radius: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 		.creative-img:hover { transform: scale(1.02); }
 		.creative-item { position: relative; overflow: hidden; }
-		.creative-item .img-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; pointer-events: none; transition: opacity 0.3s; }
-		.creative-item .img-loader.hidden { opacity: 0; }
-		.creative-item .img-loader .spinner { width: 32px; height: 32px; border: 3px solid rgba(0,0,0,0.1); border-top-color: #8b2e1e; border-radius: 50%; animation: spin 0.7s linear infinite; }
 		@keyframes spin { to { transform: rotate(360deg); } }
 		.creative-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 		.creative-grid .creative-item { flex: 0 0 calc(25% - 12px); max-width: calc(25% - 12px); }
@@ -356,11 +352,7 @@ window.__lo_site_id = 329229;
 		@media (max-width: 991px) { .video-grid .video-card { flex: 0 0 calc(50% - 16px); max-width: calc(50% - 16px); } }
 		@media (max-width: 575px) { .video-grid .video-card { flex: 0 0 100%; max-width: 100%; } }
 
-		.video-card video { width: 100%; display: block; border-radius: 10px; filter: blur(12px); transition: filter 0.6s ease; }
-		.video-card video.loaded { filter: blur(0); }
-		.video-card .vid-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 3; pointer-events: none; transition: opacity 0.3s; }
-		.video-card .vid-loader.hidden { opacity: 0; }
-		.video-card .vid-loader .spinner { width: 36px; height: 36px; border: 3px solid rgba(255,255,255,0.15); border-top-color: #f0c040; border-radius: 50%; animation: spin 0.7s linear infinite; }
+		.video-card video { width: 100%; display: block; border-radius: 10px; }
 		.video-card .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); transition: opacity 0.3s; pointer-events: none; border-radius: 10px; }
 		.video-card:hover .video-overlay { opacity: 0; }
 		.video-card .play-icon { width: 56px; height: 56px; background: rgba(240,192,64,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
@@ -1597,15 +1589,15 @@ window.__lo_site_id = 329229;
 							<div class="creative-item"><img src="../../../creative-assets/hook-clips/32_id-32-imagereference-1-bottles-vigorpng-prompt-Vig.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
 							<div class="creative-item"><img src="../../../creative-assets/hook-clips/33_id-33-imagereference-2-bottles-vigorpng-prompt-Two.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy"></div>
 							<!-- Text/graphic banners stacked -->
-							<div class="creative-item">
+							<div class="creative-item" style="background:#1a1a1a; border-radius:8px; padding:6px;">
 								<img src="../../../creative-assets/banner-ads/a12.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy" style="margin-bottom:8px;">
 								<img src="../../../creative-assets/banner-ads/button2.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
 							</div>
-							<div class="creative-item">
+							<div class="creative-item" style="background:#1a1a1a; border-radius:8px; padding:6px;">
 								<img src="../../../creative-assets/banner-ads/a15.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy" style="margin-bottom:8px;">
 								<img src="../../../creative-assets/banner-ads/a7.png" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
 							</div>
-							<div class="creative-item">
+							<div class="creative-item" style="background:#1a1a1a; border-radius:8px; padding:6px;">
 								<img src="../../../creative-assets/banner-ads/topbgs-1.jpg" alt="Banner Ad" class="img-fluid border rounded shadow-sm creative-img" onclick="openZoomModal(this.src)" loading="lazy">
 							</div>
 						</div>
@@ -2054,50 +2046,6 @@ window.__lo_site_id = 329229;
 				document.getElementById('modalProgressBar').style.width = '0%';
 			});
 
-			// Progressive blur-to-sharp loading for images
-			document.querySelectorAll('.creative-item').forEach(function(item) {
-				var img = item.querySelector('.creative-img');
-				if (!img) return;
-				var loader = document.createElement('div');
-				loader.className = 'img-loader';
-				loader.innerHTML = '<div class="spinner"></div>';
-				item.insertBefore(loader, img);
-				if (img.complete && img.naturalHeight > 0) {
-					img.classList.add('loaded');
-					loader.classList.add('hidden');
-				} else {
-					img.addEventListener('load', function() {
-						img.classList.add('loaded');
-						loader.classList.add('hidden');
-					});
-					img.addEventListener('error', function() {
-						loader.classList.add('hidden');
-					});
-				}
-			});
-
-			// Progressive blur-to-sharp loading for videos
-			document.querySelectorAll('.video-card').forEach(function(card) {
-				var vid = card.querySelector('video');
-				if (!vid) return;
-				var loader = document.createElement('div');
-				loader.className = 'vid-loader';
-				loader.innerHTML = '<div class="spinner"></div>';
-				card.appendChild(loader);
-				if (vid.readyState >= 3) {
-					vid.classList.add('loaded');
-					loader.classList.add('hidden');
-				} else {
-					vid.addEventListener('canplaythrough', function() {
-						vid.classList.add('loaded');
-						loader.classList.add('hidden');
-					}, { once: true });
-					vid.addEventListener('loadeddata', function() {
-						vid.classList.add('loaded');
-						loader.classList.add('hidden');
-					}, { once: true });
-				}
-			});
 			</script>
 
 
