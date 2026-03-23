@@ -25,6 +25,110 @@
 	<link rel="manifest" href="manifest.json" />
 	<link rel="icon" type="image/webp" href="../Images/1-bottles-vigor.webp">
 
+<style>
+html, body { overflow-x: hidden; }
+/* Creative asset images */
+.creative-img {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
+}
+.creative-img:hover {
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .creative-img {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+</style>
+
+<!-- === VIDEO PLAYER CSS === -->
+<style>
+.mv-title { text-align: center; margin: 0 auto 8px; max-width: 550px; padding: 0 10px; }
+.mv-title h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin: 0; }
+.mv-title h3 .mv-highlight { color: #c8922a; font-style: italic; }
+@media (max-width: 768px) { .mv-title h3 { font-size: 18px; } }
+.mv-player { position: relative; max-width: 550px; margin: 0 auto 10px; border-radius: 10px; overflow: hidden; background: transparent; box-shadow: 0 4px 20px rgba(0,0,0,0.12); cursor: pointer; }
+.mv-player video { width: 100%; height: auto; display: block; max-height: 340px; object-fit: contain; background: #111; }
+.mv-progress-bar { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.2); z-index: 3; }
+.mv-progress-fill { height: 100%; width: 0%; background: #c8922a; transition: width 0.3s linear; }
+.mv-mute-btn { position: absolute; bottom: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; transition: background 0.2s; }
+.mv-mute-btn:hover { background: rgba(0,0,0,0.7); }
+.mv-mute-btn svg { width: 16px; height: 16px; }
+.mv-end-cta { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 5; }
+.mv-end-cta.show { display: flex; }
+.mv-end-cta-btn { background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032, #f0c85a, #c8922a); color: #000 !important; font-size: 16px; font-weight: 800; font-family: 'Montserrat', sans-serif; padding: 14px 32px; border-radius: 32px; text-decoration: none !important; text-transform: uppercase; letter-spacing: 0.5px; transition: transform 0.2s; }
+.mv-end-cta-btn:hover { transform: scale(1.05); background: linear-gradient(135deg, #d4a032, #f0c85a, #e0b040, #f5d76e, #d4a032); }
+.mv-end-replay { color: rgba(255,255,255,0.7) !important; font-size: 13px; text-decoration: underline !important; cursor: pointer; background: none; border: none; font-family: 'Montserrat', sans-serif; }
+.mv-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #fff; font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; z-index: 4; }
+.mv-caption { text-align: center; font-size: 13px; color: #666; margin-top: 8px; font-style: italic; max-width: 550px; margin-left: auto; margin-right: auto; }
+@media (max-width: 768px) { .mv-player video { max-height: 240px; } .mv-player { margin: 0 10px 10px; } .mv-mute-btn { width: 28px; height: 28px; bottom: 10px; right: 10px; } }
+.mv-play-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; z-index: 4; cursor: pointer; }
+.mv-play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, background 0.2s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.mv-play-overlay:hover .mv-play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
+.mv-play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+.mv-play-overlay.playing, .mv-play-overlay.paused { top: auto; left: auto; bottom: 8px; right: 50px; align-items: flex-end; justify-content: flex-end; }
+.mv-play-overlay.playing .mv-play-btn, .mv-play-overlay.paused .mv-play-btn { width: 32px; height: 32px; box-shadow: none; border: none; }
+.mv-play-overlay.playing .mv-play-btn svg, .mv-play-overlay.paused .mv-play-btn svg { width: 14px; height: 14px; margin-left: 0; }
+.mv-play-overlay .mv-pause-icon { display: none; }
+.mv-play-overlay.playing .mv-play-icon { display: none; }
+.mv-play-overlay.playing .mv-pause-icon { display: block; }
+.mv-play-overlay.hidden { display: none; }
+@media (max-width: 768px) { .mv-play-btn { width: 52px; height: 52px; } .mv-play-btn svg { width: 20px; height: 20px; } .mv-play-overlay.playing, .mv-play-overlay.paused { right: 44px; bottom: 6px; } .mv-play-overlay.playing .mv-play-btn, .mv-play-overlay.paused .mv-play-btn { width: 28px; height: 28px; } .mv-play-overlay.playing .mv-play-btn svg, .mv-play-overlay.paused .mv-play-btn svg { width: 12px; height: 12px; } }
+</style>
+
+<!-- === STICKY BAR + TOAST CSS === -->
+<style>
+#sticky-cta-desktop { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); box-shadow: 0 -4px 30px rgba(0,0,0,0.4); animation: slideUpBar 0.5s ease; }
+@keyframes slideUpBar { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@media (max-width: 991px) { #sticky-cta-desktop { display: none !important; } }
+.sticky-cta-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 12px 30px; gap: 18px; }
+.sticky-cta-img { width: 52px; height: 52px; border-radius: 8px; object-fit: contain; background: rgba(255,255,255,0.08); padding: 4px; flex-shrink: 0; }
+.sticky-cta-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.sticky-cta-stars { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #c8922a; font-family: 'Montserrat', sans-serif; }
+.sticky-cta-stars span { color: rgba(255,255,255,0.6); font-weight: 500; }
+.sticky-cta-headline { font-size: 15px; font-weight: 800; font-family: 'Montserrat', sans-serif; color: #fff; }
+.sticky-cta-timer { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #ff6b6b; font-weight: 600; font-family: 'Montserrat', sans-serif; }
+.sticky-cta-timer-val { background: rgba(255,107,107,0.15); padding: 2px 8px; border-radius: 4px; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+.sticky-cta-btn { background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032, #f0c85a, #c8922a); color: #000 !important; font-size: 15px; font-weight: 800; font-family: 'Montserrat', sans-serif; padding: 14px 32px; border-radius: 32px; text-decoration: none !important; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; transition: transform 0.2s ease; flex-shrink: 0; }
+.sticky-cta-btn:hover { transform: scale(1.05); }
+.sticky-cta-close { background: none; border: none; color: rgba(255,255,255,0.35); font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1; flex-shrink: 0; }
+.sticky-cta-close:hover { color: rgba(255,255,255,0.8); }
+
+#mobile-toast { position: fixed; top: 0; left: 0; right: 0; z-index: 9996; animation: slideDownToast 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes slideDownToast { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@media (min-width: 992px) { #mobile-toast { display: none !important; } }
+.mobile-toast-inner { background: linear-gradient(135deg, #c8922a 0%, #e8b84a 100%); padding: 8px 12px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 25px rgba(0,0,0,0.2); max-width: 100vw; overflow: hidden; }
+.mobile-toast-content { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; }
+.mobile-toast-title { margin: 0; font-size: 12px; font-weight: 700; color: #fff; font-family: 'Montserrat', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 1; min-width: 0; }
+.mobile-toast-buttons { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.mobile-toast-btn-primary { background: #1a1a1a; color: #fff !important; padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none !important; font-family: 'Montserrat', sans-serif; white-space: nowrap; }
+.mobile-toast-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; padding: 0 2px; line-height: 1; flex-shrink: 0; }
+.mobile-toast-close:hover { color: #fff; }
+
+#desktop-toast { position: fixed; bottom: 110px; right: 25px; z-index: 9997; animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes slideInRight { from { transform: translateX(120%); } to { transform: translateX(0); } }
+@media (max-width: 991px) { #desktop-toast { display: none !important; } }
+.desktop-toast-inner { background: #fff; border-radius: 16px; padding: 0; box-shadow: 0 12px 40px rgba(0,0,0,0.18); width: 320px; font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden; }
+.desktop-toast-header { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); padding: 12px 18px; display: flex; align-items: center; gap: 8px; }
+.desktop-toast-header-icon { font-size: 16px; }
+.desktop-toast-header-text { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+.desktop-toast-body { padding: 16px 18px; display: flex; align-items: center; gap: 14px; }
+.desktop-toast-img { width: 50px; height: 50px; border-radius: 8px; object-fit: contain; flex-shrink: 0; }
+.desktop-toast-content { flex: 1; }
+.desktop-toast-title { margin: 0; font-size: 14px; font-weight: 700; color: #1a1a1a; }
+.desktop-toast-desc { margin: 3px 0 0; font-size: 12px; color: #666; }
+.desktop-toast-footer { padding: 0 18px 16px; display: flex; gap: 10px; align-items: center; }
+.desktop-toast-btn { flex: 1; background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032); color: #000 !important; padding: 10px 18px; border-radius: 32px; font-size: 13px; font-weight: 700; text-decoration: none !important; text-align: center; white-space: nowrap; transition: transform 0.2s; }
+.desktop-toast-btn:hover { transform: scale(1.03); }
+.desktop-toast-close { position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 16px; color: rgba(255,255,255,0.5); cursor: pointer; padding: 0; line-height: 1; }
+.desktop-toast-close:hover { color: #fff; }
+</style>
+
 </head>
 
 <body>
@@ -306,7 +410,21 @@
 		</div>
 	</section>
 
-	<section class="dark image-fill-bg" id="section_2">
+	<!-- MEDIA 1: Energy Transformation Video -->
+	<section style="padding: 30px 15px;">
+		<div class="mv-title"><h3>Feel the <span class="mv-highlight">Energy Transformation</span></h3></div>
+		<div class="mv-player" data-video-id="vid-energy-transform">
+			<span class="mv-badge">Watch this</span>
+			<video muted playsinline preload="metadata"><source src="../creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4"></video>
+			<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+			<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+			<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+			<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-energy-transform')">&#8635; Replay</button></div>
+		</div>
+		<p class="mv-caption">See what happens when vitality returns</p>
+	</section>
+
+	<section class="dark image-fill-bg" id="section_2a">
 		<div class="hero container content breakout-on-dark padding-after-0">
 			<div class="row">
 				<div class="columns small-12 medium-10 small-centered">
@@ -315,7 +433,7 @@
                     <p>You&rsquo;ll never again experience the embarrassing shame that comes when  you&rsquo;re in bed with your woman, and have to say the dreaded words… </p>
                     <p>&ldquo;<em>I&rsquo;m sorry, I don&rsquo;t know what&rsquo;s wrong. I guess I&rsquo;m under a lot of  stress&rdquo; … </em>Only to hear her say it&rsquo;s OK right before she rolls over and goes  to sleep… </p>
                     <p>Unsatisfied – once again…</p>
-					<br><center><img align="center" src="images/upset2.jpg"></center><br>
+					<div style="text-align:center; margin: 15px 0;"><img src="../creative-assets/prostate-pain-point/61_id-61-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Another night interrupted?" style="max-width: 500px;"></div>
                     <p>Never again will you feel the demoralizing hit to your confidence when  you&rsquo;re in the middle of having sex, and realize that you are starting to lose  your erection, and no matter what you do, or what position you change to, this  sex session is racing to a sad and unsatisfying end… </p>
                     	                    <p>And you&rsquo;ll NEVER touch ineffective creams, dangerous &lsquo;truck stop pills&rsquo;  or ask your doctor to write you a single RX…</p>
                   	<p>Instead, you <em>and your lover</em> will get to enjoy a lifetime of the  hard-as-steal (and sometimes even slightly uncomfortable) erections that she can  never get enough of…</p>
@@ -326,7 +444,7 @@
 		</div>
 	</section>
 
-	<section id="section_3">
+	<section id="section_3a">
 		<div class="hero container mid-width content">
 			<div class="row">
 				<div class="columns small-12 large-8">
@@ -353,20 +471,25 @@
 					<p>Obviously, you're going to agree…</p>
 					<p>When you don't eat right, don't get proper exercise or sleep, drink too much, and are constantly under stress, how can you possibly expect your body to work right?</p>
 				  	<p>You can't… Plain and simple!</p>
+					<!-- MEDIA 3: Testosterone Decline image -->
+					<div style="text-align:center; margin: 20px 0;">
+						<img src="../creative-assets/mens-health-awareness/67_id-67-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Testosterone Decline After 40" style="max-width: 550px;">
+						<p style="font-size: 13px; color: #888; font-style: italic; margin-top: 6px;">Testosterone naturally declines after 40 — but it doesn't have to control your life.</p>
+					</div>
 					<p>And I've got some bad news for you…</p><br>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="dark image-fill-bg" id="section_2">
+	<section class="dark image-fill-bg" id="section_2b">
 		<div class="hero container content breakout-on-dark padding-after-0">
 			<div class="row">
 				<div class="columns small-12 medium-10 small-centered">
 										<h3 class="ctr giga caps">You've Been Sabotaged And Basically Had Your Penis Cut Off <span class="accent">Without Even Knowing It</span></h3>
 					<p>The world we live in today has set you up to fail, and you probably  don&rsquo;t realize it…</p>
                     <p>Does this sound anything like your daily life?</p>
-					<br><center><img align="center" src="images/upset.jpg"></center><br>
+					<div style="text-align:center; margin: 15px 0;"><img src="../creative-assets/prostate-pain-point/66_id-66-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Lost Confidence and Low Libido" style="max-width: 500px;"></div>
                     <p class="plist">You wake up too early, and don&rsquo;t have time for a proper  breakfast or cardio exercise.</p>
                     <p class="plist">Your commute to work mainly involves you staying still  and not moving your body a lot.</p>
                     <p class="plist">Once at work you either remain mostly motionless at your  desk, or you have to perform back-breaking manual labor that leaves you  absolutely worn out.</p>
@@ -378,8 +501,30 @@
                   	<h4 class="drop-left-red caps margin-before-2 heavy tightlead">Every Thing I Just Mentioned Can KILL Active Sexual Testosterone Production…</h4>
 					<p>Even if you try and stay healthy, get enough sleep, and don't drink too much alcohol… </p>
 					<p>It's damn near impossible to undo the 12+ hours of damage you endure every single day!</p>
-										<p>Why not pills? Death – expensive – 1 time fix, not a lifetime solution.</p>
-					<p>We worked with the top men's health researchers in the world and combined all of their collective knowledge into a powerful natural formula that men are calling their secret weapon for prostate health and sexual vitality - <strong><span class="accent">VigorX Pro</span></strong></p>
+						<h4 class="drop-left-red caps margin-before-2 heavy tightlead">Why Prescription Pills Are NOT The Answer…</h4>
+					<p>Look, we get it — when you're desperate, those little blue pills seem like a quick fix. But here's what they don't tell you in those TV commercials:</p>
+					<p><strong>First, the side effects can be terrifying.</strong> Headaches, dizziness, vision changes, hearing loss, and in rare cases, heart complications that can land you in the ER. Is a few hours of performance really worth risking your health?</p>
+					<p><strong>Second, they're a band-aid, not a solution.</strong> Those pills don't fix the underlying problem — they just mask it temporarily. The moment the pill wears off, you're right back where you started. And your body can build a tolerance, meaning you'll need higher and higher doses over time.</p>
+					<p><strong>Third, the cost is insane.</strong> At $30-$70 PER PILL (without insurance), you could easily spend $200-$500 every single month just to perform in the bedroom. That's $2,400 to $6,000 a year!</p>
+					<p><strong>And fourth — the awkward doctor visits.</strong> Having to look your doctor in the eye and explain that you can't perform... then picking up that prescription at the pharmacy where everyone can see what you're buying... it's humiliating.</p>
+					<p>That's exactly why we worked with the top men's health researchers in the world and combined all of their collective knowledge into a powerful natural formula that men are calling their secret weapon for prostate health and sexual vitality — <strong><span class="accent">VigorX Pro</span></strong></p>
+					<p>VigorX Pro works WITH your body, not against it. It supports your natural testosterone production, promotes healthy blood flow, and nourishes your prostate — so the results you get are REAL and LASTING.</p>
+					<p>No prescriptions. No side effects. No embarrassing pharmacy trips. Just natural, powerful support that works around the clock.</p>
+
+					<!-- MEDIA 5: Doctor Recommendation Video -->
+					<div style="margin: 25px 0;">
+						<div class="mv-title"><h3>Why Doctors Recommend <span class="mv-highlight">VigorX Pro</span></h3></div>
+						<div class="mv-player" data-video-id="vid-doctor-rec">
+							<span class="mv-badge">Doctor recommended</span>
+							<video muted playsinline preload="metadata"><source src="../creative-assets/videos/7_id-7-type-Doctor-Recommendation-niche-Trust-Author.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-doctor-rec')">&#8635; Replay</button></div>
+						</div>
+						<p class="mv-caption">A natural approach backed by science</p>
+					</div>
+
 					<div style="margin-top: 25px;"><a href="#buynow" class="cta-btn-primary">TRY NOW &mdash; GET UP TO 61% OFF <i class="fas fa-arrow-right"></i></a><p class="secure-text"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p></div>
 				</div>
 			</div>
@@ -405,14 +550,28 @@
 					<p class="plistcheck">Your new recipe for erection success: Forget about giving up your favorite foods… Instead, when you enjoy them in this very specific manor, they will actually fuel your unstoppable erection powers!</p>
 				 					 	<p class="plistcheck">How to get rock hard anytime you want no matter how old you are… You may not be as physically fit as you once were, but that won't be an excuse when it comes to your fun in the bedroom.</p>
 					<p class="plistcheck">You will never again feel the humiliation, stress, or anxiety that comes from erectile dysfunction… Instead, you will finally regain your confidence and feel like a true man!</p>
-					<br><center><img align="center" src="images/happy.jpg"></center>
+					<div style="text-align:center; margin: 15px 0;"><img src="../creative-assets/intimacy-desire/happy.jpg" class="creative-img" alt="Happy Couple" style="max-width: 500px;"></div>
 					<div style="margin-top: 25px;"><a href="#buynow" class="cta-btn-primary">TRY NOW &mdash; GET UP TO 61% OFF <i class="fas fa-arrow-right"></i></a><p class="secure-text"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p></div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="section_3">
+	<!-- MEDIA 7: Prostate Health Science Video -->
+	<section style="padding: 30px 15px;">
+		<div class="mv-title"><h3>How <span class="mv-highlight">Prostate Health</span> Affects Everything</h3></div>
+		<div class="mv-player" data-video-id="vid-prostate-science">
+			<span class="mv-badge">The science</span>
+			<video muted playsinline preload="metadata"><source src="../creative-assets/videos/10_id-10-type-Prostate-Health-Relief-niche-Health-Com.mp4" type="video/mp4"></video>
+			<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+			<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+			<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+			<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-prostate-science')">&#8635; Replay</button></div>
+		</div>
+		<p class="mv-caption">Understanding the root cause</p>
+	</section>
+
+	<section id="section_3b">
 		<div class="hero container mid-width content">
 			<div class="row">
 				<div class="columns small-12 large-8">
@@ -424,6 +583,13 @@
                     <p>When you&nbsp;<strong>Click On The Button Below</strong>&nbsp;and complete your simple checkout process, you&rsquo;re going to join thousands of men who have already transformed their lives with VigorX Pro.</p>
                     <p>The best part is, your order ships fast and discreetly right to your door.</p>
   					<p><strong>Start supporting your prostate health naturally today!</strong></p>
+
+					<!-- MEDIA 8: Doctor authority images -->
+					<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin: 20px 0;">
+						<img src="../creative-assets/doctor-comparison/53_id-53-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" class="creative-img" alt="Doctor with VigorX Pro" style="max-width: 280px; flex: 1 1 250px;">
+						<img src="../creative-assets/doctor-comparison/demoonscreen.png" class="creative-img" alt="Prostate Health Science" style="max-width: 280px; flex: 1 1 250px;">
+					</div>
+
   					<p>But it gets better because you&rsquo;re also getting…</p>
 			  </div>
 				<div class="columns small-12 large-4">
@@ -487,7 +653,7 @@
 }
 </style>
 
-	<section class="dark image-fill-bg" id="section_2">
+	<section class="dark image-fill-bg" id="section_2c">
 		<div class="hero container content breakout-on-dark padding-after-0">
 			<div class="row">
 				<div class="columns small-12 medium-10 small-centered">
@@ -499,6 +665,32 @@
                     <p>Hundreds of hours of research went into developing this precise formulation designed to support every aspect of your prostate health and male performance.</p>
                     <p>It truly is the best of the best there is.</p>
                     <p>VigorX Pro is simple to use – just take the recommended dose daily and let the natural ingredients do their work.</p>
+
+					<!-- MEDIA 9: Testimonial Video -->
+					<div style="margin: 25px 0;">
+						<div class="mv-title"><h3>Real Men, <span class="mv-highlight">Real Results</span></h3></div>
+						<div class="mv-player" data-video-id="vid-testimonial">
+							<span class="mv-badge">Real customer</span>
+							<video muted playsinline preload="metadata"><source src="../creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-testimonial')">&#8635; Replay</button></div>
+						</div>
+						<p class="mv-caption">"I feel like a different man"</p>
+					</div>
+
+					<!-- MEDIA 10: Before/After Grid -->
+					<div style="margin: 25px 0;">
+						<h4 style="text-align:center; font-weight:700; margin-bottom:15px;">Real Men. Real Results.<sup>&dagger;</sup></h4>
+						<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+							<img src="../creative-assets/before-after/mark.jpg" class="creative-img" alt="Mark - Transformation" style="max-width: 220px; flex: 1 1 200px;">
+							<img src="../creative-assets/before-after/nate.jpg" class="creative-img" alt="Nate - Transformation" style="max-width: 220px; flex: 1 1 200px;">
+							<img src="../creative-assets/before-after/TestNumber3-min.jpg" class="creative-img" alt="Ivan - Transformation" style="max-width: 220px; flex: 1 1 200px;">
+						</div>
+						<p style="text-align:center; font-size:12px; color:#888; margin-top:8px;">&dagger;Individual results may vary. Names changed for privacy.</p>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -532,7 +724,7 @@
 		</div>
 	</section>
 
-	<section class="dark image-fill-bg" id="section_2">
+	<section class="dark image-fill-bg" id="section_guarantee">
 		<div class="hero container content breakout-on-dark padding-after-0">
 			<div class="row">
 				<div class="columns small-12 medium-10 small-centered">
@@ -565,6 +757,12 @@
                     <p>So you&rsquo;re going to want to select your package below and complete the simple checkout process right now while stock is still available.</p>
                     <p align="center" class="caps"><strong>Get VigorX Pro Today – Save Up To 61% + FREE Shipping!</strong></p>
                     <p align="center"><img src="../Images/7-bottles-vigor.webp" style="max-width: 400px; width: 100%;"></p>
+
+					<!-- MEDIA 12: Symptom agitation image -->
+					<div style="text-align:center; margin: 20px 0;">
+						<img src="../creative-assets/prostate-pain-point/62_id-62-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Prostate issues stealing your freedom?" style="max-width: 500px;">
+					</div>
+
                     <p>Here&rsquo;s what you need to do right now.</p>
                     <p>Scroll down, select your package, click the "Buy Now" button, and complete the secure checkout process to start your journey to better prostate health today.</p>
                     <p>Thank you for taking the time to learn about VigorX Pro.</p>
@@ -572,6 +770,21 @@
                     <p>To Your Health,</p>
                     <p><strong>The Trusted Nutra Products Team</strong></p>
                     <p>VigorX Pro is unlike anything you&rsquo;ve tried before because until now, you&rsquo;ve never had access to this precise combination of prostate-supporting ingredients.</p>
+
+					<!-- MEDIA 11: CTA Urgency Video -->
+					<div style="margin: 25px 0;">
+						<div class="mv-title"><h3>Don't Wait &mdash; <span class="mv-highlight">Limited Supply</span> Available</h3></div>
+						<div class="mv-player" data-video-id="vid-urgency">
+							<span class="mv-badge">Act now</span>
+							<video muted playsinline preload="metadata"><source src="../creative-assets/videos/15_id-15-type-CTA-Urgency-Display-niche-Conversion-im.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-urgency')">&#8635; Replay</button></div>
+						</div>
+						<p class="mv-caption">Secure your bottles before stock runs out</p>
+					</div>
+
                     <p>Which means today, you are faced with the greatest opportunity to support your prostate health naturally.</p>
                     <p>We can not tell you how excited we are for you to experience the difference.</p>
                     <p><strong>With our 60-day money-back guarantee, this really is a no-brainer.</strong></p>
@@ -1039,6 +1252,19 @@
 		<div class="hero container content" id="fade-out"></div>
 	</section>
 
+	<!-- MEDIA 13: Lifestyle aspirational images -->
+	<section style="padding: 30px 15px; background: #f8f8f8;">
+		<div style="max-width:1100px; margin:0 auto;">
+			<p style="text-align:center; font-size:16px; font-weight:600; color:#333; margin-bottom:20px;">Join thousands of men who've reclaimed their vitality with VigorX Pro&trade;</p>
+			<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+				<img src="../creative-assets/lifestyle/22_id-22-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" class="creative-img" alt="Happy couple" style="max-width:240px; flex:1 1 200px;">
+				<img src="../creative-assets/lifestyle/21_id-21-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Morning vitality" style="max-width:240px; flex:1 1 200px;">
+				<img src="../creative-assets/lifestyle/23_id-23-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Active lifestyle" style="max-width:240px; flex:1 1 200px;">
+				<img src="../creative-assets/lifestyle/24_id-24-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Relaxed vitality" style="max-width:240px; flex:1 1 200px;">
+			</div>
+		</div>
+	</section>
+
 	<section id="section_footer" style="background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #1a1a1a 100%); color: #ccc;">
 		<div class="container content">
 			<div class="row margin-before-24" style="margin-top: 10px;">
@@ -1052,12 +1278,9 @@
 		</div>
 	</section>
 
-<span id=disclaimer></span>
-<script src="https://display.buygoods.com/v1/disclaimer?id=disclaimer&account_id=12273"></script>
-
 <!-- SOCIAL PROOF NOTIFICATION -->
 <section class="custom-social-proof">
-	<div class="custom-notification">
+	<div class="custom-notification" style="display:none">
 		<div class="custom-notification-container">
 			<div class="custom-notification-image-wrapper">
 				<img src="../Images/1-bottles-vigor.webp">
@@ -1078,6 +1301,172 @@
 <!-- SOCIAL PROOF NOTIFICATION JAVASCRIPT -->
 <script>window.socialProofBase='../';</script>
 <script type="text/javascript" src="../popup/js/social-proof.js"></script>
+
+<!-- === DESKTOP STICKY CTA BAR === -->
+<div id="sticky-cta-desktop" style="display:none;">
+    <div class="sticky-cta-inner">
+        <img src="../Images/1-bottles-vigor.webp" alt="VigorX Pro" class="sticky-cta-img">
+        <div class="sticky-cta-info">
+            <div class="sticky-cta-stars">&starf;&starf;&starf;&starf;&starf; <span>4.9/5 (2,847 reviews)</span></div>
+            <span class="sticky-cta-headline">Up to 61% OFF VigorX Pro&trade;</span>
+            <div class="sticky-cta-timer">Offer ends in <span class="sticky-cta-timer-val" id="sticky-timer">04:59:59</span></div>
+        </div>
+        <a href="#buynow" class="sticky-cta-btn" onclick="scrollToCards();return false;">ORDER NOW &rarr;</a>
+        <button class="sticky-cta-close" onclick="dismissStickyBar()" aria-label="Close">&times;</button>
+    </div>
+</div>
+
+<!-- === MOBILE TOAST === -->
+<div id="mobile-toast" style="display:none;">
+    <div class="mobile-toast-inner">
+        <div class="mobile-toast-content">
+            <p class="mobile-toast-title">&darr; Up to 61% OFF &mdash; Limited Time</p>
+            <div class="mobile-toast-buttons">
+                <a href="#buynow" class="mobile-toast-btn-primary" onclick="dismissMobileToast();scrollToCards();return false;">See Pricing</a>
+            </div>
+        </div>
+        <button class="mobile-toast-close" onclick="dismissMobileToast()" aria-label="Close">&times;</button>
+    </div>
+</div>
+
+<!-- === DESKTOP TOAST === -->
+<div id="desktop-toast" style="display:none;">
+    <div class="desktop-toast-inner">
+        <div class="desktop-toast-header">
+            <span class="desktop-toast-header-icon">&#128293;</span>
+            <span class="desktop-toast-header-text">Popular right now</span>
+        </div>
+        <div class="desktop-toast-body">
+            <img src="../Images/1-bottles-vigor.webp" alt="VigorX Pro" class="desktop-toast-img">
+            <div class="desktop-toast-content">
+                <p class="desktop-toast-title">Up to 61% OFF Today</p>
+                <p class="desktop-toast-desc">Free shipping &bull; 60-day guarantee</p>
+            </div>
+        </div>
+        <div class="desktop-toast-footer">
+            <a href="#buynow" class="desktop-toast-btn" onclick="dismissDesktopToast();scrollToCards();return false;">View Packages &rarr;</a>
+        </div>
+        <button class="desktop-toast-close" onclick="dismissDesktopToast()" aria-label="Close">&times;</button>
+    </div>
+</div>
+
+<!-- === SCROLL + STICKY + TOAST + VIDEO JS === -->
+<script>
+function scrollToCards() {
+    var sb = document.getElementById('sticky-cta-desktop');
+    if (sb) sb.style.display = 'none';
+    var mt = document.getElementById('mobile-toast');
+    if (mt) mt.style.display = 'none';
+    var target = document.getElementById('buynow');
+    if (target) target.scrollIntoView({block:'start'});
+}
+
+/* Countdown timer */
+(function() {
+    var timerEl = document.getElementById('sticky-timer');
+    if (!timerEl) return;
+    var total = 5 * 3600 - 1;
+    setInterval(function() {
+        if (total <= 0) return;
+        total--;
+        var h = Math.floor(total / 3600), m = Math.floor((total % 3600) / 60), s = total % 60;
+        timerEl.textContent = (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    }, 1000);
+})();
+
+/* Sticky bar */
+function dismissStickyBar() { var b=document.getElementById('sticky-cta-desktop'); if(b) b.style.display='none'; window.__stickyDismissedAt=Date.now(); }
+(function() {
+    var ctaBar=document.getElementById('sticky-cta-desktop'); if(!ctaBar) return;
+    window.__stickyDismissedAt=0;
+    window.addEventListener('scroll', function() {
+        if(window.innerWidth<992) return;
+        if(window.__stickyDismissedAt && (Date.now()-window.__stickyDismissedAt)<120000) return;
+        var pct=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+        if(pct>3) { if(ctaBar.style.display==='none'||!ctaBar.style.display) ctaBar.style.display='block'; }
+    });
+})();
+
+/* Mobile toast */
+function dismissMobileToast() { var t=document.getElementById('mobile-toast'); if(t) t.style.display='none'; window.__mtDismissedAt=Date.now(); }
+(function() {
+    var toast=document.getElementById('mobile-toast'); if(!toast) return;
+    window.__mtDismissedAt=0; var autoHideTimer=null;
+    window.addEventListener('scroll', function() {
+        if(window.innerWidth>=992) return;
+        if(window.__mtDismissedAt && (Date.now()-window.__mtDismissedAt)<120000) return;
+        var pct=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+        if(pct>=10 && pct<50) {
+            if(toast.style.display==='none'||!toast.style.display) {
+                toast.style.display='block';
+                if(autoHideTimer) clearTimeout(autoHideTimer);
+                autoHideTimer=setTimeout(function() { toast.style.display='none'; window.__mtDismissedAt=Date.now(); }, 8000);
+            }
+        }
+    });
+})();
+
+/* Desktop toast */
+function dismissDesktopToast() { var t=document.getElementById('desktop-toast'); if(t) t.style.display='none'; window.__dtDismissedAt=Date.now(); }
+(function() {
+    var toast=document.getElementById('desktop-toast'); if(!toast) return;
+    var startTime=Date.now(); window.__dtDismissedAt=0; var autoHideTimer=null;
+    window.addEventListener('scroll', function() {
+        if(window.innerWidth<992) return;
+        if(window.__dtDismissedAt && (Date.now()-window.__dtDismissedAt)<120000) return;
+        var elapsed=(Date.now()-startTime)/1000;
+        var pct=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+        if(elapsed>=45 && pct>=15 && pct<60) {
+            var stickyBar=document.getElementById('sticky-cta-desktop');
+            var stickyVisible=stickyBar && stickyBar.style.display==='block';
+            if((toast.style.display==='none'||!toast.style.display) && !stickyVisible) {
+                toast.style.display='block';
+                if(autoHideTimer) clearTimeout(autoHideTimer);
+                autoHideTimer=setTimeout(function() { toast.style.display='none'; window.__dtDismissedAt=Date.now(); }, 12000);
+            }
+        }
+    });
+})();
+
+/* Video player */
+(function() {
+    var players=document.querySelectorAll('.mv-player'); if(!players.length) return;
+    var observer=new IntersectionObserver(function(entries) { entries.forEach(function(entry) { var video=entry.target.querySelector('video'); if(!entry.isIntersecting && !video.paused) video.pause(); }); }, {threshold:0.3});
+    players.forEach(function(player) {
+        observer.observe(player);
+        var video=player.querySelector('video'), progressFill=player.querySelector('.mv-progress-fill'), endCta=player.querySelector('.mv-end-cta'), muteBtn=player.querySelector('.mv-mute-btn'), playOverlay=player.querySelector('.mv-play-overlay');
+        video.addEventListener('playing', function() { if(playOverlay) { playOverlay.classList.add('playing'); playOverlay.classList.remove('paused'); } });
+        video.addEventListener('pause', function() { if(playOverlay && !endCta.classList.contains('show')) { playOverlay.classList.remove('playing'); playOverlay.classList.add('paused'); } });
+        video.addEventListener('timeupdate', function() { if(video.duration) progressFill.style.width=(video.currentTime/video.duration)*100+'%'; });
+        video.addEventListener('ended', function() { endCta.classList.add('show'); progressFill.style.width='100%'; if(playOverlay) playOverlay.classList.add('hidden'); });
+        video.addEventListener('click', function(e) { e.stopPropagation(); if(video.paused) video.play().catch(function(){}); else video.pause(); });
+        function handleMuteToggle(e) {
+            e.stopPropagation();
+            document.querySelectorAll('.mv-player video').forEach(function(v) { if(v!==video) { v.muted=true; var ob=v.closest('.mv-player').querySelector('.mv-mute-btn'); if(ob) { var o1=ob.querySelector('.mv-mute-x1'),o2=ob.querySelector('.mv-mute-x2'); if(o1)o1.style.display=''; if(o2)o2.style.display=''; } } });
+            if(video.muted) { video.muted=false; video.pause(); var ec=player.querySelector('.mv-end-cta'); if(ec) ec.classList.remove('show'); var pf=player.querySelector('.mv-progress-fill'); if(pf) pf.style.width='0%'; video.currentTime=0; video.addEventListener('seeked',function onS(){video.play().catch(function(){});video.removeEventListener('seeked',onS);}); }
+            else { video.muted=true; }
+            var x1=muteBtn.querySelector('.mv-mute-x1'),x2=muteBtn.querySelector('.mv-mute-x2');
+            if(video.muted){x1.style.display='';x2.style.display='';} else{x1.style.display='none';x2.style.display='none';}
+        }
+        muteBtn.addEventListener('click', handleMuteToggle);
+        muteBtn.addEventListener('touchend', function(e){e.preventDefault();handleMuteToggle(e);});
+    });
+})();
+function togglePlayPause(overlay) {
+    var player=overlay.closest('.mv-player'), video=player.querySelector('video');
+    if(!video.paused){video.pause();return;}
+    video.muted=false;
+    document.querySelectorAll('.mv-player video').forEach(function(v){if(v!==video){v.muted=true;v.pause();}});
+    function tryPlay(){video.play().catch(function(){video.muted=true;video.play().catch(function(){});});}
+    if(video.readyState>=2) tryPlay(); else { video.addEventListener('canplay',function onR(){tryPlay();video.removeEventListener('canplay',onR);}); video.load(); }
+    var mb=player.querySelector('.mv-mute-btn'); if(mb){var mx1=mb.querySelector('.mv-mute-x1'),mx2=mb.querySelector('.mv-mute-x2'); if(mx1)mx1.style.display='none'; if(mx2)mx2.style.display='none';}
+}
+function replayVideo(id) {
+    var player=document.querySelector('.mv-player[data-video-id="'+id+'"]'); if(!player) return;
+    var video=player.querySelector('video'), endCta=player.querySelector('.mv-end-cta'), pf=player.querySelector('.mv-progress-fill');
+    endCta.classList.remove('show'); pf.style.width='0%'; video.currentTime=0; video.play().catch(function(){});
+}
+</script>
 
 </body>
 
