@@ -66,13 +66,26 @@ window.__lo_site_id = 330757;
 	<link href="../css/vertical-atc.html" rel="stylesheet">
 	<link href="../css/promo2.html" rel="stylesheet" />
 
-<!-- === CREATIVE ASSET HOVER EFFECT === -->
+<!-- === CREATIVE ASSET STYLES === -->
 <style>
 img[src*="creative-assets/"] {
     transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
 }
 img[src*="creative-assets/"]:hover {
     transform: scale(1.05);
+}
+/* Prevent horizontal scroll from hover scale or oversized images */
+section, .container, .row, [class*="col-"] {
+    overflow: hidden;
+}
+@media (max-width: 767px) {
+    img[src*="creative-assets/"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
 }
 </style>
 
