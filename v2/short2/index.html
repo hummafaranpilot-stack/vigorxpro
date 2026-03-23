@@ -27,6 +27,28 @@
 
 <style>
 html, body { overflow-x: hidden; }
+
+/* Fix renamed section IDs — duplicate original #section_2 and #section_3 styles */
+#section_2a, #section_2b, #section_2c, #section_guarantee { background: transparent; }
+#section_2a .container, #section_2b .container, #section_2c .container, #section_guarantee .container { background-color: #010101; }
+#section_2a h1, #section_2b h1, #section_2c h1, #section_guarantee h1 { letter-spacing: -2px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,.5); text-align: left; color: #fff; }
+#section_2a h1.ctr, #section_2b h1.ctr, #section_2c h1.ctr, #section_guarantee h1.ctr { text-align: center; }
+
+#section_3a, #section_3b {
+    background-image: url(images/back1.jpg);
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    background-repeat: no-repeat;
+}
+#section_3a .gradient-transition, #section_3b .gradient-transition {
+    background-color: transparent;
+    background-image: url(images/white-gradient.png);
+    height: 60px;
+    position: relative;
+    background-repeat: no-repeat;
+}
 /* Creative asset images */
 .creative-img {
     border-radius: 12px;
@@ -1121,34 +1143,34 @@ html, body { overflow-x: hidden; }
 				letter-spacing: 0.5px;
 			}
 			/* Mobile Layout for Section 3 - 5 Elements */
-			#section_3 .row {
+			#section_3a .row, #section_3b .row {
 				flex-direction: column !important;
 			}
-			#section_3 .columns.large-8,
-			#section_3 .columns.large-4 {
+			#section_3a .columns.large-8, #section_3b .columns.large-8,
+			#section_3a .columns.large-4, #section_3b .columns.large-4 {
 				flex: 0 0 100% !important;
 				max-width: 100% !important;
 				width: 100% !important;
 				text-align: center !important;
 			}
-			#section_3 .sectionrightimg {
+			#section_3a .sectionrightimg, #section_3b .sectionrightimg {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				gap: 15px;
 				margin: 20px 0;
 			}
-			#section_3 .sectionrightimg img {
+			#section_3a .sectionrightimg img, #section_3b .sectionrightimg img {
 				max-width: 250px !important;
 				width: 90% !important;
 				margin: 0 auto;
 			}
-			#section_3 h3,
-			#section_3 h4,
-			#section_3 p {
+			#section_3a h3, #section_3b h3,
+			#section_3a h4, #section_3b h4,
+			#section_3a p, #section_3b p {
 				text-align: center !important;
 			}
-			#section_3 .drop-left-red {
+			#section_3a .drop-left-red, #section_3b .drop-left-red {
 				padding-left: 0 !important;
 				border-left: none !important;
 				border-bottom: 3px solid #c00;
