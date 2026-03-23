@@ -31,18 +31,12 @@
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.3px;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    animation: pulse 2s infinite;
-}
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    position: static;
+    z-index: auto;
 }
 .top-banner p { margin: 0; line-height: 1.3; }
-@media (max-width:768px){
-    .top-banner { font-size: 12px; padding: 5px 8px; }
+@media (max-width: 991px) {
+    .top-banner { display: none !important; }
 }
 </style>
 
@@ -676,6 +670,87 @@ window.__lo_site_id = 271871;
 			});
 		});
 	</script>
+
+<style>
+html, body { overflow-x: hidden; }
+.creative-img { border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; max-width: 100%; height: auto; }
+.creative-img:hover { transform: scale(1.05); }
+@media (max-width: 768px) { .creative-img { width: 100% !important; max-width: 100% !important; } }
+.mv-title { text-align: center; margin: 0 auto 8px; max-width: 550px; padding: 0 10px; }
+.mv-title h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin: 0; }
+.mv-title h3 .mv-highlight { color: #c8922a; font-style: italic; }
+@media (max-width: 768px) { .mv-title h3 { font-size: 18px; } }
+.mv-player { position: relative; max-width: 550px; margin: 0 auto 10px; border-radius: 10px; overflow: hidden; background: transparent; box-shadow: 0 4px 20px rgba(0,0,0,0.12); cursor: pointer; }
+.mv-player video { width: 100%; height: auto; display: block; max-height: 340px; object-fit: contain; background: #111; }
+.mv-progress-bar { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.2); z-index: 3; }
+.mv-progress-fill { height: 100%; width: 0%; background: #c8922a; transition: width 0.3s linear; }
+.mv-mute-btn { position: absolute; bottom: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; transition: background 0.2s; }
+.mv-mute-btn:hover { background: rgba(0,0,0,0.7); }
+.mv-mute-btn svg { width: 16px; height: 16px; }
+.mv-end-cta { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 5; }
+.mv-end-cta.show { display: flex; }
+.mv-end-cta-btn { background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032, #f0c85a, #c8922a); color: #000 !important; font-size: 16px; font-weight: 800; font-family: 'Montserrat', sans-serif; padding: 14px 32px; border-radius: 32px; text-decoration: none !important; text-transform: uppercase; letter-spacing: 0.5px; transition: transform 0.2s; }
+.mv-end-cta-btn:hover { transform: scale(1.05); }
+.mv-end-replay { color: rgba(255,255,255,0.7) !important; font-size: 13px; text-decoration: underline !important; cursor: pointer; background: none; border: none; font-family: 'Montserrat', sans-serif; }
+.mv-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #fff; font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; z-index: 4; }
+.mv-caption { text-align: center; font-size: 13px; color: #666; margin-top: 8px; font-style: italic; max-width: 550px; margin-left: auto; margin-right: auto; }
+@media (max-width: 768px) { .mv-player video { max-height: 240px; } .mv-player { margin: 0 10px 10px; } .mv-mute-btn { width: 28px; height: 28px; bottom: 10px; right: 10px; } }
+.mv-play-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; z-index: 4; cursor: pointer; }
+.mv-play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, background 0.2s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.mv-play-overlay:hover .mv-play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
+.mv-play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+.mv-play-overlay.playing, .mv-play-overlay.paused { top: auto; left: auto; bottom: 8px; right: 50px; align-items: flex-end; justify-content: flex-end; }
+.mv-play-overlay.playing .mv-play-btn, .mv-play-overlay.paused .mv-play-btn { width: 32px; height: 32px; box-shadow: none; border: none; }
+.mv-play-overlay.playing .mv-play-btn svg, .mv-play-overlay.paused .mv-play-btn svg { width: 14px; height: 14px; margin-left: 0; }
+.mv-play-overlay .mv-pause-icon { display: none; }
+.mv-play-overlay.playing .mv-play-icon { display: none; }
+.mv-play-overlay.playing .mv-pause-icon { display: block; }
+.mv-play-overlay.hidden { display: none; }
+@media (max-width: 768px) { .mv-play-btn { width: 52px; height: 52px; } .mv-play-btn svg { width: 20px; height: 20px; } }
+#sticky-cta-desktop { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); box-shadow: 0 -4px 30px rgba(0,0,0,0.4); animation: slideUpBar 0.5s ease; }
+@keyframes slideUpBar { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@media (max-width: 991px) { #sticky-cta-desktop { display: none !important; } }
+.sticky-cta-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 12px 30px; gap: 18px; }
+.sticky-cta-img { width: 52px; height: 52px; border-radius: 8px; object-fit: contain; background: rgba(255,255,255,0.08); padding: 4px; flex-shrink: 0; }
+.sticky-cta-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.sticky-cta-stars { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #c8922a; font-family: 'Montserrat', sans-serif; }
+.sticky-cta-stars span { color: rgba(255,255,255,0.6); font-weight: 500; }
+.sticky-cta-headline { font-size: 15px; font-weight: 800; font-family: 'Montserrat', sans-serif; color: #fff; }
+.sticky-cta-timer { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #ff6b6b; font-weight: 600; font-family: 'Montserrat', sans-serif; }
+.sticky-cta-timer-val { background: rgba(255,107,107,0.15); padding: 2px 8px; border-radius: 4px; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+.sticky-cta-btn { background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032, #f0c85a, #c8922a); color: #000 !important; font-size: 15px; font-weight: 800; font-family: 'Montserrat', sans-serif; padding: 14px 32px; border-radius: 32px; text-decoration: none !important; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; transition: transform 0.2s ease; flex-shrink: 0; }
+.sticky-cta-btn:hover { transform: scale(1.05); }
+.sticky-cta-close { background: none; border: none; color: rgba(255,255,255,0.35); font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1; flex-shrink: 0; }
+.sticky-cta-close:hover { color: rgba(255,255,255,0.8); }
+#mobile-toast { position: fixed; top: 0; left: 0; right: 0; z-index: 9996; animation: slideDownToast 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes slideDownToast { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@media (min-width: 992px) { #mobile-toast { display: none !important; } }
+.mobile-toast-inner { background: linear-gradient(135deg, #c8922a 0%, #e8b84a 100%); padding: 8px 12px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 25px rgba(0,0,0,0.2); max-width: 100vw; overflow: hidden; }
+.mobile-toast-content { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; }
+.mobile-toast-title { margin: 0; font-size: 12px; font-weight: 700; color: #fff; font-family: 'Montserrat', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 1; min-width: 0; }
+.mobile-toast-buttons { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.mobile-toast-btn-primary { background: #1a1a1a; color: #fff !important; padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none !important; font-family: 'Montserrat', sans-serif; white-space: nowrap; }
+.mobile-toast-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; padding: 0 2px; line-height: 1; flex-shrink: 0; }
+.mobile-toast-close:hover { color: #fff; }
+#desktop-toast { position: fixed; bottom: 110px; right: 25px; z-index: 9997; animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes slideInRight { from { transform: translateX(120%); } to { transform: translateX(0); } }
+@media (max-width: 991px) { #desktop-toast { display: none !important; } }
+.desktop-toast-inner { background: #fff; border-radius: 16px; padding: 0; box-shadow: 0 12px 40px rgba(0,0,0,0.18); width: 320px; font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden; }
+.desktop-toast-header { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); padding: 12px 18px; display: flex; align-items: center; gap: 8px; }
+.desktop-toast-header-icon { font-size: 16px; }
+.desktop-toast-header-text { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+.desktop-toast-body { padding: 16px 18px; display: flex; align-items: center; gap: 14px; }
+.desktop-toast-img { width: 50px; height: 50px; border-radius: 8px; object-fit: contain; flex-shrink: 0; }
+.desktop-toast-content { flex: 1; }
+.desktop-toast-title { margin: 0; font-size: 14px; font-weight: 700; color: #1a1a1a; }
+.desktop-toast-desc { margin: 3px 0 0; font-size: 12px; color: #666; }
+.desktop-toast-footer { padding: 0 18px 16px; display: flex; gap: 10px; align-items: center; }
+.desktop-toast-btn { flex: 1; background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032); color: #000 !important; padding: 10px 18px; border-radius: 32px; font-size: 13px; font-weight: 700; text-decoration: none !important; text-align: center; white-space: nowrap; transition: transform 0.2s; }
+.desktop-toast-btn:hover { transform: scale(1.03); }
+.desktop-toast-close { position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 16px; color: rgba(255,255,255,0.5); cursor: pointer; padding: 0; line-height: 1; }
+.desktop-toast-close:hover { color: #fff; }
+</style>
+
 </head>
 
 <body>
@@ -686,7 +761,7 @@ window.__lo_site_id = 271871;
 		</div>
 	</div>
 
-	<section id="" class="pb-0 pb-md-3">
+	<section class="pb-0 pb-md-3">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-lg-9 col-md-7 mx-auto text-center"> 
@@ -701,7 +776,7 @@ window.__lo_site_id = 271871;
 		</div>
 	</section>	
 
-	<section id="" class="pb-3">
+	<section class="pb-3">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9 col-lg-11 mx-auto text-center"> 
@@ -748,7 +823,21 @@ window.__lo_site_id = 271871;
 		<p class="secure-text my-2"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p>
 	</div>
 
-	<section id="">
+	<!-- MEDIA 1: Energy Transformation Video -->
+	<div style="padding:30px 15px;">
+		<div class="mv-title"><h3>Feel the <span class="mv-highlight">Energy Transformation</span></h3></div>
+		<div class="mv-player" data-video-id="vid-energy-transform">
+			<span class="mv-badge">Watch this</span>
+			<video muted playsinline preload="metadata"><source src="../../creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4"></video>
+			<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+			<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+			<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+			<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-energy-transform')">&#8635; Replay</button></div>
+		</div>
+		<p class="mv-caption">See what happens when vitality returns</p>
+	</div>
+
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -805,7 +894,7 @@ window.__lo_site_id = 271871;
 
 					<div class="col-lg-12 mx-auto">
 						<picture class="img-fluid mt-md-2 mt-0 mb-3">
-							<source class="" srcset="../../All Image Assets/Persons/ManWithED.jpg" type="image/webp"/>
+							<source class="" srcset="../../All Image Assets/Persons/ManWithED.jpg" type="image/jpeg"/>
 							<img loading="lazy" class="img-fluid img-100 mt-md-2 mt-0 mb-3 d-block mx-auto" src="../../All Image Assets/Persons/ManWithED.jpg" alt="">
 						</picture>
 					</div>
@@ -813,7 +902,13 @@ window.__lo_site_id = 271871;
 					<p><u><em>You may start noticing changes <span style="white-space:nowrap;">soon</span></em></u><sup class="bodyCit"></sup>, after you take it…</p>
 					<p>And yes… <span class="font-weight-bold text-highlight">it has the power to <em>literally</em> transform your prostate health.</span></p>
 
-					<!--START HEADLINE-->			  
+					<!-- MEDIA 2: Science/mechanism images -->
+					<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin:25px 0;">
+						<img src="../../creative-assets/doctor-comparison/demoonscreen.png" class="creative-img" alt="Prostate Health Science" style="max-width:280px; flex:1 1 250px;">
+						<img src="../../creative-assets/mens-health-awareness/67_id-67-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Testosterone Decline After 40" style="max-width:280px; flex:1 1 250px;">
+					</div>
+
+					<!--START HEADLINE-->
 					<div class="d-lg-block">
 						<div class="row">
 							<div class="col-12 mx-auto text-center py-2">
@@ -852,14 +947,28 @@ window.__lo_site_id = 271871;
 								</div>
 								<!-- NUDE-IMAGE -->
 								<picture class="img-fluid">
-									<source class="" srcset="../../All Image Assets/Persons/happy.jpg" type="image/webp"/>
+									<source class="" srcset="../../All Image Assets/Persons/happy.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid" src="../../All Image Assets/Persons/happy.jpg" alt="">
 								</picture>															
 							</div>
 						</div>
 					</div>
 
-					<!--START HEADLINE-->			  
+					<!-- MEDIA 3: Testimonial Video -->
+					<div style="margin:25px 0;">
+						<div class="mv-title"><h3>Real Men, <span class="mv-highlight">Real Results</span></h3></div>
+						<div class="mv-player" data-video-id="vid-testimonial">
+							<span class="mv-badge">Real customer</span>
+							<video muted playsinline preload="metadata"><source src="../../creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo(‘vid-testimonial’)">&#8635; Replay</button></div>
+						</div>
+						<p class="mv-caption">"I feel like a different man"</p>
+					</div>
+
+					<!--START HEADLINE-->
 					<div class="d-lg-block">
 						<div class="row">
 							<div class="col-12 mx-auto text-center py-2">
@@ -889,7 +998,7 @@ window.__lo_site_id = 271871;
 	font-family: 'Merriweather', serif;
 }
 </style>
-<section id="" class="">
+<section class="">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 mx-auto">
@@ -913,7 +1022,7 @@ window.__lo_site_id = 271871;
 					<div class="card-body">
 						<h3 class="text-center text-blue mb-3 font-weight-bold">“I actually feel healthier, <br class="d-none d-md-block">more energetic, and a lot stronger!”</h3>
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1961053928-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1961053928-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1961053928-612x612.jpg" width="125">	
 						</picture>			
 
@@ -941,7 +1050,7 @@ window.__lo_site_id = 271871;
 					<div class="card-body">
 						<h3 class="text-center text-blue mb-3 font-weight-bold">"I've noticed a change in my overall energy levels."</h3>
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1135381120-612x612.jpg" width="125">
 						</picture>
 
@@ -960,9 +1069,21 @@ window.__lo_site_id = 271871;
 				<p class="text-center secure-text my-2"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p>
 			</div>
 		</div>
+
+		<!-- MEDIA 4: Before/After Transformation Grid -->
+		<div style="margin:25px 0; padding:0 15px;">
+			<h4 style="text-align:center; font-weight:700; margin-bottom:15px;">Real Men. Real Results.<sup>&dagger;</sup></h4>
+			<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+				<img src="../../creative-assets/before-after/mark.jpg" class="creative-img" alt="Mark - Transformation" style="max-width:220px; flex:1 1 200px;">
+				<img src="../../creative-assets/before-after/nate.jpg" class="creative-img" alt="Nate - Transformation" style="max-width:220px; flex:1 1 200px;">
+				<img src="../../creative-assets/before-after/TestNumber3-min.jpg" class="creative-img" alt="Ivan - Transformation" style="max-width:220px; flex:1 1 200px;">
+			</div>
+			<p style="text-align:center; font-size:12px; color:#888; margin-top:8px;">&dagger;Individual results may vary. Names changed for privacy.</p>
+		</div>
+
 	</div>
 </section>
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -1000,7 +1121,21 @@ window.__lo_site_id = 271871;
 					<p><em class="font-weight-bold">Over 200,000 people have gotten dramatic results with these products.</em></p>	
 					<p>I love that I’ve improved the health of so many people, but if you ask me what <br class="d-none d-lg-block"><u><span style="white-space:nowrap;">my biggest</span> motivation</u> is…</p>
 
-					<!--START HEADLINE-->			  
+					<!-- MEDIA 5: Doctor Recommendation Video -->
+					<div style="margin:25px 0;">
+						<div class="mv-title"><h3>Why Doctors Recommend <span class="mv-highlight">VigorX Pro</span></h3></div>
+						<div class="mv-player" data-video-id="vid-doctor-rec">
+							<span class="mv-badge">Doctor recommended</span>
+							<video muted playsinline preload="metadata"><source src="../../creative-assets/videos/7_id-7-type-Doctor-Recommendation-niche-Trust-Author.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo(‘vid-doctor-rec’)">&#8635; Replay</button></div>
+						</div>
+						<p class="mv-caption">A natural approach backed by science</p>
+					</div>
+
+					<!--START HEADLINE-->
 					<div class="d-lg-block">
 						<div class="row">
 							<div class="col-12 mx-auto text-center py-2">
@@ -1044,7 +1179,7 @@ window.__lo_site_id = 271871;
 
 					<!-- NUDE-IMAGE -->
 					<picture class="img-fluid mb-4 d-block mx-auto">
-						<source class="" srcset="../../All Image Assets/Persons/FeltLikeAMan.jpg" type="image/webp"/>
+						<source class="" srcset="../../All Image Assets/Persons/FeltLikeAMan.jpg" type="image/jpeg"/>
 						<img loading="lazy" class="img-fluid mb-4 d-block mx-auto" src="../../All Image Assets/Persons/FeltLikeAMan.jpg" alt="">
 					</picture>
 
@@ -1068,7 +1203,7 @@ window.__lo_site_id = 271871;
 						<div class="d-flex justify-content-center mx-auto flex-wrap">
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-4 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_1.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Support Healthy <br class="d-none d-md-block d-lg-none">Prostate Health</h5>	
@@ -1076,7 +1211,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_2.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Supports healthy  <span style="white-space:nowrap;">urinary flow…</span></h5>
@@ -1084,7 +1219,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_3.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Support male <br class="d-none d-md-block">energy and stamina</h5>
@@ -1092,7 +1227,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_4.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Support healthy <span style="white-space:nowrap;">prostate size</span></h5>	
@@ -1100,7 +1235,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_5.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">And helps <span class="font-italic">support</span> your <br class="d-none d-md-block d-lg-none">prostate health…</h5>	
@@ -1125,7 +1260,7 @@ window.__lo_site_id = 271871;
 						<div class="col-12 col-md-11 row align-items-stretch justify-content-center mb-4 p-0" style="border: 1px solid rgba(0,0,0,.125);">
 							<div class="col-md-3 col-12 text-center order-md-2 mb-0 p-0">
 								<picture class="img-fluid">
-									<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid" src="../../lib/img/ingredient_6.jpg" alt="">
 								</picture>
 							</div>
@@ -1138,7 +1273,7 @@ window.__lo_site_id = 271871;
 						<div class="col-12 col-md-11 row align-items-stretch justify-content-center mb-4 p-0" style="border: 1px solid rgba(0,0,0,.125);">
 							<div class="col-md-3 col-12 text-center order-md-2 mb-0 p-0">
 								<picture class="img-fluid">
-									<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid" src="../../lib/img/ingredient_7.jpg" alt="">
 								</picture>
 							</div>
@@ -1151,7 +1286,7 @@ window.__lo_site_id = 271871;
 						<div class="col-12 col-md-11 row align-items-stretch justify-content-center mb-4 p-0" style="border: 1px solid rgba(0,0,0,.125);">
 							<div class="col-md-3 col-12 text-center order-md-2 mb-0 p-0">
 								<picture class="img-fluid">
-									<source class="" srcset="../../lib/img/ingredient_8.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_8.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid" src="../../lib/img/ingredient_8.jpg" alt="">
 								</picture>
 							</div>
@@ -1198,7 +1333,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 w-50-new" src="../../lib/img/ingredient_3.jpg" alt=""/>
 								</picture>
 								<h5 class="text-blue text-center mb-md-0 mb-3">Supporting healthy urinary flow</h5>
@@ -1206,7 +1341,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 w-50-new" src="../../lib/img/ingredient_2.jpg" alt=""/>
 								</picture>
 								<h5 class="text-blue text-center mb-md-0 mb-3">Boosting energy <br class="d-none d-lg-block">and stamina</h5>
@@ -1214,7 +1349,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 w-50-new" src="../../lib/img/ingredient_4.jpg" alt=""/>
 								</picture>
 								<h5 class="text-blue text-center mb-md-0">Supporting healthy <br class="d-none d-lg-block">prostate cell function</h5>
@@ -1246,7 +1381,7 @@ window.__lo_site_id = 271871;
 
 							<!-- NUDE-IMAGE - Replace with actual microscope/cell image -->
 							<picture class="img-fluid">
-								<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/webp"/>
+								<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/jpeg"/>
 								<img loading="lazy" class="img-fluid" src="../../lib/img/ingredient_7.jpg" alt="">
 							</picture>
 
@@ -1265,7 +1400,7 @@ window.__lo_site_id = 271871;
 
 							<!-- NUDE-IMAGE - Replace with actual microscope/cell image -->
 							<picture class="img-fluid">
-								<source class="" srcset="../../lib/img/ingredient_8.jpg" type="image/webp"/>
+								<source class="" srcset="../../lib/img/ingredient_8.jpg" type="image/jpeg"/>
 								<img loading="lazy" class="img-fluid" src="../../lib/img/ingredient_8.jpg" alt="">
 							</picture>
 
@@ -1288,7 +1423,7 @@ window.__lo_site_id = 271871;
 
 							<!-- NUDE-IMAGE - Replace with actual microscope/cell image -->
 							<picture class="img-fluid">
-								<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+								<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 								<img loading="lazy" class="img-fluid" src="../../lib/img/ingredient_1.jpg" alt="">
 							</picture>
 
@@ -1301,7 +1436,12 @@ window.__lo_site_id = 271871;
 						</div>
 					</div>
 
-					<!--START HEADLINE-->			  
+					<!-- MEDIA 7: Symptoms re-agitation image -->
+					<div style="text-align:center; margin:25px 0;">
+						<img src="../../creative-assets/mens-health-awareness/63_id-63-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Low Testosterone Symptoms" style="max-width:550px;">
+					</div>
+
+					<!--START HEADLINE-->
 					<div class="d-lg-block">
 						<div class="row">
 							<div class="col-12 mx-auto text-center py-2">
@@ -1318,7 +1458,7 @@ window.__lo_site_id = 271871;
 						<div class="d-flex justify-content-center justify-content-md-around justify-content-lg-center mx-auto flex-wrap">
 							<div class="col-12 col-md-4 text-center px-4 py-2 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="col-8 col-md-12 px-0 img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_1.jpg" alt="">
 								</picture>
 								<h5 class="text-success text-center mb-0 d-none d-lg-block">Help the body</h5>
@@ -1327,7 +1467,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 text-center px-4 py-2 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="col-8 col-md-12 px-0 img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_2.jpg" alt="">
 								</picture>
 								<h5 class="text-success text-center mb-0 d-none d-lg-block">Support healthy <br class="d-none d-lg-block">blood flow</h5>
@@ -1336,7 +1476,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 text-center px-4 py-2 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="col-8 col-md-12 px-0 img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_3.jpg" alt="">
 								</picture>
 								<h5 class="text-success text-center mb-0 d-none d-lg-block">Boost immunity</h5>
@@ -1345,7 +1485,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 text-center px-4 py-2 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="col-8 col-md-12 px-0 img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_4.jpg" alt="">
 								</picture>
 								<h5 class="text-success text-center mb-0 d-none d-lg-block">Support gut health</h5>
@@ -1354,7 +1494,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 text-center px-4 py-2 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="col-8 col-md-12 px-0 img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_5.jpg" alt="">
 								</picture>
 								<h5 class="text-success text-center mb-0 d-none d-lg-block">Improve bone health</h5>
@@ -1363,7 +1503,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 text-center px-4 py-2 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="col-8 col-md-12 px-0 img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_6.jpg" alt="">
 								</picture>
 								<h5 class="text-success text-center mb-0 d-none d-lg-block">Have powerful antioxidative effects</h5>
@@ -1389,7 +1529,7 @@ window.__lo_site_id = 271871;
 								<div class="row">
 									<div class="col-6 col-md-3 mx-auto my-auto">
 										<picture class="img-fluid mb-3">
-											<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+											<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 											<img loading="lazy" class="img-fluid img-100 mb-3 d-block mx-auto icon-size my-md-auto" src="../../lib/img/ingredient_2.jpg" alt="">
 										</picture>
 									</div>
@@ -1437,7 +1577,7 @@ window.__lo_site_id = 271871;
 									<!--DESKTOP-->
 									<!-- NUDE-IMAGE - Replace with appropriate image -->
 									<picture class="img-fluid mb-3 mx-auto ">
-										<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/webp"/>
+										<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/jpeg"/>
 										<img loading="lazy" class="img-fluid img-100 mb-3 d-block mx-auto" src="../../lib/img/ingredient_7.jpg" alt=""/>
 									</picture>
 									<!--DESKTOP-->
@@ -1448,7 +1588,7 @@ window.__lo_site_id = 271871;
 										<div class="col-10 col-md-5 order-md-1 my-auto mx-auto">
 											<!--Desktop-->
 											<picture class="img-fluid mt-md-2 mt-0 mb-3 mx-auto">
-												<source media="(min-width: 992px)" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+												<source media="(min-width: 992px)" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 												<img loading="lazy" class="img-fluid d-none d-md-block mx-auto mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_1.jpg" alt="">
 												<img loading="lazy" class="img-fluid d-md-none mx-auto mt-md-2 mt-0 mb-3 w-100" src="../../lib/img/ingredient_1.jpg" alt="">
 											</picture>
@@ -1466,7 +1606,7 @@ window.__lo_site_id = 271871;
 										<div class="d-flex justify-content-center mx-auto flex-wrap">
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-4 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_1.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Support healthy blood flow</h5>
@@ -1474,7 +1614,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_2.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Boost energy and stamina</h5>
@@ -1482,7 +1622,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_3.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Enhance male performance</h5>
@@ -1490,7 +1630,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_4.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Support healthy desire</h5>
@@ -1498,7 +1638,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_5.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Promote hormonal balance</h5>
@@ -1506,7 +1646,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_6.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Support muscle and energy recovery</h5>
@@ -1568,7 +1708,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_2.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Support healthy hormone levels</h5>
@@ -1576,7 +1716,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_3.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Enhance desire and performance</h5>
@@ -1584,7 +1724,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_5.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Improve overall vitality</h5>
@@ -1592,7 +1732,7 @@ window.__lo_site_id = 271871;
 
 											<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 												<picture class="img-fluid mt-md-2 mt-0 mb-3">
-													<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/webp"/>
+													<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/jpeg"/>
 													<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_6.jpg" alt="">
 												</picture>
 												<h5 class="text-blue text-center mb-0">Promote mental <br class="d-none d-md-block d-lg-none">clarity and focus</h5>
@@ -1622,7 +1762,7 @@ window.__lo_site_id = 271871;
 					<div class="row align-items-center">
 						<div class="col-md-5 order-md-1 text-center">
 							<picture class="img-fluid mt-md-2 mt-0 mb-3 text-center">
-								<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/webp"/>
+								<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/jpeg"/>
 								<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 w-75-new" src="../../lib/img/ingredient_7.jpg" alt=""
 								width="326" height="349"/>
 							</picture>
@@ -1649,6 +1789,20 @@ window.__lo_site_id = 271871;
 					</div>
 					<!--END HEADLINE-->
 
+					<!-- MEDIA 6: Natural Ingredients Video -->
+					<div style="margin:25px 0;">
+						<div class="mv-title"><h3>Nature's Most Powerful <span class="mv-highlight">Prostate-Supporting</span> Ingredients</h3></div>
+						<div class="mv-player" data-video-id="vid-ingredients">
+							<span class="mv-badge">100% natural</span>
+							<video muted playsinline preload="metadata"><source src="../../creative-assets/videos/4_id-4-type-Nature-Ingredients-niche-Natural-Organic.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-ingredients')">&#8635; Replay</button></div>
+						</div>
+						<p class="mv-caption">Sourced from nature, backed by science</p>
+					</div>
+
 					<div class="col-12 col-md-11 mx-auto pl-0 pr-0 text-center ">
 						<picture class="img-fluid img-100 mt-md-2 mt-0 mb-3">
 							<source class="" srcset="../../Images/7-bottles-vigor.webp" type="image/webp"/>
@@ -1664,7 +1818,7 @@ window.__lo_site_id = 271871;
 								<div class="row">
 									<div class="col-6 col-md-3 mx-auto my-auto">
 										<picture class="img-fluid mb-3">
-											<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+											<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 											<img loading="lazy" class="img-fluid img-100 mb-3 d-block mx-auto icon-size my-md-auto" src="../../lib/img/ingredient_1.jpg" alt="">
 										</picture>
 									</div>
@@ -1857,7 +2011,7 @@ window.__lo_site_id = 271871;
 	font-family: 'Merriweather', serif;
 }
 </style>
-<section id="" class="">
+<section class="">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 mx-auto">
@@ -1879,7 +2033,7 @@ window.__lo_site_id = 271871;
 				<div class="card bg-bright mb-3 col-lg-11 mx-auto">
 					<div class="card-body">
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1135381120-612x612.jpg" width="125">
 						</picture>
 
@@ -1918,7 +2072,7 @@ window.__lo_site_id = 271871;
 				<div class="card bg-bright mb-3 col-lg-11 mx-auto">
 					<div class="card-body">
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1961053928-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1961053928-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1961053928-612x612.jpg" width="125">
 						</picture>
 
@@ -1939,7 +2093,7 @@ window.__lo_site_id = 271871;
 		</div>
 	</div>
 </section>
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -1974,7 +2128,7 @@ window.__lo_site_id = 271871;
 		</div>
 	</section>
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -1998,7 +2152,7 @@ window.__lo_site_id = 271871;
 						<div class="d-flex justify-content-center mx-auto flex-wrap">
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-4 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_1.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Prostate Support</h5>	
@@ -2006,7 +2160,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_3.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Support healthy urinary flow</h5>
@@ -2022,7 +2176,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_2.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">Improve bladder control</h5>	
@@ -2030,7 +2184,7 @@ window.__lo_site_id = 271871;
 
 							<div class="col-12 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3 icon-90" src="../../lib/img/ingredient_4.jpg" alt="">
 								</picture>
 								<h5 class="text-blue text-center mb-0">And most importantly, <br class="d-block d-md-none">support healthy prostate size</h5>	
@@ -2288,7 +2442,7 @@ window.__lo_site_id = 271871;
 	font-family: 'Merriweather', serif;
 }
 </style>
-<section id="" class="">
+<section class="">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 mx-auto">
@@ -2298,7 +2452,7 @@ window.__lo_site_id = 271871;
 					<div class="card-body">
 						<h3 class="text-center text-blue mb-0 mb-md-3 font-weight-bold">"...My prostate symptoms have improved dramatically."</h3>
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1135381120-612x612.jpg" width="125">
 						</picture>
 
@@ -2312,7 +2466,7 @@ window.__lo_site_id = 271871;
 					<div class="card-body">
 						<h3 class="text-center text-blue mb-0 mb-md-3 font-weight-bold">"Before I started taking this product, <br class="d-none d-md-block">I was constantly uncomfortable."</h3>
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1961053928-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1961053928-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1961053928-612x612.jpg" width="125">
 						</picture>
 
@@ -2326,7 +2480,7 @@ window.__lo_site_id = 271871;
 					<div class="card-body">
 						<h3 class="text-center text-blue mb-0 mb-md-3 font-weight-bold">"My nighttime bathroom trips went from 5 to 1 <br class="d-block d-md-none">in 4 months."</h3>
 						<picture class="">
-							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/webp">
+							<source class="" srcset="../../Images/istockphoto-1135381120-612x612.jpg" type="image/jpeg">
 							<img loading="lazy" alt="" class="test-left-pic border-testimonial center-align-testimonial" src="../../Images/istockphoto-1135381120-612x612.jpg" width="125">
 						</picture>
 
@@ -2347,7 +2501,7 @@ window.__lo_site_id = 271871;
 		</div>
 	</div>
 </section>
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -2538,7 +2692,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -2623,7 +2777,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -2726,7 +2880,7 @@ window.__lo_site_id = 271871;
 						<div class="d-flex flex-wrap justify-content-xl-12-around mx-auto text-blue">
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_1.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_1.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0 mb-3">Horny Goat Weed</h5>
@@ -2734,7 +2888,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_2.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0 mb-3">Maca Root</h5>
@@ -2742,7 +2896,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_3.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0 mb-3">L-Arginine</h5>
@@ -2750,7 +2904,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_4.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0 mb-3">Muira Puama</h5>
@@ -2758,7 +2912,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_5.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_5.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0 mb-3">Panax Ginseng</h5>
@@ -2766,7 +2920,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_6.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_6.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0 mb-3">Tongkat Ali</h5>
@@ -2774,7 +2928,7 @@ window.__lo_site_id = 271871;
 
 							<div class="px-4 pb-3 col-lg-3 col-md-3 text-center">
 								<picture class="img-fluid mt-md-2 mt-0 mb-3">
-									<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/webp"/>
+									<source class="" srcset="../../lib/img/ingredient_7.jpg" type="image/jpeg"/>
 									<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3" src="../../lib/img/ingredient_7.jpg" alt="">
 								</picture>
 								<h5 class="text-center mb-md-0">Tribulus Terrestris</h5>
@@ -2820,7 +2974,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -2978,7 +3132,7 @@ window.__lo_site_id = 271871;
 		</div>
 	</div>
 </section>
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -3005,7 +3159,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -3495,7 +3649,7 @@ window.__lo_site_id = 271871;
 						<div class="col-md-5 order-md-1 my-auto">
 							<!-- NUDE-IMAGE - Replace with appropriate image -->
 							<picture class="img-fluid mt-md-2 mt-0 mb-3 text-center">
-								<source class="" srcset="../../lib/img/men-thinking.jpg" type="image/webp"/>
+								<source class="" srcset="../../lib/img/men-thinking.jpg" type="image/jpeg"/>
 								<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 img-100" src="../../lib/img/men-thinking.jpg" alt="">
 							</picture>
 						</div>
@@ -3538,7 +3692,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -3705,7 +3859,7 @@ window.__lo_site_id = 271871;
 	</section>			
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto">
@@ -3876,7 +4030,7 @@ window.__lo_site_id = 271871;
 											
 								<div class="col-11 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 									<picture class="img-fluid mt-md-2 mt-0 mb-3">
-										<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/webp">
+										<source class="" srcset="../../lib/img/ingredient_3.jpg" type="image/jpeg">
 										<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_3.jpg" alt="">
 									</picture>
 
@@ -3885,7 +4039,7 @@ window.__lo_site_id = 271871;
 
 								<div class="col-11 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 									<picture class="img-fluid mt-md-2 mt-0 mb-3">
-										<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/webp">
+										<source class="" srcset="../../lib/img/ingredient_2.jpg" type="image/jpeg">
 										<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_2.jpg" alt="">
 									</picture>
 
@@ -3894,7 +4048,7 @@ window.__lo_site_id = 271871;
 
 								<div class="col-11 col-md-4 col-lg-4 text-center px-2 px-md-4 py-3 py-md-0 mb-md-4">
 									<picture class="img-fluid mt-md-2 mt-0 mb-3">
-										<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/webp">
+										<source class="" srcset="../../lib/img/ingredient_4.jpg" type="image/jpeg">
 										<img loading="lazy" class="img-fluid mt-md-2 mt-0 mb-3 px-3" src="../../lib/img/ingredient_4.jpg" alt="">
 									</picture>
 														
@@ -3984,7 +4138,7 @@ window.__lo_site_id = 271871;
 				</div>
 			</section>
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto mt-2 mb-0">
@@ -4006,7 +4160,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto mt-2 mb-0">
@@ -4021,7 +4175,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto mt-2 mb-0">
@@ -4070,6 +4224,20 @@ window.__lo_site_id = 271871;
     </tr>
 </table>
 
+
+<!-- MEDIA 8: CTA Urgency Video -->
+<div style="padding:30px 15px;">
+  <div class="mv-title"><h3>Don't Wait &mdash; <span class="mv-highlight">Limited Supply</span> Available</h3></div>
+  <div class="mv-player" data-video-id="vid-urgency">
+    <span class="mv-badge">Act now</span>
+    <video muted playsinline preload="metadata"><source src="../../creative-assets/videos/15_id-15-type-CTA-Urgency-Display-niche-Conversion-im.mp4" type="video/mp4"></video>
+    <div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+    <div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+    <button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+    <div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-urgency')">&#8635; Replay</button></div>
+  </div>
+  <p class="mv-caption">Secure your bottles before stock runs out</p>
+</div>
 
 <!-- NEW PRICING CARDS -->
 <div id="buynow" class="mt-product-grid">
@@ -4669,7 +4837,7 @@ window.__lo_site_id = 271871;
          style="max-width:400px;">
 </div>
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto mt-2 mb-0">
@@ -4875,7 +5043,7 @@ window.__lo_site_id = 271871;
 	</section>
 
 
-	<section id="">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 mx-auto mt-2 mb-0">
@@ -4933,6 +5101,19 @@ window.__lo_site_id = 271871;
 	}
 }
 </style>
+
+<!-- MEDIA 9: Lifestyle aspirational images -->
+<section style="padding:30px 15px; background:#f8f8f8;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p style="text-align:center; font-size:16px; font-weight:600; color:#333; margin-bottom:20px;">Join thousands of men who've reclaimed their vitality with VigorX Pro&trade;</p>
+    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+      <img src="../../creative-assets/lifestyle/22_id-22-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" class="creative-img" alt="Happy couple" style="max-width:240px; flex:1 1 200px;">
+      <img src="../../creative-assets/lifestyle/21_id-21-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Morning vitality" style="max-width:240px; flex:1 1 200px;">
+      <img src="../../creative-assets/lifestyle/23_id-23-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Active lifestyle" style="max-width:240px; flex:1 1 200px;">
+      <img src="../../creative-assets/lifestyle/24_id-24-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Relaxed vitality" style="max-width:240px; flex:1 1 200px;">
+    </div>
+  </div>
+</section>
 
 <section class="references-section">
 <div class="container references-container">
@@ -5094,8 +5275,6 @@ window.__lo_site_id = 271871;
 	</div>
 </footer>
 
-<span id=disclaimer></span>
-<script src="https://display.buygoods.com/v1/disclaimer?id=disclaimer&account_id=12273"></script>
 
 <script src="../css/loader/loader.js"></script>
 <!--  -->
@@ -5191,7 +5370,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Social Proof Notification -->
 <link href="../../popup/css/style1.css" type="text/css" rel="stylesheet">
 <section class="custom-social-proof">
-    <div class="custom-notification">
+    <div class="custom-notification" style="display:none">
         <div class="custom-notification-container">
             <div class="custom-notification-image-wrapper">
                 <img src="../../Images/1-bottles-vigor.webp">
@@ -5313,5 +5492,66 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })();
 </script>
+
+<!-- Social Proof Timing Override -->
+<script>
+(function(){
+    var highestId=window.setTimeout(function(){},0);for(var i=0;i<highestId;i++){window.clearTimeout(i);window.clearInterval(i);}
+    var sp=$('.custom-social-proof');var dismissed=false;sp.hide();
+    function showN(){if(dismissed)return;if(typeof updateSocial==='function')updateSocial();sp.stop().slideDown('slow');setTimeout(function(){sp.stop().slideUp('slow');},6000);}
+    setTimeout(function(){showN();setInterval(function(){showN();},25000);},35000);
+    $('.custom-close').off('click').on('click',function(){sp.stop().slideUp('slow');dismissed=true;setTimeout(function(){dismissed=false;},120000);});
+})();
+</script>
+
+<!-- === STICKY BAR + TOASTS HTML === -->
+<div id="sticky-cta-desktop" style="display:none;">
+    <div class="sticky-cta-inner">
+        <img src="../../Images/1-bottles-vigor.webp" alt="VigorX Pro" class="sticky-cta-img">
+        <div class="sticky-cta-info">
+            <div class="sticky-cta-stars">&starf;&starf;&starf;&starf;&starf; <span>4.9/5 (2,847 reviews)</span></div>
+            <span class="sticky-cta-headline">Up to 61% OFF VigorX Pro&trade;</span>
+            <div class="sticky-cta-timer">Offer ends in <span class="sticky-cta-timer-val" id="sticky-timer">04:59:59</span></div>
+        </div>
+        <a href="#buynow" class="sticky-cta-btn" onclick="scrollToCards();return false;">ORDER NOW &rarr;</a>
+        <button class="sticky-cta-close" onclick="dismissStickyBar()" aria-label="Close">&times;</button>
+    </div>
+</div>
+<div id="mobile-toast" style="display:none;">
+    <div class="mobile-toast-inner">
+        <div class="mobile-toast-content">
+            <p class="mobile-toast-title">&darr; Up to 61% OFF &mdash; Limited Time</p>
+            <div class="mobile-toast-buttons"><a href="#buynow" class="mobile-toast-btn-primary" onclick="dismissMobileToast();scrollToCards();return false;">See Pricing</a></div>
+        </div>
+        <button class="mobile-toast-close" onclick="dismissMobileToast()" aria-label="Close">&times;</button>
+    </div>
+</div>
+<div id="desktop-toast" style="display:none;">
+    <div class="desktop-toast-inner">
+        <div class="desktop-toast-header"><span class="desktop-toast-header-icon">&#128293;</span><span class="desktop-toast-header-text">Popular right now</span></div>
+        <div class="desktop-toast-body">
+            <img src="../../Images/1-bottles-vigor.webp" alt="VigorX Pro" class="desktop-toast-img">
+            <div class="desktop-toast-content"><p class="desktop-toast-title">Up to 61% OFF Today</p><p class="desktop-toast-desc">Free shipping &bull; 60-day guarantee</p></div>
+        </div>
+        <div class="desktop-toast-footer"><a href="#buynow" class="desktop-toast-btn" onclick="dismissDesktopToast();scrollToCards();return false;">View Packages &rarr;</a></div>
+        <button class="desktop-toast-close" onclick="dismissDesktopToast()" aria-label="Close">&times;</button>
+    </div>
+</div>
+
+<!-- === ALL JS === -->
+<script>
+function scrollToCards(){var sb=document.getElementById('sticky-cta-desktop');if(sb)sb.style.display='none';var mt=document.getElementById('mobile-toast');if(mt)mt.style.display='none';var t=document.getElementById('buynow');if(t)t.scrollIntoView({block:'start'});}
+(function(){var t=document.getElementById('sticky-timer');if(!t)return;var total=5*3600-1;setInterval(function(){if(total<=0)return;total--;var h=Math.floor(total/3600),m=Math.floor((total%3600)/60),s=total%60;t.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;},1000);})();
+function dismissStickyBar(){var b=document.getElementById('sticky-cta-desktop');if(b)b.style.display='none';window.__stickyDismissedAt=Date.now();}
+(function(){var c=document.getElementById('sticky-cta-desktop');if(!c)return;window.__stickyDismissedAt=0;window.addEventListener('scroll',function(){if(window.innerWidth<992)return;if(window.__stickyDismissedAt&&(Date.now()-window.__stickyDismissedAt)<120000)return;var p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;if(p>3){if(c.style.display==='none'||!c.style.display)c.style.display='block';}});})();
+function dismissMobileToast(){var t=document.getElementById('mobile-toast');if(t)t.style.display='none';window.__mtDismissedAt=Date.now();}
+(function(){var t=document.getElementById('mobile-toast');if(!t)return;window.__mtDismissedAt=0;var ah=null;window.addEventListener('scroll',function(){if(window.innerWidth>=992)return;if(window.__mtDismissedAt&&(Date.now()-window.__mtDismissedAt)<120000)return;var p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;if(p>=10&&p<50){if(t.style.display==='none'||!t.style.display){t.style.display='block';if(ah)clearTimeout(ah);ah=setTimeout(function(){t.style.display='none';window.__mtDismissedAt=Date.now();},8000);}}});})();
+function dismissDesktopToast(){var t=document.getElementById('desktop-toast');if(t)t.style.display='none';window.__dtDismissedAt=Date.now();}
+(function(){var t=document.getElementById('desktop-toast');if(!t)return;var st=Date.now();window.__dtDismissedAt=0;var ah=null;window.addEventListener('scroll',function(){if(window.innerWidth<992)return;if(window.__dtDismissedAt&&(Date.now()-window.__dtDismissedAt)<120000)return;var el=(Date.now()-st)/1000;var p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;if(el>=45&&p>=15&&p<60){var sb=document.getElementById('sticky-cta-desktop');var sv=sb&&sb.style.display==='block';if((t.style.display==='none'||!t.style.display)&&!sv){t.style.display='block';if(ah)clearTimeout(ah);ah=setTimeout(function(){t.style.display='none';window.__dtDismissedAt=Date.now();},12000);}}});})();
+(function(){var ps=document.querySelectorAll('.mv-player');if(!ps.length)return;var ob=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');if(!e.isIntersecting&&!v.paused)v.pause();});},{threshold:0.3});ps.forEach(function(p){ob.observe(p);var v=p.querySelector('video'),pf=p.querySelector('.mv-progress-fill'),ec=p.querySelector('.mv-end-cta'),mb=p.querySelector('.mv-mute-btn'),po=p.querySelector('.mv-play-overlay');v.addEventListener('playing',function(){if(po){po.classList.add('playing');po.classList.remove('paused');}});v.addEventListener('pause',function(){if(po&&!ec.classList.contains('show')){po.classList.remove('playing');po.classList.add('paused');}});v.addEventListener('timeupdate',function(){if(v.duration)pf.style.width=(v.currentTime/v.duration)*100+'%';});v.addEventListener('ended',function(){ec.classList.add('show');pf.style.width='100%';if(po)po.classList.add('hidden');});v.addEventListener('click',function(e){e.stopPropagation();if(v.paused)v.play().catch(function(){});else v.pause();});function hmt(e){e.stopPropagation();document.querySelectorAll('.mv-player video').forEach(function(ov){if(ov!==v){ov.muted=true;var ob2=ov.closest('.mv-player').querySelector('.mv-mute-btn');if(ob2){var o1=ob2.querySelector('.mv-mute-x1'),o2=ob2.querySelector('.mv-mute-x2');if(o1)o1.style.display='';if(o2)o2.style.display='';}}});if(v.muted){v.muted=false;v.pause();var ec2=p.querySelector('.mv-end-cta');if(ec2)ec2.classList.remove('show');var pf2=p.querySelector('.mv-progress-fill');if(pf2)pf2.style.width='0%';v.currentTime=0;v.addEventListener('seeked',function onS(){v.play().catch(function(){});v.removeEventListener('seeked',onS);});}else{v.muted=true;}var x1=mb.querySelector('.mv-mute-x1'),x2=mb.querySelector('.mv-mute-x2');if(v.muted){x1.style.display='';x2.style.display='';}else{x1.style.display='none';x2.style.display='none';}}mb.addEventListener('click',hmt);mb.addEventListener('touchend',function(e){e.preventDefault();hmt(e);});});})();
+function togglePlayPause(o){var p=o.closest('.mv-player'),v=p.querySelector('video');if(!v.paused){v.pause();return;}v.muted=false;document.querySelectorAll('.mv-player video').forEach(function(ov){if(ov!==v){ov.muted=true;ov.pause();}});function tp(){v.play().catch(function(){v.muted=true;v.play().catch(function(){});});}if(v.readyState>=2)tp();else{v.addEventListener('canplay',function onR(){tp();v.removeEventListener('canplay',onR);});v.load();}var mb2=p.querySelector('.mv-mute-btn');if(mb2){var mx1=mb2.querySelector('.mv-mute-x1'),mx2=mb2.querySelector('.mv-mute-x2');if(mx1)mx1.style.display='none';if(mx2)mx2.style.display='none';}}
+function replayVideo(id){var p=document.querySelector('.mv-player[data-video-id="'+id+'"]');if(!p)return;var v=p.querySelector('video'),ec=p.querySelector('.mv-end-cta'),pf=p.querySelector('.mv-progress-fill');ec.classList.remove('show');pf.style.width='0%';v.currentTime=0;v.play().catch(function(){});}
+</script>
+
 </body>
 </html>
