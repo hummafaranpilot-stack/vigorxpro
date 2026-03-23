@@ -77,11 +77,11 @@ img[src*="creative-assets/"]:hover {
     transform: scale(1.05);
 }
 /* Prevent horizontal scroll from hover scale or oversized images */
-section:not(#footnote):not(#main-footer), .container, .row, [class*="col-"] {
-    overflow: hidden;
+html, body {
+    overflow-x: hidden;
 }
-#footnote, #main-footer, footer {
-    overflow: visible !important;
+[class*="col-"] {
+    overflow: hidden;
 }
 @media (max-width: 767px) {
     img[src*="creative-assets/"] {
