@@ -3,8 +3,6 @@
 
 
 
-<!-- Mirrored from moderndaysexualman.org/n/desktop/read/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 29 Jan 2026 07:58:41 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 <script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2"></script>
 
@@ -380,15 +378,6 @@
     <link rel="preload" href="images/MDSM2022Image%20(20).jpg" as="image">
     <link rel="preload" href="images/ManWithED.jpg" as="image">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLH6LKCJLZ"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-RLH6LKCJLZ');
-    </script>
 
     <script src = "js/jquery-3.6.0.min.js"></script>
     <script src = "js/bootstrap.min.js"></script>
@@ -396,7 +385,81 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../popup/css/style1.css">
-
+<style>
+html, body { overflow-x: hidden; }
+.creative-img { border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; max-width: 100%; height: auto; }
+.creative-img:hover { transform: scale(1.05); }
+@media (max-width: 768px) { .creative-img { width: 100% !important; max-width: 100% !important; } }
+.mv-title { text-align: center; margin: 0 auto 8px; max-width: 550px; padding: 0 10px; }
+.mv-title h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin: 0; }
+.mv-title h3 .mv-highlight { color: #c8922a; font-style: italic; }
+@media (max-width: 768px) { .mv-title h3 { font-size: 18px; } }
+.mv-player { position: relative; max-width: 550px; margin: 0 auto 10px; border-radius: 10px; overflow: hidden; background: transparent; box-shadow: 0 4px 20px rgba(0,0,0,0.12); cursor: pointer; }
+.mv-player video { width: 100%; height: auto; display: block; max-height: 340px; object-fit: contain; background: #111; }
+.mv-progress-bar { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.2); z-index: 3; }
+.mv-progress-fill { height: 100%; width: 0%; background: #c8922a; transition: width 0.3s linear; }
+.mv-mute-btn { position: absolute; bottom: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; }
+.mv-mute-btn:hover { background: rgba(0,0,0,0.7); }
+.mv-mute-btn svg { width: 16px; height: 16px; }
+.mv-end-cta { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 5; }
+.mv-end-cta.show { display: flex; }
+.mv-end-cta-btn { background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032, #f0c85a, #c8922a); color: #000 !important; font-size: 16px; font-weight: 800; padding: 14px 32px; border-radius: 32px; text-decoration: none !important; text-transform: uppercase; }
+.mv-end-cta-btn:hover { transform: scale(1.05); }
+.mv-end-replay { color: rgba(255,255,255,0.7) !important; font-size: 13px; text-decoration: underline !important; cursor: pointer; background: none; border: none; }
+.mv-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; z-index: 4; }
+.mv-caption { text-align: center; font-size: 13px; color: #666; margin-top: 8px; font-style: italic; max-width: 550px; margin-left: auto; margin-right: auto; }
+.mv-play-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; z-index: 4; cursor: pointer; }
+.mv-play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.mv-play-overlay:hover .mv-play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
+.mv-play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+.mv-play-overlay.playing, .mv-play-overlay.paused { top: auto; left: auto; bottom: 8px; right: 50px; }
+.mv-play-overlay.playing .mv-play-btn, .mv-play-overlay.paused .mv-play-btn { width: 32px; height: 32px; box-shadow: none; border: none; }
+.mv-play-overlay.playing .mv-play-btn svg, .mv-play-overlay.paused .mv-play-btn svg { width: 14px; height: 14px; margin-left: 0; }
+.mv-play-overlay .mv-pause-icon { display: none; }
+.mv-play-overlay.playing .mv-play-icon { display: none; }
+.mv-play-overlay.playing .mv-pause-icon { display: block; }
+.mv-play-overlay.hidden { display: none; }
+@media (max-width: 768px) { .mv-player video { max-height: 240px; } .mv-player { margin: 0 10px 10px; } .mv-play-btn { width: 52px; height: 52px; } .mv-play-btn svg { width: 20px; height: 20px; } }
+#sticky-cta-desktop { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); box-shadow: 0 -4px 30px rgba(0,0,0,0.4); animation: slideUpBar 0.5s ease; }
+@keyframes slideUpBar { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@media (max-width: 991px) { #sticky-cta-desktop { display: none !important; } }
+.sticky-cta-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 12px 30px; gap: 18px; }
+.sticky-cta-img { width: 52px; height: 52px; border-radius: 8px; object-fit: contain; background: rgba(255,255,255,0.08); padding: 4px; flex-shrink: 0; }
+.sticky-cta-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.sticky-cta-stars { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #c8922a; }
+.sticky-cta-stars span { color: rgba(255,255,255,0.6); font-weight: 500; }
+.sticky-cta-headline { font-size: 15px; font-weight: 800; color: #fff; }
+.sticky-cta-timer { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #ff6b6b; font-weight: 600; }
+.sticky-cta-timer-val { background: rgba(255,107,107,0.15); padding: 2px 8px; border-radius: 4px; }
+.sticky-cta-btn { background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032, #f0c85a, #c8922a); color: #000 !important; font-size: 15px; font-weight: 800; padding: 14px 32px; border-radius: 32px; text-decoration: none !important; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+.sticky-cta-btn:hover { transform: scale(1.05); }
+.sticky-cta-close { background: none; border: none; color: rgba(255,255,255,0.35); font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1; flex-shrink: 0; }
+#mobile-toast { position: fixed; top: 0; left: 0; right: 0; z-index: 9996; animation: slideDownToast 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes slideDownToast { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@media (min-width: 992px) { #mobile-toast { display: none !important; } }
+.mobile-toast-inner { background: linear-gradient(135deg, #c8922a 0%, #e8b84a 100%); padding: 8px 12px; display: flex; align-items: center; gap: 8px; max-width: 100vw; overflow: hidden; }
+.mobile-toast-content { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; }
+.mobile-toast-title { margin: 0; font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 1; min-width: 0; }
+.mobile-toast-buttons { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.mobile-toast-btn-primary { background: #1a1a1a; color: #fff !important; padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none !important; white-space: nowrap; }
+.mobile-toast-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; }
+#desktop-toast { position: fixed; bottom: 110px; right: 25px; z-index: 9997; animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes slideInRight { from { transform: translateX(120%); } to { transform: translateX(0); } }
+@media (max-width: 991px) { #desktop-toast { display: none !important; } }
+.desktop-toast-inner { background: #fff; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.18); width: 320px; position: relative; overflow: hidden; }
+.desktop-toast-header { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); padding: 12px 18px; display: flex; align-items: center; gap: 8px; }
+.desktop-toast-header-icon { font-size: 16px; }
+.desktop-toast-header-text { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; }
+.desktop-toast-body { padding: 16px 18px; display: flex; align-items: center; gap: 14px; }
+.desktop-toast-img { width: 50px; height: 50px; border-radius: 8px; object-fit: contain; flex-shrink: 0; }
+.desktop-toast-content { flex: 1; }
+.desktop-toast-title { margin: 0; font-size: 14px; font-weight: 700; color: #1a1a1a; }
+.desktop-toast-desc { margin: 3px 0 0; font-size: 12px; color: #666; }
+.desktop-toast-footer { padding: 0 18px 16px; display: flex; gap: 10px; align-items: center; }
+.desktop-toast-btn { flex: 1; background: linear-gradient(135deg, #c8922a, #e8b84a, #d4a032); color: #000 !important; padding: 10px 18px; border-radius: 32px; font-size: 13px; font-weight: 700; text-decoration: none !important; text-align: center; white-space: nowrap; }
+.desktop-toast-btn:hover { transform: scale(1.03); }
+.desktop-toast-close { position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 16px; color: rgba(255,255,255,0.5); cursor: pointer; }
+</style>
 </head>
 
 <body>
@@ -413,6 +476,19 @@
 
                 <h1 class="top-heading">How To Rock Her World In The Bedroom</h1>
                 <h6 class="subheading">By Eric Von Sydow (Hypnotica)</h6>
+
+<div style="padding:25px 15px;">
+  <div class="mv-title"><h3>Feel the <span class="mv-highlight">Energy Transformation</span></h3></div>
+  <div class="mv-player" data-video-id="vid-energy-transform">
+    <span class="mv-badge">Watch this</span>
+    <video muted playsinline preload="metadata"><source src="../creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4"></video>
+    <div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+    <div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+    <button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+    <div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-energy-transform')">&#8635; Replay</button></div>
+  </div>
+  <p class="mv-caption">See what happens when vitality returns</p>
+</div>
 
                 <div class="card card-right">
                     <img class="card-img-top" src="images/teachinglive.jpg">
@@ -729,7 +805,22 @@
                 <p>This is the reason that today… I'm a completely different person.</p>
                 <p><strong>It's the reason I'm able to live in a polyamorous relationship</strong> with my wife… and 3 other attractive, sexually demanding women in their early 20s.</p>
                 <p>And VigorX Pro keeps me energized and performing at my best… while I feel raging sexual energy & pleasure… all the time… even if I have sex 3 or 4 times in a day.</p>
-                
+
+<div style="padding:25px 15px;">
+  <div class="mv-title"><h3>How <span class="mv-highlight">Prostate Health</span> Affects Everything</h3></div>
+  <div class="mv-player" data-video-id="vid-prostate-science">
+    <span class="mv-badge">The science</span>
+    <video muted playsinline preload="metadata"><source src="../creative-assets/videos/10_id-10-type-Prostate-Health-Relief-niche-Health-Com.mp4" type="video/mp4"></video>
+    <div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+    <div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+    <button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+    <div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-prostate-science')">&#8635; Replay</button></div>
+  </div>
+  <p class="mv-caption">Understanding the root cause</p>
+</div>
+
+<div class="text-center py-3"><img src="../creative-assets/mens-health-awareness/67_id-67-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Testosterone decline" class="creative-img" style="max-width:500px; flex:0 0 auto;"></div>
+
                 <!-- EARLY PRICING SECTION (30% into content) -->
                 <section id="bottomorder" style="padding: 20px 0;">
                 <div class="text-center mb-3">
@@ -889,6 +980,27 @@
                   </div>
                 </div>
 
+<div style="padding:25px 15px;">
+  <div class="mv-title"><h3>Real Men, <span class="mv-highlight">Real Results</span></h3></div>
+  <div class="mv-player" data-video-id="vid-testimonial">
+    <span class="mv-badge">Real customer</span>
+    <video muted playsinline preload="metadata"><source src="../creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" type="video/mp4"></video>
+    <div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+    <div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+    <button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+    <div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-testimonial')">&#8635; Replay</button></div>
+  </div>
+  <p class="mv-caption">"I feel like a different man"</p>
+</div>
+
+<div class="container py-3">
+  <h4 class="text-center mb-3" style="font-weight:700;">Real Men. Real Results.&dagger;</h4>
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 mb-3 text-center"><img src="../creative-assets/before-after/mark.jpg" alt="Mark's results" class="creative-img" style="max-width:320px; flex:0 0 auto;"></div>
+    <div class="col-md-4 col-12 mb-3 text-center"><img src="../creative-assets/before-after/nate.jpg" alt="Nate's results" class="creative-img" style="max-width:320px; flex:0 0 auto;"></div>
+    <div class="col-md-4 col-12 mb-3 text-center"><img src="../creative-assets/before-after/TestNumber3-min.jpg" alt="Results" class="creative-img" style="max-width:320px; flex:0 0 auto;"></div>
+  </div>
+</div>
 
                 <div class="button-center riskfree text-center text-uppercase my-3">
                   <a class="action" style="color:#000;" href="#buynow">TRY NOW — GET UP TO 61% OFF <i class="fas fa-arrow-right"></i></a>
@@ -946,6 +1058,19 @@
                   <a class="action" style="color:#000;" href="#buynow">TRY NOW — GET UP TO 61% OFF <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <p class="text-center secure-text my-2"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p>
+
+<div style="padding:25px 15px;">
+  <div class="mv-title"><h3>Nature's Most Powerful <span class="mv-highlight">Prostate-Supporting</span> Ingredients</h3></div>
+  <div class="mv-player" data-video-id="vid-ingredients">
+    <span class="mv-badge">100% natural</span>
+    <video muted playsinline preload="metadata"><source src="../creative-assets/videos/4_id-4-type-Nature-Ingredients-niche-Natural-Organic.mp4" type="video/mp4"></video>
+    <div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+    <div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+    <button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+    <div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-ingredients')">&#8635; Replay</button></div>
+  </div>
+  <p class="mv-caption">Sourced from nature, backed by science</p>
+</div>
 
                 <h1>How "Dopamine Hijacking" Depletes Your Sex Drive</h1>
 
@@ -1224,6 +1349,19 @@
                   <a class="action" style="color:#000;" href="#buynow">TRY NOW — GET UP TO 61% OFF <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <p class="text-center secure-text my-2"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p>
+
+<div style="padding:25px 15px;">
+  <div class="mv-title"><h3>Don't Wait &mdash; <span class="mv-highlight">Limited Supply</span> Available</h3></div>
+  <div class="mv-player" data-video-id="vid-urgency">
+    <span class="mv-badge">Act now</span>
+    <video muted playsinline preload="metadata"><source src="../creative-assets/videos/15_id-15-type-CTA-Urgency-Display-niche-Conversion-im.mp4" type="video/mp4"></video>
+    <div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+    <div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+    <button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+    <div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-urgency')">&#8635; Replay</button></div>
+  </div>
+  <p class="mv-caption">Secure your bottles before stock runs out</p>
+</div>
 
                 <h1>Here's What VigorX Pro Does For You:</h1>
 
@@ -1858,6 +1996,16 @@
                 <p>Good luck man! Hope you love VigorX Pro!</p>
                 <p>- The Trusted Nutra Products Team</p>
 
+<div class="container py-4" style="background:#fafafa; border-radius:12px; margin-bottom:30px;">
+  <p class="text-center mb-3" style="font-size:16px; font-weight:700; color:#333;">Join thousands of men who've reclaimed their vitality with VigorX Pro&trade;</p>
+  <div class="row justify-content-center">
+    <div class="col-md-3 col-6 mb-3 text-center"><img src="../creative-assets/lifestyle/22_id-22-imagereference-1-bottles-vigorpng-prompt-A-c.jpg" alt="Active lifestyle" class="creative-img" style="max-width:240px; flex:0 0 auto;"></div>
+    <div class="col-md-3 col-6 mb-3 text-center"><img src="../creative-assets/lifestyle/21_id-21-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Healthy living" class="creative-img" style="max-width:240px; flex:0 0 auto;"></div>
+    <div class="col-md-3 col-6 mb-3 text-center"><img src="../creative-assets/lifestyle/23_id-23-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Vitality" class="creative-img" style="max-width:240px; flex:0 0 auto;"></div>
+    <div class="col-md-3 col-6 mb-3 text-center"><img src="../creative-assets/lifestyle/24_id-24-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" alt="Confidence" class="creative-img" style="max-width:240px; flex:0 0 auto;"></div>
+  </div>
+</div>
+
                 <footer class="bump-bottom-sm text-center footer-text" style="clear: both;">
                     <p><a class="footer-a" href="../short/go/index.html">Get Started</a> | <a class="footer-a" href="../Privacy policy.html">Privacy</a> | <a class="footer-a" href="../Terms & Conditions.html">Terms</a> | <a class="footer-a" href="../contact.html">Contact Us</a> | <a class="footer-a" href="../Return Policy.html">Return Policy</a></p>
                     <p class="footer-p">Copyright &copy; 2024 &#8211; 2026 TRUSTED NUTRA PRODUCTS&#8482;. ALL RIGHTS RESERVED.</p>
@@ -1867,8 +2015,6 @@
 
                 </footer>
 
-<span id=disclaimer></span>
-<script src="https://display.buygoods.com/v1/disclaimer?id=disclaimer&account_id=12273"></script>
 
             </div>
 
@@ -1876,7 +2022,7 @@
 
     <!-- Social Proof Notification -->
     <section class="custom-social-proof">
-        <div class="custom-notification">
+        <div class="custom-notification" style="display:none">
             <div class="custom-notification-container">
                 <div class="custom-notification-image-wrapper">
                     <img src="../Images/1-bottles-vigor.webp">
@@ -2025,23 +2171,30 @@
       $('.custom-notification-image-wrapper img').attr('src', rProduct.image);
     }
 
-    setInterval(function() {
-      var divID = $('.custom-social-proof');
-      if (divID.is(':hidden')) {
-        $('.custom-social-proof').stop().slideToggle('slow');
-        updateSocial();
-      } else {
-        $(divID).stop().slideToggle('slow');
-      }
-    }, 7000);
-
-    $('.custom-close').click(function() {
-      $('.custom-social-proof').stop().slideToggle('slow');
-    });
+/* Social proof: 35s initial, 6s show, 25s repeat, 2-min cooldown */
+(function(){var sp=$('.custom-social-proof');var d=false;sp.hide();function s(){if(d)return;if(typeof updateSocial==='function')updateSocial();sp.stop().slideDown('slow');setTimeout(function(){sp.stop().slideUp('slow');},6000);}setTimeout(function(){s();setInterval(function(){s();},25000);},35000);$('.custom-close').off('click').on('click',function(){sp.stop().slideUp('slow');d=true;setTimeout(function(){d=false;},120000);});})();
     </script>
+
+<!-- Sticky bar + toasts -->
+<div id="sticky-cta-desktop" style="display:none;"><div class="sticky-cta-inner"><img src="../Images/1-bottles-vigor.webp" alt="VigorX Pro" class="sticky-cta-img"><div class="sticky-cta-info"><div class="sticky-cta-stars">&starf;&starf;&starf;&starf;&starf; <span>4.9/5 (2,847 reviews)</span></div><span class="sticky-cta-headline">Up to 61% OFF VigorX Pro&trade;</span><div class="sticky-cta-timer">Offer ends in <span class="sticky-cta-timer-val" id="sticky-timer">04:59:59</span></div></div><a href="#buynow" class="sticky-cta-btn" onclick="scrollToCards();return false;">ORDER NOW &rarr;</a><button class="sticky-cta-close" onclick="dismissStickyBar()" aria-label="Close">&times;</button></div></div>
+<div id="mobile-toast" style="display:none;"><div class="mobile-toast-inner"><div class="mobile-toast-content"><p class="mobile-toast-title">&darr; Up to 61% OFF &mdash; Limited Time</p><div class="mobile-toast-buttons"><a href="#buynow" class="mobile-toast-btn-primary" onclick="dismissMobileToast();scrollToCards();return false;">See Pricing</a></div></div><button class="mobile-toast-close" onclick="dismissMobileToast()" aria-label="Close">&times;</button></div></div>
+<div id="desktop-toast" style="display:none;"><div class="desktop-toast-inner"><div class="desktop-toast-header"><span class="desktop-toast-header-icon">&#128293;</span><span class="desktop-toast-header-text">Popular right now</span></div><div class="desktop-toast-body"><img src="../Images/1-bottles-vigor.webp" alt="VigorX Pro" class="desktop-toast-img"><div class="desktop-toast-content"><p class="desktop-toast-title">Up to 61% OFF Today</p><p class="desktop-toast-desc">Free shipping &bull; 60-day guarantee</p></div></div><div class="desktop-toast-footer"><a href="#buynow" class="desktop-toast-btn" onclick="dismissDesktopToast();scrollToCards();return false;">View Packages &rarr;</a></div><button class="desktop-toast-close" onclick="dismissDesktopToast()" aria-label="Close">&times;</button></div></div>
+
+<script>
+function scrollToCards(){var sb=document.getElementById('sticky-cta-desktop');if(sb)sb.style.display='none';var mt=document.getElementById('mobile-toast');if(mt)mt.style.display='none';var t=document.getElementById('buynow');if(t)t.scrollIntoView({block:'start'});}
+(function(){var t=document.getElementById('sticky-timer');if(!t)return;var total=5*3600-1;setInterval(function(){if(total<=0)return;total--;var h=Math.floor(total/3600),m=Math.floor((total%3600)/60),s=total%60;t.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;},1000);})();
+function dismissStickyBar(){var b=document.getElementById('sticky-cta-desktop');if(b)b.style.display='none';window.__stickyDismissedAt=Date.now();}
+(function(){var c=document.getElementById('sticky-cta-desktop');if(!c)return;window.__stickyDismissedAt=0;window.addEventListener('scroll',function(){if(window.innerWidth<992)return;if(window.__stickyDismissedAt&&(Date.now()-window.__stickyDismissedAt)<120000)return;var p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;if(p>3){if(c.style.display==='none'||!c.style.display)c.style.display='block';}});})();
+function dismissMobileToast(){var t=document.getElementById('mobile-toast');if(t)t.style.display='none';window.__mtDismissedAt=Date.now();}
+(function(){var t=document.getElementById('mobile-toast');if(!t)return;window.__mtDismissedAt=0;var ah=null;window.addEventListener('scroll',function(){if(window.innerWidth>=992)return;if(window.__mtDismissedAt&&(Date.now()-window.__mtDismissedAt)<120000)return;var p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;if(p>=10&&p<50){if(t.style.display==='none'||!t.style.display){t.style.display='block';if(ah)clearTimeout(ah);ah=setTimeout(function(){t.style.display='none';window.__mtDismissedAt=Date.now();},8000);}}});})();
+function dismissDesktopToast(){var t=document.getElementById('desktop-toast');if(t)t.style.display='none';window.__dtDismissedAt=Date.now();}
+(function(){var t=document.getElementById('desktop-toast');if(!t)return;var st=Date.now();window.__dtDismissedAt=0;var ah=null;window.addEventListener('scroll',function(){if(window.innerWidth<992)return;if(window.__dtDismissedAt&&(Date.now()-window.__dtDismissedAt)<120000)return;var el=(Date.now()-st)/1000;var p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;if(el>=45&&p>=15&&p<60){var sb=document.getElementById('sticky-cta-desktop');var sv=sb&&sb.style.display==='block';if((t.style.display==='none'||!t.style.display)&&!sv){t.style.display='block';if(ah)clearTimeout(ah);ah=setTimeout(function(){t.style.display='none';window.__dtDismissedAt=Date.now();},12000);}}});})();
+(function(){var ps=document.querySelectorAll('.mv-player');if(!ps.length)return;var ob=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');if(!e.isIntersecting&&!v.paused)v.pause();});},{threshold:0.3});ps.forEach(function(p){ob.observe(p);var v=p.querySelector('video'),pf=p.querySelector('.mv-progress-fill'),ec=p.querySelector('.mv-end-cta'),mb=p.querySelector('.mv-mute-btn'),po=p.querySelector('.mv-play-overlay');v.addEventListener('playing',function(){if(po){po.classList.add('playing');po.classList.remove('paused');}});v.addEventListener('pause',function(){if(po&&!ec.classList.contains('show')){po.classList.remove('playing');po.classList.add('paused');}});v.addEventListener('timeupdate',function(){if(v.duration)pf.style.width=(v.currentTime/v.duration)*100+'%';});v.addEventListener('ended',function(){ec.classList.add('show');pf.style.width='100%';if(po)po.classList.add('hidden');});v.addEventListener('click',function(e){e.stopPropagation();if(v.paused)v.play().catch(function(){});else v.pause();});function hmt(e){e.stopPropagation();document.querySelectorAll('.mv-player video').forEach(function(ov){if(ov!==v){ov.muted=true;}});if(v.muted){v.muted=false;v.pause();ec.classList.remove('show');pf.style.width='0%';v.currentTime=0;v.addEventListener('seeked',function onS(){v.play().catch(function(){});v.removeEventListener('seeked',onS);});}else{v.muted=true;}var x1=mb.querySelector('.mv-mute-x1'),x2=mb.querySelector('.mv-mute-x2');if(v.muted){x1.style.display='';x2.style.display='';}else{x1.style.display='none';x2.style.display='none';}}mb.addEventListener('click',hmt);mb.addEventListener('touchend',function(e){e.preventDefault();hmt(e);});});})();
+function togglePlayPause(o){var p=o.closest('.mv-player'),v=p.querySelector('video');if(!v.paused){v.pause();return;}v.muted=false;document.querySelectorAll('.mv-player video').forEach(function(ov){if(ov!==v){ov.muted=true;ov.pause();}});function tp(){v.play().catch(function(){v.muted=true;v.play().catch(function(){});});}if(v.readyState>=2)tp();else{v.addEventListener('canplay',function onR(){tp();v.removeEventListener('canplay',onR);});v.load();}var mb2=p.querySelector('.mv-mute-btn');if(mb2){var mx1=mb2.querySelector('.mv-mute-x1'),mx2=mb2.querySelector('.mv-mute-x2');if(mx1)mx1.style.display='none';if(mx2)mx2.style.display='none';}}
+function replayVideo(id){var p=document.querySelector('.mv-player[data-video-id="'+id+'"]');if(!p)return;var v=p.querySelector('video'),ec=p.querySelector('.mv-end-cta'),pf=p.querySelector('.mv-progress-fill');ec.classList.remove('show');pf.style.width='0%';v.currentTime=0;v.play().catch(function(){});}
+</script>
 
 </body>
 
 
-<!-- Mirrored from moderndaysexualman.org/n/desktop/read/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 29 Jan 2026 07:59:13 GMT -->
 </html>
