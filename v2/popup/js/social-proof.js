@@ -61,16 +61,26 @@ function updateSocial() {
   }
 }
 
-setInterval(function() {
-  var  divID = $('.custom-social-proof');
-  if (divID.is(':hidden')) {
-    $('.custom-social-proof').stop().slideToggle('slow');
+// Social proof timing: 35s initial delay, 6s show, 25s repeat
+(function() {
+  var showDuration = 6000;
+  var repeatInterval = 25000;
+  var initialDelay = 35000;
+
+  function showNotification() {
     updateSocial();
-  } else {
-    $(divID).stop().slideToggle('slow');
+    $('.custom-social-proof').stop().slideDown('slow');
+    setTimeout(function() {
+      $('.custom-social-proof').stop().slideUp('slow');
+    }, showDuration);
   }
-}, 7000);
+
+  setTimeout(function() {
+    showNotification();
+    setInterval(showNotification, repeatInterval);
+  }, initialDelay);
+})();
 
 $('.custom-close').click(function() {
-  $('.custom-social-proof').stop().slideToggle('slow');
+  $('.custom-social-proof').stop().slideUp('slow');
 });
