@@ -554,6 +554,24 @@ html, body {
 		object-fit: contain;
 	}
 
+	/* Collage images in product section - override max-height restrictions */
+	#prod-description .product-collage img {
+		max-height: none !important;
+		width: 100% !important;
+		height: auto !important;
+		object-fit: cover;
+	}
+	@media (max-width: 991px) {
+		#prod-description .product-collage {
+			max-width: 400px;
+		}
+	}
+	@media (max-width: 480px) {
+		#prod-description .product-collage {
+			max-width: 300px;
+		}
+	}
+
 	/* Fix oversized images on mobile */
 	@media (max-width: 767px) {
 		#moneyback img,
@@ -1131,7 +1149,7 @@ html, body {
 			<div class="col-12 col-lg-11 mx-auto">
 				<div class="row ">
 					<div class="col-12 col-lg-6">
-						<div style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;">
+						<div class="product-collage" style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;">
 							<img src="../../creative-assets/hook-clips/29_id-29-imagereference-1-bottles-vigorpng-prompt-A-s.jpg" class="img-fluid w-100" alt="VigorX Pro" style="border-radius: 8px;">
 							<img src="../../creative-assets/unboxing/47_id-47-imagereference-1-bottles-vigorpng-prompt-Clo.jpg" class="img-fluid w-100" alt="VigorX Pro" style="border-radius: 8px;">
 						</div>
@@ -1749,7 +1767,7 @@ bottom: unset;
 			<div class="col-12 col-lg-11 mx-auto">
 				<div class="row ">
 					<div class="col-12 col-lg-6">
-						<div style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;">
+						<div class="product-collage" style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;">
 							<img src="../../creative-assets/hook-clips/29_id-29-imagereference-1-bottles-vigorpng-prompt-A-s.jpg" class="img-fluid w-100" alt="VigorX Pro" style="border-radius: 8px;">
 							<img src="../../creative-assets/unboxing/47_id-47-imagereference-1-bottles-vigorpng-prompt-Clo.jpg" class="img-fluid w-100" alt="VigorX Pro" style="border-radius: 8px;">
 						</div>
