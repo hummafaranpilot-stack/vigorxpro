@@ -72,7 +72,14 @@
     /* Mobile Responsive */
     @media (max-width: 600px) {
         .logo-img {
-            width: 100px;
+            width: 70px;
+        }
+        .logo-wrapper {
+            padding: 8px 14px;
+            border-radius: 4px;
+        }
+        .logo-container {
+            margin-top: 8px;
         }
     }
 </style>
@@ -750,6 +757,15 @@ img { max-width: 100%; height: auto; object-fit: contain; }
 .desktop-toast-btn:hover { transform: scale(1.03); }
 .desktop-toast-close { position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 16px; color: rgba(255,255,255,0.5); cursor: pointer; padding: 0; line-height: 1; }
 .desktop-toast-close:hover { color: #fff; }
+
+/* Mobile layout fix — reduce sizes for hero area */
+@media (max-width: 576px) {
+    h1.headline-small { font-size: 22px; line-height: 1.1; margin-top: 8px !important; }
+    .bg-bright { padding: 8px 12px !important; }
+    .bg-bright h4 { font-size: 13px; line-height: 1.3; }
+    section.pb-0 { padding-bottom: 0 !important; }
+    section.pb-3 { padding-bottom: 8px !important; }
+}
 </style>
 
 </head>
