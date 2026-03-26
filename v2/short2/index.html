@@ -64,6 +64,13 @@ html, body { overflow-x: hidden; }
     .creative-img {
         width: 100% !important;
         max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain;
+    }
+    /* Prevent stretching for side-by-side images in flex containers */
+    div[style*="display:flex"] .creative-img {
+        width: auto !important;
+        max-width: 48% !important;
     }
 }
 </style>
@@ -87,7 +94,7 @@ html, body { overflow-x: hidden; }
 .mv-end-cta-btn:hover { transform: scale(1.05); background: linear-gradient(135deg, #d4a032, #f0c85a, #e0b040, #f5d76e, #d4a032); }
 .mv-end-replay { color: rgba(255,255,255,0.7) !important; font-size: 13px; text-decoration: underline !important; cursor: pointer; background: none; border: none; font-family: 'Montserrat', sans-serif; }
 .mv-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #fff; font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; z-index: 4; }
-.mv-caption { text-align: center; font-size: 13px; color: #666; margin-top: 8px; font-style: italic; max-width: 550px; margin-left: auto; margin-right: auto; }
+.mv-caption { text-align: center; font-size: 13px; color: #ccc; margin-top: 8px; font-style: italic; max-width: 550px; margin-left: auto; margin-right: auto; }
 @media (max-width: 768px) { .mv-player video { max-height: 240px; } .mv-player { margin: 0 10px 10px; } .mv-mute-btn { width: 28px; height: 28px; bottom: 10px; right: 10px; } }
 .mv-play-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; z-index: 4; cursor: pointer; }
 .mv-play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, background 0.2s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
@@ -511,7 +518,7 @@ html, body { overflow-x: hidden; }
 										<h3 class="ctr giga caps">You've Been Sabotaged And Basically Had Your Penis Cut Off <span class="accent">Without Even Knowing It</span></h3>
 					<p>The world we live in today has set you up to fail, and you probably  don&rsquo;t realize it…</p>
                     <p>Does this sound anything like your daily life?</p>
-					<div style="text-align:center; margin: 15px 0;"><img src="../creative-assets/prostate-pain-point/66_id-66-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Lost Confidence and Low Libido" style="max-width: 500px;"></div>
+					<div style="text-align:center; margin: 15px 0;"><img src="../creative-assets/prostate-pain-point/60_id-60-imagereference-1-bottles-vigorpng-prompt-A-m.jpg" class="creative-img" alt="Lost Confidence and Low Libido" style="max-width: 500px;"></div>
                     <p class="plist">You wake up too early, and don&rsquo;t have time for a proper  breakfast or cardio exercise.</p>
                     <p class="plist">Your commute to work mainly involves you staying still  and not moving your body a lot.</p>
                     <p class="plist">Once at work you either remain mostly motionless at your  desk, or you have to perform back-breaking manual labor that leaves you  absolutely worn out.</p>
