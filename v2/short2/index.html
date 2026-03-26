@@ -79,6 +79,9 @@ html, body { overflow-x: hidden; }
 <style>
 .mv-title { text-align: center; margin: 0 auto 8px; max-width: 550px; padding: 0 10px; }
 .mv-title h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin: 0; }
+.dark .mv-title h3 { color: #f0f0f0; }
+.mobile-hero-video { display: block; }
+@media (min-width: 769px) { .mobile-hero-video { display: none; } }
 .mv-title h3 .mv-highlight { color: #c8922a; font-style: italic; }
 @media (max-width: 768px) { .mv-title h3 { font-size: 18px; } }
 .mv-player { position: relative; max-width: 550px; margin: 0 auto 10px; border-radius: 10px; overflow: hidden; background: transparent; box-shadow: 0 4px 20px rgba(0,0,0,0.12); cursor: pointer; }
@@ -427,6 +430,19 @@ html, body { overflow-x: hidden; }
 
 					<h4 class="caps margin-after-2 accent">Finally Revealed:</h4>
 				<h3 class="caps strong text-shadow margin-after-6">The Truth To Achieving Bulging, Throbbing, Primal Erections Anytime You Want –  <span class="accent"><strong>Just By Thinking About It</strong></span></h3>
+
+					<!-- Mobile-only hook video after headline -->
+					<div class="mobile-hero-video" style="margin: 15px 0;">
+						<div class="mv-player" data-video-id="vid-hero-hook">
+							<span class="mv-badge">Watch this</span>
+							<video muted playsinline preload="metadata"><source src="../creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4"></video>
+							<div class="mv-play-overlay" onclick="togglePlayPause(this)"><div class="mv-play-btn"><svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg><svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div>
+							<div class="mv-progress-bar"><div class="mv-progress-fill"></div></div>
+							<button class="mv-mute-btn" aria-label="Toggle sound"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" class="mv-mute-x1"/><line x1="17" y1="9" x2="23" y2="15" class="mv-mute-x2"/></svg></button>
+							<div class="mv-end-cta"><a href="#buynow" class="mv-end-cta-btn" onclick="scrollToCards();return false;">See Special Pricing &rarr;</a><button class="mv-end-replay" onclick="replayVideo('vid-hero-hook')">&#8635; Replay</button></div>
+						</div>
+					</div>
+
 					<hr class="red dotted" />
 			      				      	<h4 align="center"><strong>Amazing <span class="accent"><strong>NEW Natural Formula</strong></span> Reveals How To Eliminate Poor Sexual Performance Once And For All, Regain Your Self-Confidence, And Feel Like A REAL Man Again!</strong></h4>
                   		                  	<p style="text-align: center;">How would you like the kind of rock-hard erections that will cause your  woman to become dripping wet and BEG you to gently slip inside her before she wildly  rides you like a bucking bronco?</p>
