@@ -554,6 +554,23 @@ html, body {
 		object-fit: contain;
 	}
 
+	/* Testimonial avatar - perfect circle, cropped, dark border */
+	.testimonial-avatar {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 3px solid #2c2c2c;
+		display: block;
+		margin: 0 auto;
+	}
+	@media (min-width: 768px) {
+		.testimonial-avatar {
+			width: 120px;
+			height: 120px;
+		}
+	}
+
 	/* Collage images in product section - override max-height restrictions */
 	#prod-description .product-collage img {
 		max-height: none !important;
@@ -1564,7 +1581,7 @@ html, body {
 <div class="row justify-content-center" >
 	<div class="col-12 col-md-2">
 		<div class="mb-lg-3">
-			<img src="../../Images/Image_8.png" class="img-fluid rounded-circle d-block mx-auto w-75">
+			<img src="../../Images/Image_8.png" class="testimonial-avatar">
 		</div>
 		<h4 class="name">Harold S.</h4>
 		<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -1581,7 +1598,7 @@ html, body {
 <div class="row justify-content-center" >
 	<div class="col-12 col-md-2">
 		<div class="mb-lg-3">
-			<img src="../../Images/istockphoto-1961053928-612x612.jpg" class="img-fluid rounded-circle d-block mx-auto w-75">
+			<img src="../../Images/istockphoto-1961053928-612x612.jpg" class="testimonial-avatar">
 		</div>
 		<h4 class="name">Alex M.</h4>
 		<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -1598,7 +1615,7 @@ html, body {
 <div class="row justify-content-center" >
 	<div class="col-12 col-md-2  align-self-center">
 		<div class="mb-lg-3">
-			<img src="../../Images/chad-howse-264-282_mini.jpg" class="img-fluid rounded-circle d-block mx-auto w-75">
+			<img src="../../Images/chad-howse-264-282_mini.jpg" class="testimonial-avatar">
 		</div>
 		<h4 class="name">David H.</h4>
 		<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -1637,7 +1654,7 @@ bottom: unset;
 <div id="carouselExampleControls" class="carousel slide d-md-block d-lg-none" data-ride="carousel">
   <div class="carousel-inner" id="reviews">
     <div class="carousel-item active" data-interval="7000">
-      <img src="../../Images/Image_8.png" class="img-fluid rounded-circle d-block mx-auto" width="150">
+      <img src="../../Images/Image_8.png" class="testimonial-avatar">
 		<h4>"I have lots more energy <br class="d-block d-md-none">and stamina throughout the day."</h4>
 		<p>"It took just a few days till I started noticing a difference. I have lots more energy, my performance has improved, and I feel like I'm in my 30s again."<sup>†</sup></p>
 		<h4 class="name">Harold S.</h4>
@@ -1645,7 +1662,7 @@ bottom: unset;
 		<div class="verified-green"><i class="fas fa-check mr-1"></i>Verified Buyer</div>
     </div>
     <div class="carousel-item">
-       <img src="../../Images/istockphoto-1961053928-612x612.jpg" class="img-fluid rounded-circle d-block mx-auto" width="150">
+       <img src="../../Images/istockphoto-1961053928-612x612.jpg" class="testimonial-avatar">
 		<h4>"I actually feel healthier, more energetic!"</h4>
 		<p>"I've taken different supplements over the years, and this is the first one to wow me. I actually feel healthier, more energetic, and a lot stronger!"<sup>†</sup></p>
       <h4 class="name">Alex M.</h4>
@@ -1653,7 +1670,7 @@ bottom: unset;
 		<div class="verified-green"><i class="fas fa-check mr-1"></i>Verified Buyer</div>
     </div>
     <div class="carousel-item">
-      <img src="../../Images/chad-howse-264-282_mini.jpg" class="img-fluid rounded-circle d-block mx-auto" width="150">
+      <img src="../../Images/chad-howse-264-282_mini.jpg" class="testimonial-avatar">
 		<h4>"My confidence is back… I feel like myself again."</h4>
 		<p>"After just a couple of weeks, I noticed a real difference. My energy levels are up, my performance has improved dramatically, and I finally feel like the man I used to be."<sup>†</sup></p>
       <h4 class="name">David H.</h4>
