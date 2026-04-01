@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>VSL Guide - VigorX Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.6; }
+
+.header { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 40px 20px; text-align: center; border-bottom: 3px solid #c8922a; }
+.header h1 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.header p { color: #999; font-size: 14px; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+/* VSL Cards */
+.vsl-card { background: #1a1a1a; border-radius: 16px; border: 1px solid #333; margin-bottom: 40px; overflow: hidden; }
+.vsl-card-header { background: linear-gradient(135deg, #c8922a, #e8b84a); padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.vsl-card-header h2 { font-size: 22px; font-weight: 800; color: #000; margin: 0; }
+.vsl-badge { background: #000; color: #c8922a; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.vsl-card-body { padding: 30px; }
+
+/* Info Grid */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+@media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+.info-item { background: #222; border-radius: 10px; padding: 16px 20px; border-left: 4px solid #c8922a; }
+.info-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 4px; font-weight: 600; }
+.info-value { font-size: 15px; color: #fff; font-weight: 600; word-break: break-all; }
+.info-value a { color: #c8922a; text-decoration: none; }
+.info-value a:hover { text-decoration: underline; }
+
+/* Script Decode */
+.decode-section { margin-top: 24px; }
+.decode-section h3 { font-size: 16px; font-weight: 700; color: #c8922a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+
+.code-block { background: #111; border: 1px solid #333; border-radius: 10px; padding: 20px; margin-bottom: 16px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; color: #ccc; }
+.code-block .comment { color: #6a9955; }
+.code-block .keyword { color: #569cd6; }
+.code-block .string { color: #ce9178; }
+.code-block .param { color: #9cdcfe; }
+.code-block .func { color: #dcdcaa; }
+
+/* Decode Table */
+.decode-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.decode-table th { background: #222; color: #c8922a; text-align: left; padding: 12px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #c8922a; }
+.decode-table td { padding: 12px 16px; border-bottom: 1px solid #2a2a2a; font-size: 14px; vertical-align: top; }
+.decode-table tr:hover td { background: #1e1e1e; }
+.decode-table .param-name { color: #9cdcfe; font-family: 'Courier New', monospace; font-weight: 600; white-space: nowrap; }
+.decode-table .param-val { color: #ce9178; font-family: 'Courier New', monospace; word-break: break-all; }
+.decode-table .param-desc { color: #bbb; }
+
+/* Flow Steps */
+.flow-steps { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.flow-step { display: flex; align-items: flex-start; gap: 14px; background: #1e1e1e; border-radius: 10px; padding: 14px 18px; }
+.flow-num { background: #c8922a; color: #000; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+.flow-text { font-size: 13px; color: #ccc; }
+.flow-text code { background: #333; padding: 2px 6px; border-radius: 4px; color: #e8b84a; font-size: 12px; }
+
+/* Comparison */
+.comparison { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; overflow: hidden; margin-top: 40px; }
+.comparison h3 { background: linear-gradient(135deg, #222, #2a2a2a); padding: 20px 30px; font-size: 18px; color: #fff; margin: 0; border-bottom: 1px solid #333; }
+.comp-table { width: 100%; border-collapse: collapse; }
+.comp-table th { background: #222; color: #c8922a; padding: 14px 20px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.comp-table td { padding: 14px 20px; border-bottom: 1px solid #222; font-size: 14px; }
+.comp-table tr:hover td { background: #1e1e1e; }
+.comp-table .highlight { color: #c8922a; font-weight: 700; }
+
+@media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .vsl-card-header h2 { font-size: 18px; }
+    .vsl-card-body { padding: 20px; }
+    .comp-table, .decode-table { font-size: 12px; }
+    .comp-table th, .comp-table td, .decode-table th, .decode-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>VigorX Pro &mdash; VSL Guide</h1>
+    <p>Internal reference for Video Sales Letters, Vidalytics scripts, and embed configuration</p>
+</div>
+
+<div class="container">
+
+<!-- ==================== VSL 1: Prostate VSL ==================== -->
+<div class="vsl-card">
+    <div class="vsl-card-header">
+        <h2>Prostate VSL</h2>
+        <span class="vsl-badge">prostatevsl/index.html</span>
+    </div>
+    <div class="vsl-card-body">
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-label">Embed ID</div>
+                <div class="info-value">vidalytics_embed_lMsp87x2GhMZQMKM</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Account ID</div>
+                <div class="info-value">p2V5HR6s</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Video ID</div>
+                <div class="info-value">lMsp87x2GhMZQMKM</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">CDN Base URL</div>
+                <div class="info-value"><a href="https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/" target="_blank">https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Loader Script</div>
+                <div class="info-value"><a href="https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/loader.min.js" target="_blank">loader.min.js</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Player Script</div>
+                <div class="info-value"><a href="https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/player.min.js" target="_blank">player.min.js</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Live Page</div>
+                <div class="info-value"><a href="https://vigorxpro.trustednutraproduct.com/v2/prostatevsl/" target="_blank">vigorxpro.trustednutraproduct.com/v2/prostatevsl/</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Niche / Angle</div>
+                <div class="info-value">Prostate Health &amp; Urinary Support</div>
+            </div>
+        </div>
+
+        <div class="decode-section">
+            <h3>Vidalytics Embed Script &mdash; Raw</h3>
+            <div class="code-block">
+<span class="comment">// Prostate VSL - Vidalytics Embed</span>
+(<span class="keyword">function</span> (<span class="param">v</span>, <span class="param">i</span>, <span class="param">d</span>, <span class="param">a</span>, <span class="param">l</span>, <span class="param">y</span>, <span class="param">t</span>, <span class="param">c</span>, <span class="param">s</span>) {
+    y=<span class="string">'_'</span>+d.<span class="func">toLowerCase</span>();  c=d+<span class="string">'L'</span>;
+    <span class="keyword">if</span>(!v[d]){v[d]={};}  <span class="keyword">if</span>(!v[c]){v[c]={};}  <span class="keyword">if</span>(!v[y]){v[y]={};}
+    <span class="keyword">var</span> vl=<span class="string">'Loader'</span>, vli=v[y][vl], vsl=v[c][vl+<span class="string">'Script'</span>], vlf=v[c][vl+<span class="string">'Loaded'</span>], ve=<span class="string">'Embed'</span>;
+    <span class="keyword">if</span> (!vsl){ vsl=<span class="keyword">function</span>(u,cb){
+        <span class="keyword">if</span>(t){cb();<span class="keyword">return</span>;}  s=i.<span class="func">createElement</span>(<span class="string">"script"</span>);
+        s.type=<span class="string">"text/javascript"</span>;  s.async=1;  s.src=u;
+        s.onload=<span class="keyword">function</span>(){vlf=1;cb();};
+        i.<span class="func">getElementsByTagName</span>(<span class="string">"head"</span>)[0].<span class="func">appendChild</span>(s);
+    };}
+    vsl(l+<span class="string">'loader.min.js'</span>, <span class="keyword">function</span>(){
+        <span class="keyword">if</span>(!vli){ <span class="keyword">var</span> vlc=v[c][vl]; vli=<span class="keyword">new</span> vlc(); }
+        vli.<span class="func">loadScript</span>(l+<span class="string">'player.min.js'</span>, <span class="keyword">function</span>(){
+            <span class="keyword">var</span> vec=v[d][ve]; t=<span class="keyword">new</span> vec(); t.<span class="func">run</span>(a);
+        });
+    });
+})(<span class="param">window</span>, <span class="param">document</span>, <span class="string">'Vidalytics'</span>, <span class="string">'vidalytics_embed_lMsp87x2GhMZQMKM'</span>, <span class="string">'https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/'</span>);
+            </div>
+
+            <h3>Script Parameters Decoded</h3>
+            <table class="decode-table">
+                <thead>
+                    <tr><th>Parameter</th><th>Value</th><th>What It Does</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="param-name">v</td>
+                        <td class="param-val">window</td>
+                        <td class="param-desc">Global window object &mdash; used to register Vidalytics namespaces</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">i</td>
+                        <td class="param-val">document</td>
+                        <td class="param-desc">DOM document &mdash; used to create and inject &lt;script&gt; tags</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">d</td>
+                        <td class="param-val">'Vidalytics'</td>
+                        <td class="param-desc">Library namespace &mdash; creates <code>window.Vidalytics</code>, <code>window.VidalyticsL</code>, <code>window._vidalytics</code></td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">a</td>
+                        <td class="param-val">'vidalytics_embed_lMsp87x2GhMZQMKM'</td>
+                        <td class="param-desc">Embed container ID &mdash; the DOM element where the player renders</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">l</td>
+                        <td class="param-val">https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/</td>
+                        <td class="param-desc">CDN base path &mdash; <code>loader.min.js</code> and <code>player.min.js</code> are fetched from here</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">y, t, c, s</td>
+                        <td class="param-val">(internal)</td>
+                        <td class="param-desc">Internal working variables &mdash; namespace keys, script element ref, loaded flag</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Execution Flow</h3>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-num">1</div>
+                    <div class="flow-text">Initialize 3 global namespaces: <code>window.Vidalytics</code>, <code>window.VidalyticsL</code>, <code>window._vidalytics</code></div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">2</div>
+                    <div class="flow-text">Dynamically inject <code>loader.min.js</code> from the CDN into the page &lt;head&gt;</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">3</div>
+                    <div class="flow-text">Once loader is ready, create a <code>VidalyticsL.Loader</code> instance</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">4</div>
+                    <div class="flow-text">Loader fetches <code>player.min.js</code> &mdash; the actual video player engine</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">5</div>
+                    <div class="flow-text">Create a <code>Vidalytics.Embed</code> instance and call <code>.run('vidalytics_embed_lMsp87x2GhMZQMKM')</code> to mount the player into the target div</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== VSL 2: ED VSL ==================== -->
+<div class="vsl-card">
+    <div class="vsl-card-header">
+        <h2>ED VSL (Erect VSL)</h2>
+        <span class="vsl-badge">edvsl/index.html</span>
+    </div>
+    <div class="vsl-card-body">
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-label">Embed ID</div>
+                <div class="info-value">vidalytics_embed_KJA_6bWJadjl6iwq</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Account ID</div>
+                <div class="info-value">p2V5HR6s</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Video ID</div>
+                <div class="info-value">KJA_6bWJadjl6iwq</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">CDN Base URL</div>
+                <div class="info-value"><a href="https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/" target="_blank">https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Loader Script</div>
+                <div class="info-value"><a href="https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/loader.min.js" target="_blank">loader.min.js</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Player Script</div>
+                <div class="info-value"><a href="https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/player.min.js" target="_blank">player.min.js</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Live Page</div>
+                <div class="info-value"><a href="https://vigorxpro.trustednutraproduct.com/v2/edvsl/" target="_blank">vigorxpro.trustednutraproduct.com/v2/edvsl/</a></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Niche / Angle</div>
+                <div class="info-value">Erectile Dysfunction &amp; Male Performance</div>
+            </div>
+        </div>
+
+        <div class="decode-section">
+            <h3>Vidalytics Embed Script &mdash; Raw</h3>
+            <div class="code-block">
+<span class="comment">// ED VSL - Vidalytics Embed</span>
+(<span class="keyword">function</span> (<span class="param">v</span>, <span class="param">i</span>, <span class="param">d</span>, <span class="param">a</span>, <span class="param">l</span>, <span class="param">y</span>, <span class="param">t</span>, <span class="param">c</span>, <span class="param">s</span>) {
+    y=<span class="string">'_'</span>+d.<span class="func">toLowerCase</span>();  c=d+<span class="string">'L'</span>;
+    <span class="keyword">if</span>(!v[d]){v[d]={};}  <span class="keyword">if</span>(!v[c]){v[c]={};}  <span class="keyword">if</span>(!v[y]){v[y]={};}
+    <span class="keyword">var</span> vl=<span class="string">'Loader'</span>, vli=v[y][vl], vsl=v[c][vl+<span class="string">'Script'</span>], vlf=v[c][vl+<span class="string">'Loaded'</span>], ve=<span class="string">'Embed'</span>;
+    <span class="keyword">if</span> (!vsl){ vsl=<span class="keyword">function</span>(u,cb){
+        <span class="keyword">if</span>(t){cb();<span class="keyword">return</span>;}  s=i.<span class="func">createElement</span>(<span class="string">"script"</span>);
+        s.type=<span class="string">"text/javascript"</span>;  s.async=1;  s.src=u;
+        s.onload=<span class="keyword">function</span>(){vlf=1;cb();};
+        i.<span class="func">getElementsByTagName</span>(<span class="string">"head"</span>)[0].<span class="func">appendChild</span>(s);
+    };}
+    vsl(l+<span class="string">'loader.min.js'</span>, <span class="keyword">function</span>(){
+        <span class="keyword">if</span>(!vli){ <span class="keyword">var</span> vlc=v[c][vl]; vli=<span class="keyword">new</span> vlc(); }
+        vli.<span class="func">loadScript</span>(l+<span class="string">'player.min.js'</span>, <span class="keyword">function</span>(){
+            <span class="keyword">var</span> vec=v[d][ve]; t=<span class="keyword">new</span> vec(); t.<span class="func">run</span>(a);
+        });
+    });
+})(<span class="param">window</span>, <span class="param">document</span>, <span class="string">'Vidalytics'</span>, <span class="string">'vidalytics_embed_KJA_6bWJadjl6iwq'</span>, <span class="string">'https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/'</span>);
+            </div>
+
+            <h3>Script Parameters Decoded</h3>
+            <table class="decode-table">
+                <thead>
+                    <tr><th>Parameter</th><th>Value</th><th>What It Does</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="param-name">v</td>
+                        <td class="param-val">window</td>
+                        <td class="param-desc">Global window object &mdash; used to register Vidalytics namespaces</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">i</td>
+                        <td class="param-val">document</td>
+                        <td class="param-desc">DOM document &mdash; used to create and inject &lt;script&gt; tags</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">d</td>
+                        <td class="param-val">'Vidalytics'</td>
+                        <td class="param-desc">Library namespace &mdash; creates <code>window.Vidalytics</code>, <code>window.VidalyticsL</code>, <code>window._vidalytics</code></td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">a</td>
+                        <td class="param-val">'vidalytics_embed_KJA_6bWJadjl6iwq'</td>
+                        <td class="param-desc">Embed container ID &mdash; the DOM element where the player renders</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">l</td>
+                        <td class="param-val">https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/</td>
+                        <td class="param-desc">CDN base path &mdash; <code>loader.min.js</code> and <code>player.min.js</code> are fetched from here</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">y, t, c, s</td>
+                        <td class="param-val">(internal)</td>
+                        <td class="param-desc">Internal working variables &mdash; namespace keys, script element ref, loaded flag</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Execution Flow</h3>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-num">1</div>
+                    <div class="flow-text">Initialize 3 global namespaces: <code>window.Vidalytics</code>, <code>window.VidalyticsL</code>, <code>window._vidalytics</code></div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">2</div>
+                    <div class="flow-text">Dynamically inject <code>loader.min.js</code> from the CDN into the page &lt;head&gt;</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">3</div>
+                    <div class="flow-text">Once loader is ready, create a <code>VidalyticsL.Loader</code> instance</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">4</div>
+                    <div class="flow-text">Loader fetches <code>player.min.js</code> &mdash; the actual video player engine</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-num">5</div>
+                    <div class="flow-text">Create a <code>Vidalytics.Embed</code> instance and call <code>.run('vidalytics_embed_KJA_6bWJadjl6iwq')</code> to mount the player into the target div</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Side-by-Side Comparison ==================== -->
+<div class="comparison">
+    <h3>Side-by-Side Comparison</h3>
+    <table class="comp-table">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Prostate VSL</th>
+                <th>ED VSL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Page</td>
+                <td class="highlight">prostatevsl/index.html</td>
+                <td class="highlight">edvsl/index.html</td>
+            </tr>
+            <tr>
+                <td>Niche</td>
+                <td>Prostate Health &amp; Urinary Support</td>
+                <td>Erectile Dysfunction &amp; Male Performance</td>
+            </tr>
+            <tr>
+                <td>Vidalytics Account</td>
+                <td colspan="2" style="text-align:center; color:#c8922a; font-weight:700;">p2V5HR6s (shared)</td>
+            </tr>
+            <tr>
+                <td>Video ID</td>
+                <td class="highlight">lMsp87x2GhMZQMKM</td>
+                <td class="highlight">KJA_6bWJadjl6iwq</td>
+            </tr>
+            <tr>
+                <td>Embed Container ID</td>
+                <td style="font-family: 'Courier New', monospace; font-size: 12px;">vidalytics_embed_lMsp87x2GhMZQMKM</td>
+                <td style="font-family: 'Courier New', monospace; font-size: 12px;">vidalytics_embed_KJA_6bWJadjl6iwq</td>
+            </tr>
+            <tr>
+                <td>CDN Base</td>
+                <td style="font-size: 12px; word-break: break-all;">fast.vidalytics.com/embeds/p2V5HR6s/<span class="highlight">lMsp87x2GhMZQMKM</span>/</td>
+                <td style="font-size: 12px; word-break: break-all;">fast.vidalytics.com/embeds/p2V5HR6s/<span class="highlight">KJA_6bWJadjl6iwq</span>/</td>
+            </tr>
+            <tr>
+                <td>Script Structure</td>
+                <td colspan="2" style="text-align:center;">Identical IIFE &mdash; only the embed ID and CDN path differ</td>
+            </tr>
+            <tr>
+                <td>Fake Buffering</td>
+                <td colspan="2" style="text-align:center; color:#4a9e6e; font-weight:700;">Removed (was identical on both)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+</body>
+</html>
