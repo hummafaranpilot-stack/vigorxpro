@@ -814,53 +814,6 @@ html, body {
 		    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
 		})(window, document, 'Vidalytics', 'vidalytics_embed_KJA_6bWJadjl6iwq', 'https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/');
 		</script>
-		<!-- Fake Buffering Overlay -->
-		<div id="bufferOverlay" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center; cursor:default;">
-			<div style="width:48px; height:48px; border:4px solid rgba(255,255,255,0.3); border-top:4px solid #fff; border-radius:50%; animation:fakeSpin 1s linear infinite;"></div>
-		</div>
-		<style>
-			@keyframes fakeSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-		</style>
-		<script>
-		(function() {
-			var schedule = [
-				{ play: 2000, buffer: 10000 },
-				{ play: 1000, buffer: 15000 },
-				{ play: 500,  buffer: Infinity }
-			];
-			var overlay = document.getElementById('bufferOverlay');
-			var step = 0;
-
-			function getVideo() {
-				var container = document.getElementById('vidalytics_embed_KJA_6bWJadjl6iwq');
-				return container ? container.querySelector('video') : null;
-			}
-
-			function showBuffer() {
-				overlay.style.display = 'flex';
-				var vid = getVideo();
-				if (vid) vid.pause();
-				var dur = schedule[step] ? schedule[step].buffer : Infinity;
-				if (dur !== Infinity) {
-					setTimeout(function() { step++; hideBuffer(); }, dur);
-				}
-			}
-
-			function hideBuffer() {
-				overlay.style.display = 'none';
-				var vid = getVideo();
-				if (vid) vid.play();
-				var dur = schedule[step] ? schedule[step].play : 500;
-				setTimeout(showBuffer, dur);
-			}
-
-			// Start the sequence after a short delay to let video load and autoplay
-			setTimeout(function() {
-				var dur = schedule[0].play;
-				setTimeout(showBuffer, dur);
-			}, 1000);
-		})();
-		</script>
 	</div>
 
 	<!-- MAGICAL SECTIONS (hidden until timer expires) -->
