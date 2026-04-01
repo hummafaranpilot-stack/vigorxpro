@@ -79,6 +79,13 @@ body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e
 .update-textarea:focus { outline: none; border-color: #c8922a; }
 .vsl-card.ed .update-textarea:focus { border-color: #2a6ed8; }
 .update-textarea::placeholder { color: #555; }
+
+/* Current Code Block */
+.current-code { background: #111; border: 1px solid #333; border-radius: 10px; padding: 16px; margin-bottom: 20px; overflow-x: auto; position: relative; }
+.current-code pre { font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6; color: #aaa; white-space: pre-wrap; word-break: break-all; margin: 0; }
+.current-code-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 8px; font-weight: 700; }
+.copy-btn { position: absolute; top: 10px; right: 10px; background: #333; border: 1px solid #555; color: #ccc; padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 600; transition: background 0.2s; }
+.copy-btn:hover { background: #444; color: #fff; }
 .update-hint { font-size: 11px; color: #666; margin-top: 8px; margin-bottom: 12px; }
 .update-btn { width: 100%; padding: 14px; border: none; border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, opacity 0.2s; }
 .update-btn:hover { transform: scale(1.02); }
@@ -164,6 +171,23 @@ body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e
         </div>
 
         <div class="decode-section">
+            <h3>Current Embed Code</h3>
+            <div class="current-code">
+                <button class="copy-btn" onclick="copyCode('prostateCode')">Copy</button>
+                <pre id="prostateCode">&lt;div id="vidalytics_embed_lMsp87x2GhMZQMKM" style="width: 100%; position:relative; padding-top: 56.25%;"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+(function (v, i, d, a, l, y, t, c, s) {
+    y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+    if (!vsl){vsl=function(u,cb){
+        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+        i.getElementsByTagName("head")[0].appendChild(s);
+    };}
+    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+})(window, document, 'Vidalytics', 'vidalytics_embed_lMsp87x2GhMZQMKM', 'https://fast.vidalytics.com/embeds/p2V5HR6s/lMsp87x2GhMZQMKM/');
+&lt;/script&gt;</pre>
+            </div>
+
             <h3>Script Parameters Decoded</h3>
             <table class="decode-table">
                 <thead><tr><th>Param</th><th>Value</th><th>Purpose</th></tr></thead>
@@ -190,7 +214,7 @@ body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e
         <div class="update-section">
             <h3><span class="icon">&#9998;</span> Update Prostate VSL Script</h3>
             <textarea id="prostateScript" class="update-textarea" placeholder="Paste the complete new Vidalytics embed code here...&#10;&#10;Example:&#10;<div id=&quot;vidalytics_embed_XXXXX&quot; style=&quot;width:100%;...&quot;></div>&#10;<script>&#10;(function(v,i,d,a,l,y,t,c,s){ ... })(...);&#10;</script>"></textarea>
-            <div class="update-hint">Paste the full embed block (the &lt;div&gt; + &lt;script&gt;) from Vidalytics. Press the button to push to GitHub.</div>
+            <div class="update-hint">Paste the full embed code in the same format shown above (the &lt;div&gt; + &lt;script&gt; block from Vidalytics). Press the button to push directly to GitHub.</div>
             <button class="update-btn prostate-btn" onclick="updateVSL('prostate')" id="prostateBtn">Update Prostate VSL &rarr;</button>
             <div id="prostateStatus" class="update-status"></div>
         </div>
@@ -232,6 +256,23 @@ body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e
         </div>
 
         <div class="decode-section">
+            <h3>Current Embed Code</h3>
+            <div class="current-code">
+                <button class="copy-btn" onclick="copyCode('edCode')">Copy</button>
+                <pre id="edCode">&lt;div id="vidalytics_embed_KJA_6bWJadjl6iwq" style="width: 100%; position:relative; padding-top: 56.25%;"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+(function (v, i, d, a, l, y, t, c, s) {
+    y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+    if (!vsl){vsl=function(u,cb){
+        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+        i.getElementsByTagName("head")[0].appendChild(s);
+    };}
+    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+})(window, document, 'Vidalytics', 'vidalytics_embed_KJA_6bWJadjl6iwq', 'https://fast.vidalytics.com/embeds/p2V5HR6s/KJA_6bWJadjl6iwq/');
+&lt;/script&gt;</pre>
+            </div>
+
             <h3>Script Parameters Decoded</h3>
             <table class="decode-table">
                 <thead><tr><th>Param</th><th>Value</th><th>Purpose</th></tr></thead>
@@ -258,7 +299,7 @@ body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e
         <div class="update-section">
             <h3><span class="icon">&#9998;</span> Update ED VSL Script</h3>
             <textarea id="edScript" class="update-textarea" placeholder="Paste the complete new Vidalytics embed code here...&#10;&#10;Example:&#10;<div id=&quot;vidalytics_embed_XXXXX&quot; style=&quot;width:100%;...&quot;></div>&#10;<script>&#10;(function(v,i,d,a,l,y,t,c,s){ ... })(...);&#10;</script>"></textarea>
-            <div class="update-hint">Paste the full embed block (the &lt;div&gt; + &lt;script&gt;) from Vidalytics. Press the button to push to GitHub.</div>
+            <div class="update-hint">Paste the full embed code in the same format shown above (the &lt;div&gt; + &lt;script&gt; block from Vidalytics). Press the button to push directly to GitHub.</div>
             <button class="update-btn ed-btn" onclick="updateVSL('ed')" id="edBtn">Update ED VSL &rarr;</button>
             <div id="edStatus" class="update-status"></div>
         </div>
@@ -287,6 +328,18 @@ body { font-family: 'Montserrat', sans-serif; background: #0f0f0f; color: #e0e0e
 </div><!-- end container -->
 
 <script>
+// Copy code helper
+function copyCode(id) {
+    var el = document.getElementById(id);
+    // Decode HTML entities back to real tags for copying
+    var text = el.textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = el.parentElement.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+
 // GitHub config
 var REPO = 'hummafaranpilot-stack/vigorxpro';
 var BRANCH = 'main';
