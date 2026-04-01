@@ -650,18 +650,25 @@ html, body {
 
 	/* Testimonial avatar - perfect circle, cropped, dark border */
 	.testimonial-avatar {
-		width: 100px;
-		height: 100px;
-		border-radius: 50%;
-		object-fit: cover;
+		width: 100px !important;
+		height: 100px !important;
+		min-width: 100px;
+		min-height: 100px;
+		border-radius: 50% !important;
+		object-fit: cover !important;
+		object-position: center top;
 		border: 3px solid #2c2c2c;
 		display: block;
 		margin: 0 auto;
+		aspect-ratio: 1/1;
+		overflow: hidden;
 	}
 	@media (min-width: 768px) {
 		.testimonial-avatar {
-			width: 120px;
-			height: 120px;
+			width: 120px !important;
+			height: 120px !important;
+			min-width: 120px;
+			min-height: 120px;
 		}
 	}
 
@@ -1715,14 +1722,14 @@ html, body {
 			</div>
 		</div>
 		<div class="row justify-content-center g-3 mt-3">
-			<div class="col-4">
-				<img src="../../creative-assets/before-after/41_id-41-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" class="img-fluid rounded" alt="Before & After" style="border-radius: 12px;">
+			<div class="col-12 col-md-4 mb-3 mb-md-0">
+				<img src="../../creative-assets/before-after/41_id-41-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" class="img-fluid rounded d-block mx-auto" alt="Before & After" style="border-radius: 12px;">
 			</div>
-			<div class="col-4">
-				<img src="../../creative-assets/before-after/43_id-43-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" class="img-fluid rounded" alt="Before & After" style="border-radius: 12px;">
+			<div class="col-12 col-md-4 mb-3 mb-md-0">
+				<img src="../../creative-assets/before-after/43_id-43-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" class="img-fluid rounded d-block mx-auto" alt="Before & After" style="border-radius: 12px;">
 			</div>
-			<div class="col-4">
-				<img src="../../creative-assets/before-after/46_id-46-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" class="img-fluid rounded" alt="Before & After" style="border-radius: 12px;">
+			<div class="col-12 col-md-4">
+				<img src="../../creative-assets/before-after/46_id-46-imagereference-1-bottles-vigorpng-prompt-Lan.jpg" class="img-fluid rounded d-block mx-auto" alt="Before & After" style="border-radius: 12px;">
 			</div>
 		</div>
 	</div>
@@ -1866,7 +1873,7 @@ bottom: unset;
 		<div class="container">
 			<div class="row justify-content-center g-3">
 				<div class="col-12 col-md-8 mb-3" style="overflow: hidden;">
-					<img src="https://powerxpro.trustednutraproduct.com/v3/creative-assets/intimacy-desire/a9.png" class="img-fluid rounded d-block mx-auto" alt="Intimacy and Desire" style="border-radius: 12px; max-width: 100%; width: 100%;">
+					<img src="https://powerxpro.trustednutraproduct.com/v3/creative-assets/intimacy-desire/a9.png" class="img-fluid rounded d-block mx-auto pxp-intimacy-img" alt="Intimacy and Desire" style="border-radius: 12px; max-width: 100%;">
 				</div>
 				<div class="col-12 col-md-8" style="overflow: hidden;">
 					<div class="mv-player" data-video-id="vid-ingredient-hgw" style="max-width: 100%;">
