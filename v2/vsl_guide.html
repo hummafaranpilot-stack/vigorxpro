@@ -401,7 +401,12 @@ async function updateVSL(type) {
         }
 
         var fileData = await getRes.json();
-        var currentContent = atob(fileData.content.replace(/\n/g, ''));
+        var rawBytes = atob(fileData.content.replace(/\n/g, ''));
+        var bytes = new Uint8Array(rawBytes.length);
+        for (var j = 0; j < rawBytes.length; j++) bytes[j] = rawBytes.charCodeAt(j);
+        var currentContent = new TextDecoder().decode(bytes);
+        // Strip BOM if present
+        if (currentContent.charCodeAt(0) === 0xFEFF) currentContent = currentContent.substring(1);
         var sha = fileData.sha;
 
         setStatus(type, 'loading', 'Replacing Vidalytics embed block...');
@@ -445,7 +450,7 @@ async function updateVSL(type) {
             },
             body: JSON.stringify({
                 message: 'Update ' + (type === 'prostate' ? 'Prostate' : 'ED') + ' VSL Vidalytics embed script via VSL Guide',
-                content: btoa(unescape(encodeURIComponent(newContent))),
+                content: btoa(new TextEncoder().encode(newContent).reduce(function(s,b){return s+String.fromCharCode(b)},'')),
                 sha: sha,
                 branch: BRANCH
             })
