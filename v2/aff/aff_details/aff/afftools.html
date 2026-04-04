@@ -423,6 +423,76 @@ window.__lo_site_id = 329229;
 		}
 		.top-heading h1.text-blue { color: #1a1a1a !important; }
 		.top-heading h3 { color: #333 !important; }
+
+	/* PXP Gallery */
+	.pxp-gallery { display: flex; gap: 10px; max-width: 650px; margin: 0 auto; height: 100%; }
+	.pxp-gallery-thumbs { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; width: 88px; }
+	.pxp-thumb { width: 88px; height: 50px; object-fit: contain; background: #f5f5f5; border-radius: 10px; border: 2px solid #e0e0e0; cursor: pointer; transition: border-color 0.2s, transform 0.2s; }
+	.pxp-thumb:hover { border-color: #c8922a; transform: scale(1.05); }
+	.pxp-thumb.active { border-color: #c8922a; box-shadow: 0 0 0 2px rgba(200,146,42,0.3); }
+	.pxp-gallery-main { flex: 1; min-width: 0; }
+	.pxp-gallery-img-wrap { position: relative; display: inline-block; width: 100%; }
+	.pxp-gallery-img-wrap img.pxp-main-img { width: 100%; height: auto; border-radius: 12px; object-fit: contain; background: #fafafa; transition: opacity 0.3s ease, transform 0.3s ease; cursor: pointer; display: block; }
+	.pxp-gallery-img-wrap img.pxp-main-img:hover { transform: scale(1.03); }
+	.pxp-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.85); border: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.15); cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 3; transition: background 0.2s, transform 0.2s; }
+	.pxp-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
+	.pxp-arrow svg { width: 16px; height: 16px; fill: none; stroke: #333; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+	.pxp-arrow-left { left: 8px; }
+	.pxp-arrow-right { right: 8px; }
+	@media (min-width: 992px) {
+		#prod-description .container { max-width: 1400px; }
+		#prod-description .col-12.col-lg-11 { flex: 0 0 96%; max-width: 96%; }
+		.pxp-gallery { max-width: 100%; }
+		.pxp-thumb { width: 122px; height: 69px; }
+		.pxp-gallery-thumbs { width: 122px; gap: 4px; }
+	}
+	@media (max-width: 768px) {
+		.pxp-gallery { flex-direction: column-reverse; gap: 8px; height: auto; max-width: 100%; }
+		.pxp-gallery-thumbs { flex-direction: row; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; justify-content: flex-start; }
+		.pxp-gallery-thumbs::-webkit-scrollbar { display: none; }
+		.pxp-thumb { width: 70px; height: 39px; min-width: 70px; }
+		.pxp-gallery-img-wrap img.pxp-main-img { border-radius: 10px; }
+		.pxp-arrow { width: 30px; height: 30px; }
+		.pxp-arrow svg { width: 14px; height: 14px; }
+		.pxp-arrow-left { left: 6px; }
+		.pxp-arrow-right { right: 6px; }
+	}
+	.pxp-trustpilot-bar { display: inline-flex; align-items: center; gap: 8px; background: #f5f5f5; border-radius: 6px; padding: 6px 12px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #333; flex-wrap: nowrap; }
+	.pxp-tp-wrap { text-align: left; margin-bottom: 8px; }
+	@media (max-width: 768px) { .pxp-tp-wrap { text-align: left; } }
+	.pxp-tp-stars { height: 18px; width: auto; flex-shrink: 0; }
+	.pxp-tp-score { font-weight: 800; font-size: 14px; color: #1a1a1a; }
+	.pxp-tp-sep { color: #ccc; }
+	.pxp-tp-text { color: #555; font-size: 12px; white-space: nowrap; }
+	.pxp-tp-text strong { color: #1a1a1a; }
+	@media (max-width: 768px) { .pxp-trustpilot-bar { font-size: 11px; padding: 5px 10px; gap: 5px; flex-wrap: wrap; justify-content: flex-start; } .pxp-tp-stars { height: 14px; } .pxp-tp-score { font-size: 12px; } .pxp-tp-text { font-size: 10px; white-space: normal; } .pxp-tp-sep { display: none; } }
+	.pxp-social-proof { display: flex; align-items: center; gap: 10px; padding: 8px 0; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #555; flex-wrap: wrap; }
+	.pxp-sp-faces { height: 28px; width: auto; flex-shrink: 0; }
+	.pxp-sp-text { font-size: 13px; color: #333; }
+	.pxp-sp-text strong { color: #1a1a1a; }
+	.pxp-sp-stock { display: flex; align-items: center; gap: 5px; color: #4a9e6e; font-weight: 600; font-size: 13px; }
+	.pxp-sp-dot { width: 8px; height: 8px; background: #4a9e6e; border-radius: 50%; display: inline-block; }
+	@media (max-width: 768px) { .pxp-social-proof { font-size: 11px; gap: 6px; justify-content: flex-start; } .pxp-sp-faces { height: 22px; } .pxp-sp-text, .pxp-sp-stock { font-size: 10px; } }
+	.prod-description { text-align: left !important; }
+	.prod-description h3 { margin-bottom: 0 !important; text-align: left !important; }
+	.prod-description .stars { margin-bottom: 2px !important; text-align: left !important; }
+	.prod-description .pxp-tp-wrap { margin-bottom: 2px; text-align: left !important; }
+	#prod-description .prod-description p { margin-bottom: 0 !important; margin-top: 0 !important; text-align: left !important; }
+	#prod-description .prod-description .check-list { margin-bottom: 0 !important; margin-top: 0 !important; list-style: disc !important; padding-left: 18px !important; margin-left: 0 !important; }
+	#prod-description .prod-description .check-list li { margin-bottom: 2px !important; padding-left: 0 !important; line-height: 1.3 !important; display: list-item !important; list-style-type: disc !important; }
+	#prod-description .prod-description .check-list li::before { display: none !important; content: none !important; margin: 0 !important; padding: 0 !important; }
+	.prod-description .pxp-social-proof { margin-bottom: 0; margin-top: 0; padding: 0; }
+	.prod-description .button-center { margin-top: 2px; }
+	.button-center.riskfree a { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; color: #fff !important; background: #000 !important; border-color: #000 !important; }
+	#prod-description .button-center.riskfree { padding: 6px 18px !important; }
+	#prod-description .button-center.riskfree:hover { background-color: #222 !important; box-shadow: 0px 3px 0px #555 !important; transform: translateY(-1px); }
+	@media (max-width: 768px) { .riskfree { font-size: 14px !important; padding: 8px 16px !important; border-radius: 28px !important; white-space: nowrap !important; } }
+	#prod-description .prod-description .secure-text { margin-top: 4px !important; margin-bottom: 0 !important; text-align: center !important; }
+	#prod-description .prod-description p.mt-0 { margin-bottom: 4px !important; margin-top: 0 !important; padding-bottom: 0 !important; }
+	#prod-description .prod-description .check-list { margin-top: 0 !important; padding-top: 0 !important; }
+	#prod-description .prod-description .check-list li { margin-bottom: 4px !important; font-size: 18px !important; font-weight: 200 !important; }
+	#prod-description .prod-description .pxp-social-proof { margin-top: 4px !important; margin-bottom: 4px !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+	#prod-description .prod-description .button-center { margin-top: 0 !important; margin-bottom: 0 !important; }
 	</style>
 
 
@@ -457,40 +527,40 @@ window.__lo_site_id = 329229;
 			<section id="prod-description" class="pt-1 pt-md-3 pb-4 pb-lg-5">
 				<div class="container">
 					<div class="col-12 col-lg-11 mx-auto">
-						<div class="row align-items-center">
-							<div class="col-12 col-lg-6 text-center">
-								<!--<img src="https://tgenics-cdn.s3.ap-southeast-1.amazonaws.com/ovunashop/img/ovuna.png" class="img-fluid">-->
-								<img src="https://vigorxpro.trustednutraproduct.com/v2/creative-assets/hook-clips/29_id-29-imagereference-1-bottles-vigorpng-prompt-A-s.jpg"
-									class="img-fluid mx-auto d-block mb-3"
-									alt="VigorX Pro Bottle"
-									style="max-width: 400px; border-radius: 16px; border: 3px solid rgba(0,0,0,0.08);">
-								<img src="https://vigorxpro.trustednutraproduct.com/v2/creative-assets/hook-clips/33_id-33-imagereference-2-bottles-vigorpng-prompt-Two.jpg"
-									class="img-fluid mx-auto d-block"
-									alt="VigorX Pro Bottles"
-									style="max-width: 400px; border-radius: 16px; border: 3px solid rgba(0,0,0,0.08);">
-							</div>
-							<div class="col-12 col-lg-6 col-md-10 mx-auto prod-description px-1 px-md-3 my-auto">
-								<ul class="text-left my-lg-4 col-12 col-md-10 mx-auto pl-4 pl-md-0 new-list">
-									<li class="mb-2 mb-lg-4 pb-md-2">Massive payouts - <strong>$150-$170 per
-											sale</strong> with subscription upsells</li>
-									<li class="mb-2 mb-lg-4 pb-md-2">Premium prostate health supplement - converts well
-										with men 40+ audience</li>
-									<li class="mb-2 mb-lg-4 pb-md-2">Constantly optimized swipes & landers to ensure
-										best conversions</li>
-								</ul>
-								<div class="text-center mt-3 mb-2">
-									<a href="https://backoffice.buygoods.com/offer-details?a=xfL0bY4="
-									   class="btn btn-danger fw-bold"
-									   target="_blank"
-									   style="font-size: 15px; padding: 10px 30px;">
-										View Offer on BuyGoods
-									</a>
+						<div class="row">
+							<div class="col-12 col-lg-6" style="padding-top: 30px;">
+								<div class="pxp-gallery">
+									<div class="pxp-gallery-thumbs">
+										<img src="../../../creative-assets/unboxing/47_id-47-imagereference-1-bottles-vigorpng-prompt-Clo.jpg" alt="Unboxing" class="pxp-thumb active" onclick="pxpGallerySelect(this)">
+										<img src="../../../creative-assets/banner-ads/3_id-3-imagereference-1-bottles-vigorpng-prompt-Vigo.jpg" alt="Product" class="pxp-thumb" onclick="pxpGallerySelect(this)">
+										<img src="../../../creative-assets/hook-clips/29_id-29-imagereference-1-bottles-vigorpng-prompt-A-s.jpg" alt="Grip" class="pxp-thumb" onclick="pxpGallerySelect(this)">
+										<img src="../../../creative-assets/hook-clips/31_id-31-imagereference-1-bottles-vigorpng-prompt-Mac.jpg" alt="Close-up" class="pxp-thumb" onclick="pxpGallerySelect(this)">
+									</div>
+									<div class="pxp-gallery-main">
+										<div class="pxp-gallery-img-wrap">
+											<button class="pxp-arrow pxp-arrow-left" onclick="pxpGalleryNav(this,-1)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+											<img src="../../../creative-assets/unboxing/47_id-47-imagereference-1-bottles-vigorpng-prompt-Clo.jpg" alt="VigorX Pro" class="pxp-main-img">
+											<button class="pxp-arrow pxp-arrow-right" onclick="pxpGalleryNav(this,1)"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+										</div>
+									</div>
 								</div>
 							</div>
-
-
-
-
+							<div class="col-12 col-lg-6 col-md-10 mx-auto prod-description px-1 px-md-3 my-auto">
+								<h3 class="font-weight-bold mb-0">VigorX Pro<sup>&#8482;</sup></h3>
+								<div class="stars mb-0"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span class="text-dark">|</span> <span class="font-weight-bold text-success">In Stock</span></div>
+								<div class="pxp-tp-wrap"><span class="pxp-trustpilot-bar"><img src="../../../Images/star-4.5.svg" alt="Trustpilot" class="pxp-tp-stars"><span class="pxp-tp-score">4.7</span><span class="pxp-tp-sep">|</span><span class="pxp-tp-text">Rated <strong>Excellent</strong> based on 2000+ Reviews</span></span></div>
+								<p class="mt-0 mb-0">The powerful natural formula inside VigorX Pro&#8482; helps support your prostate health and male vitality&hellip;</p>
+								<ul class="check-list">
+									<li>Earn <strong>$170+ CPA per sale</strong> with a tiered commission structure</li>
+									<li>Two audiences: ED (men 20+) and Prostate Health (men 45+)</li>
+									<li>Constantly optimized swipes &amp; landers for best conversions</li>
+								</ul>
+								<div class="pxp-social-proof"><img src="../../../Images/socials.webp" alt="Happy Customers" class="pxp-sp-faces"><span class="pxp-sp-text"><strong>+2K</strong> Happy Customers</span><span class="pxp-sp-stock"><span class="pxp-sp-dot"></span> In stock and ready to ship</span></div>
+								<div class="button-center riskfree text-center text-uppercase" style="background-color:#000 !important;box-shadow:0px 3px 0px #333 !important;">
+									<a href="#landing-pages" style="display:inline-flex;align-items:center;gap:8px;background:#000;color:#fff;font-weight:800;font-size:16px;padding:10px 24px;border-radius:50px;text-decoration:none;letter-spacing:0.5px;border:none;cursor:pointer;transition:all 0.2s ease;">VIEW HIGH QUALITY LANDING PAGES <i class="fas fa-arrow-right"></i></a>
+								</div>
+								<p class="text-center secure-text my-2"><i class="fas fa-lock"></i> 100% Secure Encrypted Transactions</p>
+							</div>
 
 
 						</div>
@@ -1689,6 +1759,12 @@ window.__lo_site_id = 329229;
 					<li class="nav-item m-1" role="presentation">
 						<button class="nav-link video-tab-btn" id="tab-videos" data-bs-toggle="pill" data-bs-target="#pane-videos" type="button" role="tab" aria-controls="pane-videos" aria-selected="false" style="font-weight:700;font-size:14px;padding:8px 20px;border-radius:20px;"><i class="fas fa-video me-1"></i> Video Clips <span class="new-blink-badge">NEW</span></button>
 					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link video-tab-btn" id="tab-edvideos" data-bs-toggle="pill" data-bs-target="#pane-edvideos" type="button" role="tab" aria-controls="pane-edvideos" aria-selected="false" style="font-weight:700;font-size:14px;padding:8px 20px;border-radius:20px;"><i class="fas fa-video me-1"></i> ED Videos <span class="new-blink-badge">NEW</span></button>
+					</li>
+					<li class="nav-item m-1" role="presentation">
+						<button class="nav-link video-tab-btn" id="tab-prostavideos" data-bs-toggle="pill" data-bs-target="#pane-prostavideos" type="button" role="tab" aria-controls="pane-prostavideos" aria-selected="false" style="font-weight:700;font-size:14px;padding:8px 20px;border-radius:20px;"><i class="fas fa-video me-1"></i> Prostate Videos <span class="new-blink-badge">NEW</span></button>
+					</li>
 				</ul>
 
 				<!-- Tab Content -->
@@ -2077,6 +2153,294 @@ window.__lo_site_id = 329229;
 						</div>
 					</div>
 
+				<!-- ED Videos Tab -->
+					<div class="tab-pane fade" id="pane-edvideos" role="tabpanel" aria-labelledby="tab-edvideos">
+						<div style="background:#111;border-radius:12px;padding:20px;">
+							<h5 class="text-center text-white mb-3" style="font-weight:700;">ED VSL Video Clips <span class="badge bg-danger">21 Clips</span></h5>
+							<div class="video-grid">
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C01_problem_hook_32s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Problem Hook</div><div class="video-niche">32s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C02_agitation_hope_24s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Agitation &amp; Hope</div><div class="video-niche">24s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C03_authority_universities_12s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Authority Universities</div><div class="video-niche">12s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C04_testimonial_quickfire_19s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Testimonial Quickfire</div><div class="video-niche">19s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C05_video_testimonials_27s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Video Testimonials</div><div class="video-niche">27s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C06_science_erections_59s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Science of Erections</div><div class="video-niche">59s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C07_root_cause_plastics_32s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Root Cause: Plastics</div><div class="video-niche">32s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C08_root_cause_screens_EMF_44s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Root Cause: Screens &amp; EMF</div><div class="video-niche">44s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C09_spartan_origin_story_42s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Spartan Origin Story</div><div class="video-niche">42s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C10_visual_doctor_intro_9s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Visual Doctor Intro</div><div class="video-niche">9s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C11_visual_story_decline_49s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Visual Story Decline</div><div class="video-niche">49s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C12_visual_partner_pain_45s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Visual Partner Pain</div><div class="video-niche">45s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C13_visual_anniversary_disaster_31s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Anniversary Disaster</div><div class="video-niche">31s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C14_visual_transformation_42s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Visual Transformation</div><div class="video-niche">42s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C15_visual_victory_moment_51s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Victory Moment</div><div class="video-niche">51s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C16_visual_rapid_testimonials_20s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Rapid Testimonials</div><div class="video-niche">20s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C17_ingredient_L_Arginine_23s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: L-Arginine</div><div class="video-niche">23s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C18_ingredient_Tongkat_Ali_57s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Tongkat Ali</div><div class="video-niche">57s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C19_ingredient_grape_seed_28s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Grape Seed</div><div class="video-niche">28s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C20_ingredient_Black_Maca_32s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Black Maca</div><div class="video-niche">32s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ErectVSL/C21_ingredient_Epimedium_HGW_38s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Epimedium HGW</div><div class="video-niche">38s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+							</div>
+							<div class="text-center mt-3">
+								<a href="https://powerxpro.trustednutraproduct.com/v3/creative-assets/zips/ed-videos.zip" class="btn btn-sm btn-outline-warning" download style="border-width:2px;font-weight:700;"><i class="fas fa-download me-1"></i>Download All ED Video Clips (ZIP)</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Prostate Videos Tab -->
+					<div class="tab-pane fade" id="pane-prostavideos" role="tabpanel" aria-labelledby="tab-prostavideos">
+						<div style="background:#111;border-radius:12px;padding:20px;">
+							<h5 class="text-center text-white mb-3" style="font-weight:700;">Prostate VSL Video Clips <span class="badge bg-danger">23 Clips</span></h5>
+							<div class="video-grid">
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P01_prostate_paradox_hook_34s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Prostate Paradox Hook</div><div class="video-niche">34s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P02_root_cause_reveal_41s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Root Cause Reveal</div><div class="video-niche">41s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P03_bob_story_hook_40s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Bob Story Hook</div><div class="video-niche">40s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P04_science_promise_53s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Science Promise</div><div class="video-niche">53s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P05_testimonial_burst_46s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Testimonial Burst</div><div class="video-niche">46s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P06_future_pacing_51s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Future Pacing</div><div class="video-niche">51s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P07_prostate_paradox_science_58s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Prostate Paradox Science</div><div class="video-niche">58s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P08_smooth_muscle_science_83s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Smooth Muscle Science</div><div class="video-niche">83s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P09_cause_sitting_xenoestrogens_45s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Cause: Sitting &amp; Xenoestrogens</div><div class="video-niche">45s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P10_transformation_story_71s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Transformation Story</div><div class="video-niche">71s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P11_ingredient_guanabana_51s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Guanabana</div><div class="video-niche">51s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P12_ingredient_urtica_52s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Urtica</div><div class="video-niche">52s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P13_ingredient_beta_sitosterol_64s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Beta-Sitosterol</div><div class="video-niche">64s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P14_ingredient_pygeum_46s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Pygeum</div><div class="video-niche">46s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P15_ingredient_mushrooms_18s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ingredient: Mushrooms</div><div class="video-niche">18s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P16_bob_trucker_story_52s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Bob Trucker Story</div><div class="video-niche">52s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P17_rock_bottom_wife_crying_49s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Rock Bottom: Wife Crying</div><div class="video-niche">49s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P18_ferris_wheel_humiliation_68s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Ferris Wheel Humiliation</div><div class="video-niche">68s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P19_turning_point_snapped_64s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Turning Point: Snapped</div><div class="video-niche">64s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P20_visual_product_intro_24s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Visual Product Intro</div><div class="video-niche">24s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P21_video_testimonials_69s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Video Testimonials</div><div class="video-niche">69s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P22_extended_testimonials_77s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Extended Testimonials</div><div class="video-niche">77s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+								<div class="video-card" onclick="openVideoModal(this)">
+									<video src="../../../videos/ProstaVSL/P23_final_emotional_push_45s.mp4" muted loop preload="metadata"></video>
+									<div class="video-overlay"><div class="play-icon"></div></div>
+									<div class="video-label"><div class="video-type">Final Emotional Push</div><div class="video-niche">45s</div></div>
+									<div class="video-progress"><div class="video-progress-bar"></div></div>
+								</div>
+							</div>
+							<div class="text-center mt-3">
+								<a href="https://powerxpro.trustednutraproduct.com/v3/creative-assets/zips/prostate-videos.zip" class="btn btn-sm btn-outline-warning" download style="border-width:2px;font-weight:700;"><i class="fas fa-download me-1"></i>Download All Prostate Video Clips (ZIP)</a>
+							</div>
+						</div>
+					</div>
+
 				</div><!-- end tab-content -->
 			</section>
 
@@ -2335,6 +2699,10 @@ window.__lo_site_id = 329229;
 	</script>
 
 
+<script>
+function pxpGallerySelect(thumb){var gallery=thumb.closest('.pxp-gallery');gallery.querySelectorAll('.pxp-thumb').forEach(function(t){t.classList.remove('active');});thumb.classList.add('active');var main=gallery.querySelector('.pxp-gallery-main img.pxp-main-img');main.style.opacity='0';setTimeout(function(){main.src=thumb.src;main.style.opacity='1';},150);}
+function pxpGalleryNav(btn,dir){var gallery=btn.closest('.pxp-gallery');var thumbs=Array.from(gallery.querySelectorAll('.pxp-thumb'));var active=gallery.querySelector('.pxp-thumb.active');var idx=thumbs.indexOf(active);idx+=dir;if(idx<0)idx=thumbs.length-1;if(idx>=thumbs.length)idx=0;pxpGallerySelect(thumbs[idx]);}
+</script>
 </body>
 
 </html>
