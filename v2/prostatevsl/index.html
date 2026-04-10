@@ -1520,21 +1520,11 @@ function togglePlayPause(overlay) {
     var player = overlay.closest('.mv-player');
     var video = player.querySelector('video');
     if (!video.paused) { video.pause(); return; }
-    video.muted = false;
     document.querySelectorAll('.mv-player video').forEach(function(v) {
         if (v !== video) { v.muted = true; v.pause(); }
     });
-    function tryPlay() {
-        video.play().catch(function() { video.muted = true; video.play().catch(function(){}); });
-    }
-    if (video.readyState >= 2) { tryPlay(); }
-    else {
-        video.addEventListener('canplay', function onReady() {
-            tryPlay();
-            video.removeEventListener('canplay', onReady);
-        });
-        video.load();
-    }
+    video.muted = false;
+    video.play().catch(function() { video.muted = true; video.play().catch(function(){}); });
     var mb = player.querySelector('.mv-mute-btn');
     if (mb) {
         var mx1 = mb.querySelector('.mv-mute-x1');
