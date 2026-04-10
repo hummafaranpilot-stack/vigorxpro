@@ -949,7 +949,7 @@ html, body {
 				<video muted playsinline preload="metadata">
 					<source src="./creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4">
 				</video>
-				<div class="mv-play-overlay" onclick="togglePlayPause(this)">
+				<div class="mv-play-overlay">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
 						<svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
@@ -1036,7 +1036,7 @@ html, body {
 				<video muted playsinline preload="metadata">
 					<source src="./creative-assets/videos/10_id-10-type-Prostate-Health-Relief-niche-Health-Com.mp4" type="video/mp4">
 				</video>
-				<div class="mv-play-overlay" onclick="togglePlayPause(this)">
+				<div class="mv-play-overlay">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
 						<svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
@@ -1105,7 +1105,7 @@ html, body {
 				<video muted playsinline preload="metadata">
 					<source src="./creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" type="video/mp4">
 				</video>
-				<div class="mv-play-overlay" onclick="togglePlayPause(this)">
+				<div class="mv-play-overlay">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
 						<svg class="mv-pause-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
@@ -1410,6 +1410,21 @@ function scrollToCards() {
         var endCta = player.querySelector('.mv-end-cta');
         var muteBtn = player.querySelector('.mv-mute-btn');
         var playOverlay = player.querySelector('.mv-play-overlay');
+        if (playOverlay) playOverlay.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (!video.paused) { video.pause(); return; }
+            document.querySelectorAll('.mv-player video').forEach(function(v) {
+                if (v !== video) { v.muted = true; v.pause(); }
+            });
+            video.muted = false;
+            video.play().catch(function() { video.muted = true; video.play().catch(function(){}); });
+            var mb = player.querySelector('.mv-mute-btn');
+            if (mb) {
+                var mx1 = mb.querySelector('.mv-mute-x1'), mx2 = mb.querySelector('.mv-mute-x2');
+                if (mx1) mx1.style.display = 'none';
+                if (mx2) mx2.style.display = 'none';
+            }
+        });
 
         video.addEventListener('playing', function() {
             if (playOverlay) { playOverlay.classList.add('playing'); playOverlay.classList.remove('paused'); }
