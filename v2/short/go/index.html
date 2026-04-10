@@ -1312,7 +1312,7 @@ html, body {
 					</div>
 					<div class="mv-player" data-video-id="vid-problem-hook">
 						<span class="mv-badge">Watch this</span>
-						<video muted playsinline preload="metadata">
+						<video muted playsinline preload="metadata" data-poster-time="2">
 							<source src="https://powerxpro.trustednutraproduct.com/v3/videos/ErectVSL/C01_problem_hook_32s.mp4" type="video/mp4">
 						</video>
 						<div class="mv-play-overlay">
@@ -1341,7 +1341,7 @@ html, body {
 					</div>
 					<div class="mv-player" data-video-id="vid-doctor-rec">
 						<span class="mv-badge">Doctor recommended</span>
-						<video muted playsinline preload="metadata">
+						<video muted playsinline preload="metadata" data-poster-time="2">
 							<source src="../../creative-assets/videos/7_id-7-type-Doctor-Recommendation-niche-Trust-Author.mp4" type="video/mp4">
 						</video>
 						<div class="mv-play-overlay">
@@ -1407,7 +1407,7 @@ html, body {
 				<div class="col-12 col-md-6">
 					<div class="mv-player" data-video-id="vid-prostate-paradox">
 						<span class="mv-badge">Watch this</span>
-						<video muted playsinline preload="metadata">
+						<video muted playsinline preload="metadata" data-poster-time="2">
 							<source src="https://powerxpro.trustednutraproduct.com/v3/videos/ProstaVSL/P01_prostate_paradox_hook_34s.mp4" type="video/mp4">
 						</video>
 						<div class="mv-play-overlay">
@@ -1498,7 +1498,7 @@ html, body {
 				<div class="col-12 col-md-6">
 					<div class="mv-player" data-video-id="vid-energy-transform">
 						<span class="mv-badge">Watch this</span>
-						<video muted playsinline preload="metadata">
+						<video muted playsinline preload="metadata" data-poster-time="2">
 							<source src="../../creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4">
 						</video>
 						<div class="mv-play-overlay">
@@ -1582,7 +1582,7 @@ html, body {
 				</div>
 				<div class="mv-player" data-video-id="vid-ingredients">
 					<span class="mv-badge">100% natural</span>
-					<video muted playsinline preload="metadata">
+					<video muted playsinline preload="metadata" data-poster-time="2">
 						<source src="../../creative-assets/videos/4_id-4-type-Nature-Ingredients-niche-Natural-Organic.mp4" type="video/mp4">
 					</video>
 					<div class="mv-play-overlay">
@@ -1697,7 +1697,7 @@ html, body {
 			<div class="col-12 col-md-6">
 				<div class="mv-player" data-video-id="vid-testimonial-setup">
 					<span class="mv-badge">Real stories</span>
-					<video muted playsinline preload="metadata">
+					<video muted playsinline preload="metadata" data-poster-time="2">
 						<source src="../../creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" type="video/mp4">
 					</video>
 					<div class="mv-play-overlay">
@@ -1878,7 +1878,7 @@ bottom: unset;
 				<div class="col-12 col-md-8" style="overflow: hidden;">
 					<div class="mv-player" data-video-id="vid-ingredient-hgw" style="max-width: 100%;">
 						<span class="mv-badge">Key ingredient</span>
-						<video muted playsinline preload="metadata">
+						<video muted playsinline preload="metadata" data-poster-time="2">
 							<source src="https://powerxpro.trustednutraproduct.com/v3/videos/ErectVSL/C21_ingredient_Epimedium_HGW_38s.mp4" type="video/mp4">
 						</video>
 						<div class="mv-play-overlay">
@@ -1985,7 +1985,7 @@ bottom: unset;
 			</div>
 			<div class="mv-player" data-video-id="vid-urgency">
 				<span class="mv-badge">Act now</span>
-				<video muted playsinline preload="metadata">
+				<video muted playsinline preload="metadata" data-poster-time="2">
 					<source src="../../creative-assets/videos/15_id-15-type-CTA-Urgency-Display-niche-Conversion-im.mp4" type="video/mp4">
 				</video>
 				<div class="mv-play-overlay">
@@ -2499,7 +2499,7 @@ button:focus-visible {
 			<div class="col-12 col-md-6">
 				<div class="mv-player" data-video-id="vid-product-container">
 					<span class="mv-badge">See the product</span>
-					<video muted playsinline preload="metadata">
+					<video muted playsinline preload="metadata" data-poster-time="2">
 						<source src="../../creative-assets/videos/17_id-17-type-Container-Full-of-Product-niche-Product.mp4" type="video/mp4">
 					</video>
 					<div class="mv-play-overlay">
@@ -2861,7 +2861,7 @@ margin-left: 12px;
 				<div class="col-12 col-md-6 mb-3">
 					<div class="mv-player" data-video-id="vid-transformation-story">
 						<span class="mv-badge">Real story</span>
-						<video muted playsinline preload="metadata">
+						<video muted playsinline preload="metadata" data-poster-time="2">
 							<source src="https://powerxpro.trustednutraproduct.com/v3/videos/ProstaVSL/P10_transformation_story_71s.mp4" type="video/mp4">
 						</video>
 						<div class="mv-play-overlay">
@@ -3647,6 +3647,19 @@ function pxpGalleryNav(btn,dir){
     function scheduleNext(delay){setTimeout(showNotif,delay);}
     setTimeout(showNotif,35000);
 })();
+</script>
+
+
+<script>
+// Custom poster frame: seek to data-poster-time on metadata load, reset on first play
+document.querySelectorAll('video[data-poster-time]').forEach(function(v){
+    var t = parseFloat(v.getAttribute('data-poster-time')) || 0;
+    var firstPlay = true;
+    v.addEventListener('loadedmetadata', function(){ try { v.currentTime = t; } catch(e){} });
+    v.addEventListener('play', function(){
+        if (firstPlay) { firstPlay = false; try { v.currentTime = 0; } catch(e){} }
+    });
+});
 </script>
 
 </body>

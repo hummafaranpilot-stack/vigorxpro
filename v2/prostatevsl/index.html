@@ -944,7 +944,7 @@ html, body {
 			</div>
 			<div class="mv-player" data-video-id="vid-energy-transform">
 				<span class="mv-badge">Watch this</span>
-				<video muted playsinline preload="metadata">
+				<video muted playsinline preload="metadata" data-poster-time="2">
 					<source src="./creative-assets/videos/3_id-3-type-Energy-Transformation-niche-Vitality-Ant.mp4" type="video/mp4">
 				</video>
 				<div class="mv-play-overlay">
@@ -1033,7 +1033,7 @@ html, body {
 			</div>
 			<div class="mv-player" data-video-id="vid-prostate-science">
 				<span class="mv-badge">The science</span>
-				<video muted playsinline preload="metadata">
+				<video muted playsinline preload="metadata" data-poster-time="2">
 					<source src="./creative-assets/videos/10_id-10-type-Prostate-Health-Relief-niche-Health-Com.mp4" type="video/mp4">
 				</video>
 				<div class="mv-play-overlay">
@@ -1101,7 +1101,7 @@ html, body {
 			</div>
 			<div class="mv-player" data-video-id="vid-testimonial">
 				<span class="mv-badge">Real customer</span>
-				<video muted playsinline preload="metadata">
+				<video muted playsinline preload="metadata" data-poster-time="2">
 					<source src="./creative-assets/videos/12_id-12-type-Testimonial-Setup-niche-Social-Proof-im.mp4" type="video/mp4">
 				</video>
 				<div class="mv-play-overlay">
@@ -1574,6 +1574,19 @@ var minute=14,sec=59,mtest;
 function checkCookie(){var m=getCookie("CScountdownmin"),s=getCookie("CScountdownsec");if(m!=null){minute=parseInt(m);sec=parseInt(s)}}
 var runtimer=(function(){checkCookie();var done=false;return function(){if(!done){done=true;var t=setInterval(function(){document.getElementById("timer").innerHTML=minute+"min : "+sec+"sec";sec--;mtest=minute;setCookie("CScountdownsec",sec,1);setCookie("CScountdownmin",mtest,1);if(sec==0){minute--;sec=59}if(mtest<0){document.getElementById("timer-title").innerHTML="Last Chance to Claim your Special Discount!";clearInterval(t)}},1000);document.getElementById("ScarcityBar").style.display="block"}}})();
 setTimeout(function(){document.getElementById("ScarcityBar").style.display="block";runtimer()},500);
+</script>
+
+
+<script>
+// Custom poster frame: seek to data-poster-time on metadata load, reset on first play
+document.querySelectorAll('video[data-poster-time]').forEach(function(v){
+    var t = parseFloat(v.getAttribute('data-poster-time')) || 0;
+    var firstPlay = true;
+    v.addEventListener('loadedmetadata', function(){ try { v.currentTime = t; } catch(e){} });
+    v.addEventListener('play', function(){
+        if (firstPlay) { firstPlay = false; try { v.currentTime = 0; } catch(e){} }
+    });
+});
 </script>
 
 </body>
