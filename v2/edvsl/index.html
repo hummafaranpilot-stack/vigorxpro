@@ -823,11 +823,9 @@ html, body {
 			<video id="intro-video" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
 				<source src="./intro-thumb.mp4" type="video/mp4">
 			</video>
-			<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;pointer-events:none;">
-				<div style="background:rgba(20,45,200,0.95);border:4px solid #fff;border-radius:22px;padding:65px 110px;text-align:center;pointer-events:none;animation:borderPulse 2s ease-in-out infinite;">
-					<img src="https://cdn-icons-png.flaticon.com/512/2058/2058599.png" width="120" height="120" style="display:block;margin:0 auto 24px;filter:brightness(0) invert(1);">
-					<div style="color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(24px,3.2vw,38px);font-weight:800;line-height:1.5;">Your Video is Playing<br>Click to Unmute</div>
-				</div>
+			<div style="position:absolute;top:20%;bottom:20%;left:20%;right:20%;background:rgba(20,45,200,0.95);border:4px solid #fff;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;animation:borderPulse 2s ease-in-out infinite;">
+				<img src="https://cdn-icons-png.flaticon.com/512/2058/2058599.png" style="display:block;margin:0 auto 8%;filter:brightness(0) invert(1);width:clamp(32px,8vw,80px);height:auto;">
+				<div style="color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(13px,3vw,32px);font-weight:800;line-height:1.4;padding:0 6%;">Your Video is Playing<br>Click to Unmute</div>
 			</div>
 		</div>
 
