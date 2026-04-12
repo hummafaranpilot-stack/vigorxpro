@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2"></script>
+  <!-- Preconnect to speed up external resource loading -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.truegcloud.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
+	<script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2" defer></script>
 	<link rel="icon" type="image/webp" href="../Images/1-bottles-vigor.webp">
 
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
+<meta name="description" content="VigorX Pro supports healthy erectile function and male vitality with a natural formula. Clinically-backed ingredients designed to boost performance, libido, and confidence in men.">
 <meta name="author" content="">
-<meta name="robots" content="noindex">
+<meta name="robots" content="index, follow">
 
 <title>ED Focused - VigorX Pro</title>
 
@@ -824,7 +829,7 @@ html, body {
 				<source src="./intro-thumb.mp4" type="video/mp4">
 			</video>
 			<div style="position:absolute;top:20%;bottom:20%;left:20%;right:20%;background:rgba(20,45,200,0.95);border:4px solid #fff;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;animation:borderPulse 2s ease-in-out infinite;">
-				<img src="https://cdn-icons-png.flaticon.com/512/2058/2058599.png" style="display:block;margin:0 auto 8%;filter:brightness(0) invert(1);width:clamp(32px,8vw,80px);height:auto;">
+				<img src="https://cdn-icons-png.flaticon.com/512/2058/2058599.png" style="display:block;margin:0 auto 8%;filter:brightness(0) invert(1);width:clamp(32px,8vw,80px);height:auto;" alt="Security Shield Icon">
 				<div style="color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(13px,3vw,32px);font-weight:800;line-height:1.4;padding:0 6%;">Your Video is Playing<br>Click to Unmute</div>
 			</div>
 		</div>
@@ -864,16 +869,23 @@ html, body {
 		</div>
 	</div>
 
-	<script src="https://www.youtube.com/iframe_api"></script>
 	<script>
-		var ytPlayer, ytVolume = 100;
+		var ytPlayer, ytVolume = 100, ytApiLoaded = false, ytApiLoading = false, ytPlayPending = false;
 
-		function onYouTubeIframeAPIReady() {
-			ytPlayer = new YT.Player('yt-player', {
-				videoId: 'mncg6FF6gAE',
-				playerVars: { autoplay:0, controls:0, rel:0, modestbranding:1, iv_load_policy:3, showinfo:0, playsinline:1, disablekb:1 },
-				events: { onStateChange: onYTStateChange }
-			});
+		function loadYouTubeAPI(callback) {
+			if (ytApiLoaded) { callback(); return; }
+			if (!window._ytCallbacks) window._ytCallbacks = [];
+			window._ytCallbacks.push(callback);
+			if (ytApiLoading) return;
+			ytApiLoading = true;
+			window.onYouTubeIframeAPIReady = function() {
+				ytApiLoaded = true; ytApiLoading = false;
+				(window._ytCallbacks || []).forEach(function(cb){ cb(); });
+				window._ytCallbacks = [];
+			};
+			var tag = document.createElement('script');
+			tag.src = 'https://www.youtube.com/iframe_api';
+			document.head.appendChild(tag);
 		}
 
 		document.getElementById('yt-thumbnail').addEventListener('click', function () {
@@ -882,17 +894,25 @@ html, body {
 			this.style.display = 'none';
 			document.getElementById('yt-playing-overlay').style.display = 'block';
 			document.getElementById('yt-controls').style.display = 'flex';
-			ytPlayer.playVideo();
+			loadYouTubeAPI(function() {
+				if (!ytPlayer) {
+					ytPlayer = new YT.Player('yt-player', {
+						videoId: 'mncg6FF6gAE',
+						playerVars: { autoplay:1, controls:0, rel:0, modestbranding:1, iv_load_policy:3, showinfo:0, playsinline:1, disablekb:1 },
+						events: { onStateChange: onYTStateChange }
+					});
+				} else { ytPlayer.playVideo(); }
+			});
 		});
 
 		document.getElementById('yt-playing-overlay').addEventListener('click', function () {
-			ytPlayer.pauseVideo();
+			if (ytPlayer) ytPlayer.pauseVideo();
 		});
 
 		document.getElementById('yt-pause-overlay').addEventListener('click', function () {
 			this.style.display = 'none';
 			document.getElementById('yt-playing-overlay').style.display = 'block';
-			ytPlayer.playVideo();
+			if (ytPlayer) ytPlayer.playVideo();
 		});
 
 		function onYTStateChange(event) {
@@ -1106,22 +1126,22 @@ html, body {
 		<div class="container">
 			<div class="row py-3 py-lg-5 justify-content-center mx-auto">
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_sz.png" class="img-fluid d-block mx-auto align-middle">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_sz.png" class="img-fluid d-block mx-auto align-middle" alt="Secure Payment">
 					<h4 class="text-center mt-2">Free US Shipping <br class="d-none d-lg-block">To Your Door</h4>
 					<p class="text-center my-1">Lightning fast. <br class="d-none d-lg-block">On orders of 4+ bottles.</p>
 				</div>
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1.png" class="img-fluid d-block mx-auto align-middle">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1.png" class="img-fluid d-block mx-auto align-middle" alt="Secure Checkout">
 					<h4 class="text-center mt-2">60-Day, Empty <br class="d-none d-lg-block">Bottle Guarantee</h4>
 					<p class="text-center my-1">Try VigorX Proâ¢ for 60 days. Use the entire bottle. If you don't love it, let us know and we'll refund you.</p>
 				</div>
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_s.png" class="img-fluid d-block mx-auto align-middle">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_s.png" class="img-fluid d-block mx-auto align-middle" alt="SSL Secured">
 					<h4 class="text-center mt-2">Available By <br class="d-none d-lg-block">Email Support</h4>
 					<p class="text-center my-1">Should you need it, <br class="d-none d-lg-block">our support team is ready to help you.</p>
 				</div>
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_ta.png" class="img-fluid d-block mx-auto align-middle">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_ta.png" class="img-fluid d-block mx-auto align-middle" alt="Trusted Payment">
 					<h4 class="text-center mt-2">Privacy <br class="d-none d-lg-block">Guaranteed</h4>
 					<p class="text-center my-1 mb-3">Your information is safe, secure, and never shared <br class="d-none d-lg-block">or sold.</p>
 				</div>
@@ -1206,7 +1226,7 @@ html, body {
 			</div>
 			<div class="row">
 				<div class="col-12 col-lg-8 mx-auto py-5">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Simple-promise---As-Seen-On-Bar.png" class="img-fluid">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Simple-promise---As-Seen-On-Bar.png" class="img-fluid" alt="Simple Promise   As Seen On Bar">
 				</div>
 			</div>
 		</div>

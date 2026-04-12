@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vigorxpro.trustednutraproduct.com/v2/sitemap.xml
