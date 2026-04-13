@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Preconnect to speed up external resource loading -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.truegcloud.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://connect.facebook.net">
-	<script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2" defer></script>
+	<script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2"></script>
 	<link rel="icon" type="image/webp" href="../Images/1-bottles-vigor.webp">
 
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="VigorX Pro supports prostate health and male vitality with a premium natural formula. Designed to relieve prostate discomfort, boost energy, and restore performance in men over 40.">
+<meta name="description" content="">
 <meta name="author" content="">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex">
 
 <title>Prostate Focused - VigorXPro</title>
 
@@ -820,7 +815,7 @@ html, body {
 					<source src="./intro-thumb.mp4" type="video/mp4">
 				</video>
 				<div style="position:absolute;top:20%;bottom:20%;left:20%;right:20%;background:rgba(20,45,200,0.95);border:4px solid #fff;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;animation:borderPulse 2s ease-in-out infinite;">
-					<img src="https://cdn-icons-png.flaticon.com/512/2058/2058599.png" style="display:block;margin:0 auto 8%;filter:brightness(0) invert(1);width:clamp(32px,8vw,80px);height:auto;" alt="Security Shield Icon">
+					<img src="https://cdn-icons-png.flaticon.com/512/2058/2058599.png" style="display:block;margin:0 auto 8%;filter:brightness(0) invert(1);width:clamp(32px,8vw,80px);height:auto;">
 					<div style="color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(13px,3vw,32px);font-weight:800;line-height:1.4;padding:0 6%;">Your Video is Playing<br>Click to Unmute</div>
 				</div>
 			</div>
@@ -860,90 +855,75 @@ html, body {
 			</div>
 		</div>
 
+		<script src="https://www.youtube.com/iframe_api"></script>
 		<script>
-		var ytPlayer, ytVolume = 100, ytApiLoaded = false, ytApiLoading = false, ytPlayPending = false;
+			var ytPlayer, ytVolume = 100;
 
-		function loadYouTubeAPI(callback) {
-			if (ytApiLoaded) { callback(); return; }
-			if (!window._ytCallbacks) window._ytCallbacks = [];
-			window._ytCallbacks.push(callback);
-			if (ytApiLoading) return;
-			ytApiLoading = true;
-			window.onYouTubeIframeAPIReady = function() {
-				ytApiLoaded = true; ytApiLoading = false;
-				(window._ytCallbacks || []).forEach(function(cb){ cb(); });
-				window._ytCallbacks = [];
-			};
-			var tag = document.createElement('script');
-			tag.src = 'https://www.youtube.com/iframe_api';
-			document.head.appendChild(tag);
-		}
+			function onYouTubeIframeAPIReady() {
+				ytPlayer = new YT.Player('yt-player', {
+					videoId: 'AmeAGhYa7YY',
+					playerVars: { autoplay:0, controls:0, rel:0, modestbranding:1, iv_load_policy:3, showinfo:0, playsinline:1, disablekb:1 },
+					events: { onStateChange: onYTStateChange }
+				});
+			}
 
-		document.getElementById('yt-thumbnail').addEventListener('click', function () {
-			var iv = document.getElementById('intro-video');
-			if (iv) { iv.pause(); iv.src = ''; }
-			this.style.display = 'none';
-			document.getElementById('yt-playing-overlay').style.display = 'block';
-			document.getElementById('yt-controls').style.display = 'flex';
-			loadYouTubeAPI(function() {
-				if (!ytPlayer) {
-					ytPlayer = new YT.Player('yt-player', {
-						videoId: 'AmeAGhYa7YY',
-						playerVars: { autoplay:1, controls:0, rel:0, modestbranding:1, iv_load_policy:3, showinfo:0, playsinline:1, disablekb:1 },
-						events: { onStateChange: onYTStateChange }
-					});
-				} else { ytPlayer.playVideo(); }
-			});
-		});
-
-		document.getElementById('yt-playing-overlay').addEventListener('click', function () {
-			if (ytPlayer) ytPlayer.pauseVideo();
-		});
-
-		document.getElementById('yt-pause-overlay').addEventListener('click', function () {
-			this.style.display = 'none';
-			document.getElementById('yt-playing-overlay').style.display = 'block';
-			if (ytPlayer) ytPlayer.playVideo();
-		});
-
-		function onYTStateChange(event) {
-			if (event.data === YT.PlayerState.PLAYING) {
-				document.getElementById('yt-pause-overlay').style.display = 'none';
+			document.getElementById('yt-thumbnail').addEventListener('click', function () {
+				var iv = document.getElementById('intro-video');
+				if (iv) { iv.pause(); iv.src = ''; }
+				this.style.display = 'none';
 				document.getElementById('yt-playing-overlay').style.display = 'block';
-			} else if (event.data === YT.PlayerState.PAUSED) {
-				document.getElementById('yt-pause-overlay').style.display = 'block';
-				document.getElementById('yt-playing-overlay').style.display = 'none';
-			}
-		}
+				document.getElementById('yt-controls').style.display = 'flex';
+				ytPlayer.playVideo();
+			});
 
-		function ytToggleMute() {
-			if (ytPlayer.isMuted()) {
-				ytPlayer.unMute(); ytPlayer.setVolume(ytVolume);
-				document.getElementById('yt-vol-range').value = ytVolume;
-				document.getElementById('yt-vol-icon').innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
-			} else {
-				ytPlayer.mute();
-				document.getElementById('yt-vol-range').value = 0;
-				document.getElementById('yt-vol-icon').innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
-			}
-		}
+			document.getElementById('yt-playing-overlay').addEventListener('click', function () {
+				ytPlayer.pauseVideo();
+			});
 
-		function ytSetVolume(val) {
-			ytVolume = parseInt(val);
-			ytPlayer.setVolume(ytVolume);
-			if (ytVolume === 0) { ytPlayer.mute(); document.getElementById('yt-vol-icon').innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>'; }
-			else { ytPlayer.unMute(); document.getElementById('yt-vol-icon').innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>'; }
-		}
+			document.getElementById('yt-pause-overlay').addEventListener('click', function () {
+				this.style.display = 'none';
+				document.getElementById('yt-playing-overlay').style.display = 'block';
+				ytPlayer.playVideo();
+			});
 
-		function ytToggleFullscreen() {
-			var w = document.getElementById('yt-player-wrapper');
-			if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-				(w.requestFullscreen || w.webkitRequestFullscreen).call(w);
-			} else {
-				(document.exitFullscreen || document.webkitExitFullscreen).call(document);
+			function onYTStateChange(event) {
+				if (event.data === YT.PlayerState.PLAYING) {
+					document.getElementById('yt-pause-overlay').style.display = 'none';
+					document.getElementById('yt-playing-overlay').style.display = 'block';
+				} else if (event.data === YT.PlayerState.PAUSED) {
+					document.getElementById('yt-pause-overlay').style.display = 'block';
+					document.getElementById('yt-playing-overlay').style.display = 'none';
+				}
 			}
-		}
-	</script>
+
+			function ytToggleMute() {
+				if (ytPlayer.isMuted()) {
+					ytPlayer.unMute(); ytPlayer.setVolume(ytVolume);
+					document.getElementById('yt-vol-range').value = ytVolume;
+					document.getElementById('yt-vol-icon').innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+				} else {
+					ytPlayer.mute();
+					document.getElementById('yt-vol-range').value = 0;
+					document.getElementById('yt-vol-icon').innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+				}
+			}
+
+			function ytSetVolume(val) {
+				ytVolume = parseInt(val);
+				ytPlayer.setVolume(ytVolume);
+				if (ytVolume === 0) { ytPlayer.mute(); document.getElementById('yt-vol-icon').innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>'; }
+				else { ytPlayer.unMute(); document.getElementById('yt-vol-icon').innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>'; }
+			}
+
+			function ytToggleFullscreen() {
+				var w = document.getElementById('yt-player-wrapper');
+				if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+					(w.requestFullscreen || w.webkitRequestFullscreen).call(w);
+				} else {
+					(document.exitFullscreen || document.webkitExitFullscreen).call(document);
+				}
+			}
+		</script>
 	</div>
 
 
@@ -1125,22 +1105,22 @@ html, body {
 		<div class="container">
 			<div class="row py-3 py-lg-5 justify-content-center mx-auto">
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_sz.png" class="img-fluid d-block mx-auto align-middle" alt="Secure Payment">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_sz.png" class="img-fluid d-block mx-auto align-middle">
 					<h4 class="text-center mt-2">Free US Shipping <br class="d-none d-lg-block">To Your Door</h4>
 					<p class="text-center my-1">Lightning fast. <br class="d-none d-lg-block">On orders of 4+ bottles.</p>
 				</div>
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1.png" class="img-fluid d-block mx-auto align-middle" alt="Secure Checkout">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1.png" class="img-fluid d-block mx-auto align-middle">
 					<h4 class="text-center mt-2">60-Day, Empty <br class="d-none d-lg-block">Bottle Guarantee</h4>
 					<p class="text-center my-1">Try VigorX Pro™ for 60 days. Use the entire bottle. If you don't love it, let us know and we'll refund you.</p>
 				</div>
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_s.png" class="img-fluid d-block mx-auto align-middle" alt="SSL Secured">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_s.png" class="img-fluid d-block mx-auto align-middle">
 					<h4 class="text-center mt-2">Available By <br class="d-none d-lg-block">Email Support</h4>
 					<p class="text-center my-1">Should you need it, <br class="d-none d-lg-block">our support team is ready to help you.</p>
 				</div>
 				<div class="col-6 col-md-3">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_ta.png" class="img-fluid d-block mx-auto align-middle" alt="Trusted Payment">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Layer_1_ta.png" class="img-fluid d-block mx-auto align-middle">
 					<h4 class="text-center mt-2">Privacy <br class="d-none d-lg-block">Guaranteed</h4>
 					<p class="text-center my-1 mb-3">Your information is safe, secure, and never shared <br class="d-none d-lg-block">or sold.</p>
 				</div>
@@ -1225,7 +1205,7 @@ html, body {
 			</div>
 			<div class="row">
 				<div class="col-12 col-lg-8 mx-auto py-5">
-					<img src="https://cdn.truegcloud.com/ovunashop/img/Simple-promise---As-Seen-On-Bar.png" class="img-fluid" alt="Simple Promise   As Seen On Bar">
+					<img src="https://cdn.truegcloud.com/ovunashop/img/Simple-promise---As-Seen-On-Bar.png" class="img-fluid">
 				</div>
 			</div>
 		</div>
