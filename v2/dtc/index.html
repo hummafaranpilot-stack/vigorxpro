@@ -800,6 +800,66 @@ html, body {
 </style>
 
 <body>
+<!-- Top progress bar + skeleton overlay (fades out on window.load) -->
+<style>
+	@keyframes pgShimmer { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+	#pg-progress { position:fixed; top:0; left:0; right:0; height:3px; z-index:100001; background:transparent; pointer-events:none; }
+	#pg-progress-bar { height:100%; width:0%; background:linear-gradient(90deg,#c8922a,#e8b84a,#c8922a); background-size:200% 100%; animation:pgShimmer 1.4s linear infinite; box-shadow:0 0 10px rgba(200,146,42,0.7); transition:width .35s ease; }
+	#pg-loader { position:fixed; inset:0; z-index:100000; background:#fff; display:flex; flex-direction:column; align-items:center; gap:18px; padding:28px 20px; overflow:hidden; transition:opacity .45s ease, visibility .45s ease; }
+	#pg-loader.hidden { opacity:0; visibility:hidden; }
+	.pg-sk { background:linear-gradient(90deg,#eef1f6 25%,#f6f8fb 50%,#eef1f6 75%); background-size:200% 100%; animation:pgShimmer 1.5s linear infinite; border-radius:10px; }
+	.pg-sk-logo { width:120px; height:60px; border-radius:10px; }
+	.pg-sk-h1   { width:min(560px,92%); height:36px; margin-top:4px; }
+	.pg-sk-h2   { width:min(420px,80%); height:22px; }
+	.pg-sk-hero { width:min(900px,95%); aspect-ratio:16/9; border-radius:14px; margin-top:8px; }
+	.pg-sk-row  { width:min(1080px,95%); display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:12px; }
+	.pg-sk-card { height:160px; border-radius:14px; }
+	@media (max-width:768px) { .pg-sk-row { grid-template-columns:1fr 1fr; } .pg-sk-card { height:130px; } }
+	@media (max-width:480px) { .pg-sk-row { grid-template-columns:1fr; } }
+</style>
+<div id="pg-progress"><div id="pg-progress-bar"></div></div>
+<div id="pg-loader" role="status" aria-label="Loading">
+	<div class="pg-sk pg-sk-logo"></div>
+	<div class="pg-sk pg-sk-h1"></div>
+	<div class="pg-sk pg-sk-h2"></div>
+	<div class="pg-sk pg-sk-hero"></div>
+	<div class="pg-sk-row">
+		<div class="pg-sk pg-sk-card"></div>
+		<div class="pg-sk pg-sk-card"></div>
+		<div class="pg-sk pg-sk-card"></div>
+	</div>
+</div>
+<script>
+(function() {
+	var bar = document.getElementById('pg-progress-bar');
+	var loader = document.getElementById('pg-loader');
+	var prog = document.getElementById('pg-progress');
+	var pct = 0, target = 15, raf;
+	function tick() {
+		if (pct < target) {
+			pct += Math.max(0.4, (target - pct) * 0.08);
+			bar.style.width = Math.min(pct, 99) + '%';
+		}
+		raf = requestAnimationFrame(tick);
+	}
+	tick();
+	document.addEventListener('DOMContentLoaded', function() { target = 60; });
+	window.addEventListener('load', function() {
+		target = 100; pct = 100; bar.style.width = '100%';
+		setTimeout(function() {
+			cancelAnimationFrame(raf);
+			loader.classList.add('hidden');
+			setTimeout(function() { if (loader.parentNode) loader.parentNode.removeChild(loader); if (prog.parentNode) prog.parentNode.removeChild(prog); }, 500);
+		}, 250);
+	});
+	setTimeout(function() {
+		if (!loader.classList.contains('hidden')) {
+			bar.style.width = '100%'; loader.classList.add('hidden');
+			setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); if(prog.parentNode) prog.parentNode.removeChild(prog); }, 500);
+		}
+	}, 8000);
+})();
+</script>
 	<!-- Header Logo -->
 	<div class="logo-container">
 		<div class="logo-wrapper">
