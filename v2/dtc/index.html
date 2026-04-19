@@ -276,7 +276,7 @@ html, body {
 .mv-player .mv-poster { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; background:#111; cursor:pointer; }
 .mv-player iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
 </style>
-<script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"><script async src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
 </head>
 <style>
 	@import url("https://use.typekit.net/ykb2etw.css");
@@ -1723,8 +1723,8 @@ function cfPlay(overlay) {
 	var playSvg = '<svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" opacity="0.75" fill="#000"/><path d="M 45,24 27,14 27,34" fill="#fff"/></svg>';
 	player.innerHTML =
 		'<video controls autoplay playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;"></video>' +
-		'<div class="mv-tap"></div>' +
-		'<div class="mv-bigplay" aria-hidden="true">' + playSvg + '</div>';
+		'<div class="mv-tap" role="button" tabindex="0" aria-label="Play or pause video"></div>' +
+		'<div class="mv-bigplay" role="button" tabindex="0" aria-label="Play or pause video">' + playSvg + '</div>';
 	var v = player.querySelector('video');
 	var tap = player.querySelector('.mv-tap');
 	var bigplay = player.querySelector('.mv-bigplay');
