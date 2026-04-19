@@ -1566,8 +1566,10 @@ function cfPlay(overlay) {
 	var player = overlay.closest('.mv-player');
 	var uid = player.getAttribute('data-cf-uid');
 	if (!uid) return;
+	var st = player.getAttribute('data-cf-starttime');
+	var params = 'autoplay=true' + (st ? '&startTime=' + st + 's' : '');
 	player.innerHTML =
-		'<iframe src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/' + uid + '/iframe?autoplay=true&startTime=3s" ' +
+		'<iframe src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/' + uid + '/iframe?' + params + '" ' +
 		'allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen frameborder="0"></iframe>';
 }
 </script>

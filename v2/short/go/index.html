@@ -1372,7 +1372,7 @@ img { height: auto; }</style>
 					<div class="mv-title">
 						<h3>Is This Happening to <span class="mv-highlight">You?</span></h3>
 					</div>
-					<div class="mv-player" data-video-id="vid-problem-hook" data-cf-uid="281a91fd6790e2ba0be7ee2d88ff0a04">
+					<div class="mv-player" data-video-id="vid-problem-hook" data-cf-uid="281a91fd6790e2ba0be7ee2d88ff0a04" data-cf-starttime="3">
 				<span class="mv-badge">Watch this</span>
 				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/281a91fd6790e2ba0be7ee2d88ff0a04/thumbnails/thumbnail.jpg?time=5s" alt="vid-problem-hook" loading="eager" fetchpriority="high" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
@@ -1643,7 +1643,7 @@ img { height: auto; }</style>
 			</div>
 			<div class="row justify-content-center g-3">
 				<div class="col-12 col-md-6">
-					<div class="mv-player" data-video-id="vid-ingredients" data-cf-uid="6b5185280efda43922067587cfe0539a">
+					<div class="mv-player" data-video-id="vid-ingredients" data-cf-uid="6b5185280efda43922067587cfe0539a" data-cf-starttime="3">
 						<span class="mv-badge">100% natural</span>
 						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/6b5185280efda43922067587cfe0539a/thumbnails/thumbnail.jpg?time=5s" alt="vid-ingredients" width="1280" height="720">
 						<div class="mv-play-overlay" onclick="cfPlay(this)">
@@ -1831,7 +1831,7 @@ img { height: auto; }</style>
 					<img src="https://powerxpro.trustednutraproduct.com/v3/creative-assets/intimacy-desire/a9.png" class="img-fluid rounded d-block mx-auto pxp-intimacy-img" alt="Intimacy and Desire" style="border-radius: 12px; max-width: 100%;">
 				</div>
 				<div class="col-12 col-md-8" style="overflow: hidden;">
-					<div class="mv-player" data-video-id="vid-ingredient-hgw" data-cf-uid="990169bbaf7ba70592bc71fac9d52bd2">
+					<div class="mv-player" data-video-id="vid-ingredient-hgw" data-cf-uid="990169bbaf7ba70592bc71fac9d52bd2" data-cf-starttime="3">
 				<span class="mv-badge">Key ingredient</span>
 				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/990169bbaf7ba70592bc71fac9d52bd2/thumbnails/thumbnail.jpg?time=5s" alt="vid-ingredient-hgw" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
@@ -2779,7 +2779,7 @@ margin-left: 12px;
 					<img src="https://powerxpro.trustednutraproduct.com/v3/creative-assets/intimacy-desire/happy.png" class="img-fluid rounded d-block mx-auto" alt="Happy couple" style="border-radius: 12px;">
 				</div>
 				<div class="col-12 col-md-4">
-					<div class="mv-player" data-video-id="vid-transformation-story" data-cf-uid="4717a116859bff3e1bec1a9323e1609b">
+					<div class="mv-player" data-video-id="vid-transformation-story" data-cf-uid="4717a116859bff3e1bec1a9323e1609b" data-cf-starttime="3">
 						<span class="mv-badge">Real story</span>
 						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/4717a116859bff3e1bec1a9323e1609b/thumbnails/thumbnail.jpg?time=5s" alt="vid-transformation-story" width="1280" height="720">
 						<div class="mv-play-overlay" onclick="cfPlay(this)">
@@ -3558,8 +3558,10 @@ function cfPlay(overlay) {
 	var player = overlay.closest('.mv-player');
 	var uid = player.getAttribute('data-cf-uid');
 	if (!uid) return;
+	var st = player.getAttribute('data-cf-starttime');
+	var params = 'autoplay=true' + (st ? '&startTime=' + st + 's' : '');
 	player.innerHTML =
-		'<iframe src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/' + uid + '/iframe?autoplay=true&startTime=3s" ' +
+		'<iframe src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/' + uid + '/iframe?' + params + '" ' +
 		'allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen frameborder="0"></iframe>';
 }
 </script>
