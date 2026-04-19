@@ -21,6 +21,9 @@
 	<script src="https://cdn.trustednutraproduct.com/t.js?v=vigorxpro-trustednutraproduct-com-v2"></script>
 	<link rel="icon" type="image/webp" href="../../Images/1-bottles-vigor.webp?v=20260419">
 	<link rel="preconnect" href="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com">
+	<!-- Hero priority: preload first video poster + HLS manifest so the hero is instantly ready -->
+	<link rel="preload" as="image" href="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/281a91fd6790e2ba0be7ee2d88ff0a04/thumbnails/thumbnail.jpg?time=5s" fetchpriority="high">
+	<link rel="preload" as="fetch" crossorigin href="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/281a91fd6790e2ba0be7ee2d88ff0a04/manifest/video.m3u8">
 
 <link href="../css/skeleton.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -1206,15 +1209,66 @@ img { height: auto; }</style>
 </style>
 
 <body>
-<!-- Minimal top loading bar (auto-hides on DOMContentLoaded, non-blocking) -->
+<!-- Top progress bar + skeleton overlay (fades out on window.load) -->
 <style>
-	#pg-loadbar { position:fixed; top:0; left:0; right:0; height:3px; z-index:9999; background:transparent; pointer-events:none; transition:opacity 0.25s ease; }
-	#pg-loadbar::after { content:""; display:block; height:100%; width:0%; background:linear-gradient(90deg,#c8922a,#e8b84a,#c8922a); animation:pgLoadFill 1.2s ease-out forwards; box-shadow:0 0 8px rgba(200,146,42,0.6); }
-	#pg-loadbar.done { opacity:0; }
-	@keyframes pgLoadFill { 0% { width:0%; } 60% { width:70%; } 100% { width:100%; } }
+	@keyframes pgShimmer { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+	#pg-progress { position:fixed; top:0; left:0; right:0; height:3px; z-index:100001; background:transparent; pointer-events:none; }
+	#pg-progress-bar { height:100%; width:0%; background:linear-gradient(90deg,#c8922a,#e8b84a,#c8922a); background-size:200% 100%; animation:pgShimmer 1.4s linear infinite; box-shadow:0 0 10px rgba(200,146,42,0.7); transition:width .35s ease; }
+	#pg-loader { position:fixed; inset:0; z-index:100000; background:#fff; display:flex; flex-direction:column; align-items:center; gap:18px; padding:28px 20px; overflow:hidden; transition:opacity .45s ease, visibility .45s ease; }
+	#pg-loader.hidden { opacity:0; visibility:hidden; }
+	.pg-sk { background:linear-gradient(90deg,#eef1f6 25%,#f6f8fb 50%,#eef1f6 75%); background-size:200% 100%; animation:pgShimmer 1.5s linear infinite; border-radius:10px; }
+	.pg-sk-logo { width:120px; height:60px; border-radius:10px; }
+	.pg-sk-h1   { width:min(560px,92%); height:36px; margin-top:4px; }
+	.pg-sk-h2   { width:min(420px,80%); height:22px; }
+	.pg-sk-hero { width:min(900px,95%); aspect-ratio:16/9; border-radius:14px; margin-top:8px; }
+	.pg-sk-row  { width:min(1080px,95%); display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:12px; }
+	.pg-sk-card { height:160px; border-radius:14px; }
+	@media (max-width:768px) { .pg-sk-row { grid-template-columns:1fr 1fr; } .pg-sk-card { height:130px; } }
+	@media (max-width:480px) { .pg-sk-row { grid-template-columns:1fr; } }
 </style>
-<div id="pg-loadbar"></div>
-<script>document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('pg-loadbar');if(b){setTimeout(function(){b.classList.add('done');setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);},300);},200);}});</script>
+<div id="pg-progress"><div id="pg-progress-bar"></div></div>
+<div id="pg-loader" role="status" aria-label="Loading">
+	<div class="pg-sk pg-sk-logo"></div>
+	<div class="pg-sk pg-sk-h1"></div>
+	<div class="pg-sk pg-sk-h2"></div>
+	<div class="pg-sk pg-sk-hero"></div>
+	<div class="pg-sk-row">
+		<div class="pg-sk pg-sk-card"></div>
+		<div class="pg-sk pg-sk-card"></div>
+		<div class="pg-sk pg-sk-card"></div>
+	</div>
+</div>
+<script>
+(function() {
+	var bar = document.getElementById('pg-progress-bar');
+	var loader = document.getElementById('pg-loader');
+	var prog = document.getElementById('pg-progress');
+	var pct = 0, target = 15, raf;
+	function tick() {
+		if (pct < target) {
+			pct += Math.max(0.4, (target - pct) * 0.08);
+			bar.style.width = Math.min(pct, 99) + '%';
+		}
+		raf = requestAnimationFrame(tick);
+	}
+	tick();
+	document.addEventListener('DOMContentLoaded', function() { target = 60; });
+	window.addEventListener('load', function() {
+		target = 100; pct = 100; bar.style.width = '100%';
+		setTimeout(function() {
+			cancelAnimationFrame(raf);
+			loader.classList.add('hidden');
+			setTimeout(function() { if (loader.parentNode) loader.parentNode.removeChild(loader); if (prog.parentNode) prog.parentNode.removeChild(prog); }, 500);
+		}, 250);
+	});
+	setTimeout(function() {
+		if (!loader.classList.contains('hidden')) {
+			bar.style.width = '100%'; loader.classList.add('hidden');
+			setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); if(prog.parentNode) prog.parentNode.removeChild(prog); }, 500);
+		}
+	}, 8000);
+})();
+</script>
 	<!-- Header Logo -->
 	<div class="logo-container">
 		<div class="logo-wrapper">
@@ -1320,7 +1374,7 @@ img { height: auto; }</style>
 					</div>
 					<div class="mv-player" data-video-id="vid-problem-hook" data-cf-uid="281a91fd6790e2ba0be7ee2d88ff0a04">
 				<span class="mv-badge">Watch this</span>
-				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/281a91fd6790e2ba0be7ee2d88ff0a04/thumbnails/thumbnail.jpg?time=5s" alt="vid-problem-hook" loading="lazy" width="1280" height="720">
+				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/281a91fd6790e2ba0be7ee2d88ff0a04/thumbnails/thumbnail.jpg?time=5s" alt="vid-problem-hook" loading="eager" fetchpriority="high" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1374,7 +1428,7 @@ img { height: auto; }</style>
 				<div class="col-12 col-md-6">
 					<div class="mv-player" data-video-id="vid-ed-hook" data-cf-uid="c755f97ef9af6fd7f04b780b26271db1">
 				<span class="mv-badge">Watch this</span>
-				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/c755f97ef9af6fd7f04b780b26271db1/thumbnails/thumbnail.jpg?time=5s" alt="vid-ed-hook" loading="lazy" width="1280" height="720">
+				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/c755f97ef9af6fd7f04b780b26271db1/thumbnails/thumbnail.jpg?time=5s" alt="vid-ed-hook" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1453,7 +1507,7 @@ img { height: auto; }</style>
 				<div class="col-12 col-md-6">
 					<div class="mv-player" data-video-id="vid-energy-transform" data-cf-uid="35f098f7dd9ffcf45d0257d5ba3e09a8">
 				<span class="mv-badge">Watch this</span>
-				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/35f098f7dd9ffcf45d0257d5ba3e09a8/thumbnails/thumbnail.jpg?time=5s" alt="vid-energy-transform" loading="lazy" width="1280" height="720">
+				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/35f098f7dd9ffcf45d0257d5ba3e09a8/thumbnails/thumbnail.jpg?time=5s" alt="vid-energy-transform" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1591,7 +1645,7 @@ img { height: auto; }</style>
 				<div class="col-12 col-md-6">
 					<div class="mv-player" data-video-id="vid-ingredients" data-cf-uid="6b5185280efda43922067587cfe0539a">
 						<span class="mv-badge">100% natural</span>
-						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/6b5185280efda43922067587cfe0539a/thumbnails/thumbnail.jpg?time=5s" alt="vid-ingredients" loading="lazy" width="1280" height="720">
+						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/6b5185280efda43922067587cfe0539a/thumbnails/thumbnail.jpg?time=5s" alt="vid-ingredients" width="1280" height="720">
 						<div class="mv-play-overlay" onclick="cfPlay(this)">
 							<div class="mv-play-btn">
 								<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1642,7 +1696,7 @@ img { height: auto; }</style>
 			<div class="col-12 col-md-6">
 				<div class="mv-player" data-video-id="vid-testimonial-setup" data-cf-uid="bdafa0ab7782307cf7e15d19f2d3f21f">
 				<span class="mv-badge">Real stories</span>
-				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/bdafa0ab7782307cf7e15d19f2d3f21f/thumbnails/thumbnail.jpg?time=5s" alt="vid-testimonial-setup" loading="lazy" width="1280" height="720">
+				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/bdafa0ab7782307cf7e15d19f2d3f21f/thumbnails/thumbnail.jpg?time=5s" alt="vid-testimonial-setup" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1779,7 +1833,7 @@ img { height: auto; }</style>
 				<div class="col-12 col-md-8" style="overflow: hidden;">
 					<div class="mv-player" data-video-id="vid-ingredient-hgw" data-cf-uid="990169bbaf7ba70592bc71fac9d52bd2">
 				<span class="mv-badge">Key ingredient</span>
-				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/990169bbaf7ba70592bc71fac9d52bd2/thumbnails/thumbnail.jpg?time=5s" alt="vid-ingredient-hgw" loading="lazy" width="1280" height="720">
+				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/990169bbaf7ba70592bc71fac9d52bd2/thumbnails/thumbnail.jpg?time=5s" alt="vid-ingredient-hgw" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -1873,7 +1927,7 @@ img { height: auto; }</style>
 				<div class="col-12 col-md-6">
 					<div class="mv-player" data-video-id="vid-urgency" data-cf-uid="b01261ab93d3ef0e972f158fc339d454">
 						<span class="mv-badge">Act now</span>
-						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/b01261ab93d3ef0e972f158fc339d454/thumbnails/thumbnail.jpg?time=5s" alt="vid-urgency" loading="lazy" width="1280" height="720">
+						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/b01261ab93d3ef0e972f158fc339d454/thumbnails/thumbnail.jpg?time=5s" alt="vid-urgency" width="1280" height="720">
 						<div class="mv-play-overlay" onclick="cfPlay(this)">
 							<div class="mv-play-btn">
 								<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -2377,7 +2431,7 @@ button:focus-visible {
 			<div class="col-12 col-md-6">
 				<div class="mv-player" data-video-id="vid-product-container" data-cf-uid="b118421197f812519e42f00a1b18d6f2">
 				<span class="mv-badge">See the product</span>
-				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/b118421197f812519e42f00a1b18d6f2/thumbnails/thumbnail.jpg?time=5s" alt="vid-product-container" loading="lazy" width="1280" height="720">
+				<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/b118421197f812519e42f00a1b18d6f2/thumbnails/thumbnail.jpg?time=5s" alt="vid-product-container" width="1280" height="720">
 				<div class="mv-play-overlay" onclick="cfPlay(this)">
 					<div class="mv-play-btn">
 						<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
@@ -2727,7 +2781,7 @@ margin-left: 12px;
 				<div class="col-12 col-md-4">
 					<div class="mv-player" data-video-id="vid-transformation-story" data-cf-uid="4717a116859bff3e1bec1a9323e1609b">
 						<span class="mv-badge">Real story</span>
-						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/4717a116859bff3e1bec1a9323e1609b/thumbnails/thumbnail.jpg?time=5s" alt="vid-transformation-story" loading="lazy" width="1280" height="720">
+						<img class="mv-poster" src="https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/4717a116859bff3e1bec1a9323e1609b/thumbnails/thumbnail.jpg?time=5s" alt="vid-transformation-story" width="1280" height="720">
 						<div class="mv-play-overlay" onclick="cfPlay(this)">
 							<div class="mv-play-btn">
 								<svg class="mv-play-icon" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
