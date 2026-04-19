@@ -882,9 +882,13 @@ html, body {
 		#cf-skeleton.hidden { opacity:0; pointer-events:none; }
 		#cf-thumb-video, #cf-vsl-video { width:100%; height:100%; object-fit:contain; display:block; background:#000; }
 
-		/* VSL custom controls */
+		/* Custom controls */
 		#cf-vsl-controls { position:absolute; bottom:0; left:0; right:0; z-index:6; padding:24px 14px 10px; background:linear-gradient(transparent,rgba(0,0,0,0.75)); display:flex; align-items:center; justify-content:flex-end; gap:6px; opacity:0; transition:opacity 0.25s ease; pointer-events:none; box-sizing:border-box; }
 		#cf-vsl.active:hover #cf-vsl-controls, #cf-vsl.active.show-ctrl #cf-vsl-controls { opacity:1; pointer-events:auto; }
+		/* Mobile/touch: always show controls when player is active (no hover available) */
+		@media (hover: none), (pointer: coarse) {
+			#cf-vsl.active #cf-vsl-controls { opacity:1 !important; pointer-events:auto !important; }
+		}
 		.cf-ctrl-btn { background:rgba(0,0,0,0.5); border:none; color:#fff; cursor:pointer; padding:7px 9px; border-radius:6px; display:flex; align-items:center; justify-content:center; transition:background 0.15s; font:600 12px sans-serif; }
 		.cf-ctrl-btn:hover { background:rgba(0,0,0,0.75); }
 		.cf-ctrl-btn svg { width:18px; height:18px; fill:#fff; }
@@ -901,45 +905,37 @@ html, body {
 		.cf-quality-item.active { color:#4fc3f7; }
 		.cf-quality-item.active::before { content:"✓ "; }
 
-		/* Big center play/pause overlay for VSL */
+		/* Big center play icon when paused */
 		#cf-vsl-bigplay { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:7; opacity:0; pointer-events:none; transition:opacity 0.2s; }
 		#cf-vsl.paused #cf-vsl-bigplay { opacity:1; }
 		#cf-vsl-bigplay svg { width:68px; height:68px; fill:rgba(255,255,255,0.9); filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6)); }
 
-		/* Fullscreen mode */
+		/* Desktop fullscreen (real Fullscreen API) */
 		#cf-player-wrapper:fullscreen, #cf-player-wrapper:-webkit-full-screen { padding-top:0 !important; height:100vh !important; }
 
-		/* Top-right "Ready to Order?" CTA — revealed when VSL starts playing */
-		#cf-vsl-cta {
-			position:absolute; top:12px; right:12px; z-index:8;
-			padding:9px 18px;
-			background:linear-gradient(135deg,#f5b301,#d97706);
-			color:#fff; border:none; border-radius:999px;
-			font:700 13px/1 'Helvetica Neue',Arial,sans-serif;
-			letter-spacing:0.3px; cursor:pointer;
-			opacity:0; transform:translateY(-10px); pointer-events:none;
-			transition:opacity .35s ease, transform .35s ease, filter .15s ease;
-			box-shadow:0 4px 14px rgba(0,0,0,0.4);
+		/* Mobile pseudo-fullscreen (avoids iOS native player) */
+		#cf-player-wrapper.pseudo-fullscreen {
+			position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+			width: 100% !important; height: 100% !important; max-width: none !important;
+			padding: 0 !important; padding-top: 0 !important; margin: 0 !important;
+			z-index: 99999 !important; background: #000 !important; aspect-ratio: auto !important;
 		}
-		#cf-vsl-cta:hover { filter:brightness(1.1); }
-		#cf-vsl.show-cta #cf-vsl-cta {
-			opacity:1; transform:translateY(0); pointer-events:auto;
-			animation:ctaPulse 1.8s ease-in-out infinite;
-		}
-		@keyframes ctaPulse {
-			0%,100% { box-shadow:0 4px 14px rgba(0,0,0,0.4), 0 0 0 0 rgba(245,179,1,0.55); }
-			50%     { box-shadow:0 4px 14px rgba(0,0,0,0.4), 0 0 0 12px rgba(245,179,1,0); }
-		}
-		@media (max-width:600px) {
-			#cf-vsl-cta { font-size:11px; padding:7px 13px; top:8px; right:8px; }
+		/* In portrait, rotate 90° for landscape view (no OS rotation needed) */
+		@media (orientation: portrait) {
+			#cf-player-wrapper.pseudo-fullscreen {
+				width: 100vh !important; height: 100vw !important;
+				top: 50% !important; left: 50% !important; right: auto !important; bottom: auto !important;
+				transform: translate(-50%, -50%) rotate(90deg);
+				transform-origin: center center;
+			}
 		}
 	</style>
 	<div id="cf-player-wrapper">
 
-		<!-- Skeleton loader shown until thumbnail plays -->
+		<!-- Skeleton loader shown until thumbnail's first frame renders -->
 		<div id="cf-skeleton"></div>
 
-		<!-- Looping silent thumbnail via HLS + hls.js (HD locked, no controls) -->
+		<!-- Looping silent HD-locked thumbnail (no controls) -->
 		<div id="cf-thumbnail" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;overflow:hidden;z-index:3;">
 			<video id="cf-thumb-video" autoplay muted loop playsinline preload="auto"></video>
 			<div style="position:absolute;top:32%;bottom:32%;left:32%;right:32%;background:rgba(20,45,200,0.7);border:3px solid #fff;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;animation:borderPulse 2s ease-in-out infinite;">
@@ -948,10 +944,9 @@ html, body {
 			</div>
 		</div>
 
-		<!-- Custom VSL player (native video + hls.js, buffering in bg, revealed on click) -->
+		<!-- Main VSL (buffering in bg, revealed on click) -->
 		<div id="cf-vsl" style="position:absolute;top:0;left:0;width:100%;height:100%;visibility:hidden;z-index:1;">
 			<video id="cf-vsl-video" playsinline preload="auto"></video>
-			<button id="cf-vsl-cta" type="button">Ready to Order? &rarr;</button>
 			<div id="cf-vsl-bigplay" aria-hidden="true">
 				<svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" opacity="0.75" fill="#000"/><path d="M 45,24 27,14 27,34" fill="#fff"/></svg>
 			</div>
@@ -976,7 +971,7 @@ html, body {
 		</div>
 	</div>
 
-	<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"><script async src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
 	<script>
 		(function() {
 			var THUMB_HLS = 'https://customer-8ocoyclfhfvlpft9.cloudflarestream.com/5ac9c4950faa397474a4357edd96f645/manifest/video.m3u8';
@@ -991,61 +986,74 @@ html, body {
 				skeleton.classList.add('hidden');
 				setTimeout(function() { skeleton.style.display = 'none'; }, 500);
 			}
-			thumbVideo.addEventListener('playing', hideSkeleton, { once: true });
-			setTimeout(hideSkeleton, 6000);
+			// Hide only after first frame is actually rendered
+			function onFirstFrame() {
+				if (typeof thumbVideo.requestVideoFrameCallback === 'function') {
+					thumbVideo.requestVideoFrameCallback(function() { hideSkeleton(); });
+				} else {
+					setTimeout(hideSkeleton, 200);
+				}
+			}
+			thumbVideo.addEventListener('loadeddata', onFirstFrame, { once: true });
+			setTimeout(hideSkeleton, 8000); // hard fallback
 
 			// THUMBNAIL: HD-locked, no controls
 			if (window.Hls && Hls.isSupported()) {
-				var thumbHls = new Hls({ capLevelToPlayerSize:false, maxBufferLength:30 });
+				var thumbHls = new Hls({
+					capLevelToPlayerSize: false, maxBufferLength: 30,
+					startLevel: -1, autoStartLoad: true
+				});
 				thumbHls.loadSource(THUMB_HLS);
 				thumbHls.attachMedia(thumbVideo);
 				thumbHls.on(Hls.Events.MANIFEST_PARSED, function() {
 					var top = thumbHls.levels.length - 1;
 					thumbHls.currentLevel = top; thumbHls.nextLevel = top; thumbHls.loadLevel = top;
+				});
+				thumbVideo.addEventListener('canplay', function onCP() {
+					thumbVideo.removeEventListener('canplay', onCP);
 					thumbVideo.play().catch(function(){});
 				});
 			} else if (thumbVideo.canPlayType('application/vnd.apple.mpegurl')) {
 				thumbVideo.src = THUMB_HLS;
-				thumbVideo.play().catch(function(){});
+				thumbVideo.addEventListener('canplay', function onCP() {
+					thumbVideo.removeEventListener('canplay', onCP);
+					thumbVideo.play().catch(function(){});
+				});
 			}
 
-			// VSL: hls.js preload, custom controls
+			// VSL: hls.js preload + custom controls
 			var vslHls = null;
 			function setupVsl() {
 				if (window.Hls && Hls.isSupported()) {
 					vslHls = new Hls({ capLevelToPlayerSize:false, maxBufferLength:30, autoStartLoad:true });
 					vslHls.loadSource(VSL_HLS);
 					vslHls.attachMedia(vslVideo);
-					vslHls.on(Hls.Events.MANIFEST_PARSED, function() {
-						buildQualityMenu();
-					});
+					vslHls.on(Hls.Events.MANIFEST_PARSED, buildQualityMenu);
 				} else if (vslVideo.canPlayType('application/vnd.apple.mpegurl')) {
 					vslVideo.src = VSL_HLS;
 				}
 			}
 			setupVsl();
 
-			// Quality menu
+			// Quality menu (Auto + all levels, high to low)
 			function buildQualityMenu() {
 				var menu = document.getElementById('cf-quality-menu');
 				var label = document.getElementById('cf-quality-label');
 				menu.innerHTML = '';
 				var levels = vslHls ? vslHls.levels : [];
-
 				function pick(i, name) {
 					if (vslHls) { vslHls.currentLevel = i; vslHls.nextLevel = i; }
 					label.textContent = name;
-					Array.prototype.forEach.call(menu.children, function(c,idx){ c.classList.toggle('active', idx === 0 ? i===-1 : levels[idx-1]===levels[i]); });
+					Array.prototype.forEach.call(menu.children, function(c,idx){
+						c.classList.toggle('active', idx === 0 ? i===-1 : levels[idx-1]===levels[i]);
+					});
 					document.getElementById('cf-quality-wrap').classList.remove('open');
 				}
-
 				var auto = document.createElement('div');
 				auto.className = 'cf-quality-item active';
 				auto.textContent = 'Auto';
 				auto.onclick = function() { pick(-1, 'Auto'); };
 				menu.appendChild(auto);
-
-				// Sort levels high to low
 				var sorted = levels.map(function(l,i){ return {l:l, i:i}; }).sort(function(a,b){ return b.l.height - a.l.height; });
 				sorted.forEach(function(item) {
 					var div = document.createElement('div');
@@ -1081,38 +1089,67 @@ html, body {
 				volIcon.innerHTML = vslVideo.muted ? mutedIconPath : onIconPath;
 			};
 
-			// Fullscreen
-			document.getElementById('cf-fs-btn').onclick = function() {
-				var w = document.getElementById('cf-player-wrapper');
-				if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-					(w.requestFullscreen || w.webkitRequestFullscreen).call(w);
+			// Fullscreen: desktop uses real Fullscreen API, mobile uses pseudo-fullscreen (CSS rotation).
+			// Pseudo-fullscreen avoids iOS native player (scrubber, skip 10s, etc.) and keeps our custom controls.
+			function isMobileDevice() {
+				return window.matchMedia && window.matchMedia('(max-width: 991px), (pointer: coarse)').matches;
+			}
+			function tryLockLandscape() {
+				try {
+					if (screen.orientation && screen.orientation.lock) {
+						var p = screen.orientation.lock('landscape');
+						if (p && p.catch) p.catch(function(){});
+					}
+				} catch (e) {}
+			}
+			function tryUnlockOrientation() {
+				try {
+					if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
+				} catch (e) {}
+			}
+			var wrapperEl = document.getElementById('cf-player-wrapper');
+			function inPseudoFullscreen() { return wrapperEl.classList.contains('pseudo-fullscreen'); }
+			function inRealFullscreen() {
+				return document.fullscreenElement || document.webkitFullscreenElement ||
+				       document.mozFullScreenElement || document.msFullscreenElement;
+			}
+			function enterFullscreen() {
+				if (isMobileDevice()) {
+					// Pseudo-fullscreen: CSS takeover + rotate — no iOS native controls
+					wrapperEl.classList.add('pseudo-fullscreen');
+					document.body.style.overflow = 'hidden';
+					tryLockLandscape();
 				} else {
-					(document.exitFullscreen || document.webkitExitFullscreen).call(document);
+					var req = wrapperEl.requestFullscreen || wrapperEl.webkitRequestFullscreen;
+					if (req) try { req.call(wrapperEl); } catch (e) {}
 				}
+			}
+			function exitFullscreen() {
+				if (inPseudoFullscreen()) {
+					wrapperEl.classList.remove('pseudo-fullscreen');
+					document.body.style.overflow = '';
+					tryUnlockOrientation();
+				} else if (inRealFullscreen()) {
+					if (document.exitFullscreen) document.exitFullscreen();
+					else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+				}
+			}
+			document.getElementById('cf-fs-btn').onclick = function() {
+				if (inPseudoFullscreen() || inRealFullscreen()) exitFullscreen();
+				else enterFullscreen();
 			};
+			['fullscreenchange', 'webkitfullscreenchange'].forEach(function(ev) {
+				document.addEventListener(ev, function() { if (!inRealFullscreen()) tryUnlockOrientation(); });
+			});
 
-			// Click video to toggle play/pause; sync paused/playing state for big play icon
+			// Click video to toggle play/pause
 			vslVideo.addEventListener('click', function() {
 				if (vslVideo.paused) vslVideo.play(); else vslVideo.pause();
 			});
 			vslVideo.addEventListener('play',  function(){ vslWrap.classList.remove('paused'); });
 			vslVideo.addEventListener('pause', function(){ vslWrap.classList.add('paused'); });
 
-			// "Ready to Order?" top-right CTA — reveal on first VSL play, scroll to pricing cards
-			var ctaBtn = document.getElementById('cf-vsl-cta');
-			var ctaShown = false;
-			vslVideo.addEventListener('play', function() {
-				if (!ctaShown) { ctaShown = true; vslWrap.classList.add('show-cta'); }
-			});
-			ctaBtn.addEventListener('click', function(e) {
-				e.stopPropagation();
-				var sections = document.getElementById('magicalSections');
-				if (sections) sections.style.display = 'block';
-				var target = document.getElementById('buynow');
-				if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-			});
-
-			// Show controls briefly on playback start/tap
+			// Show controls briefly on play start
 			function flashControls(ms) {
 				vslWrap.classList.add('show-ctrl');
 				clearTimeout(vslWrap._t);
@@ -1120,20 +1157,42 @@ html, body {
 			}
 			vslVideo.addEventListener('play', function(){ flashControls(1800); });
 
-			// THUMBNAIL CLICK → reveal custom VSL
+			// THUMBNAIL CLICK → reveal main VSL with "loading..." hint if not buffered yet
 			document.getElementById('cf-thumbnail').addEventListener('click', function () {
-				this.style.display = 'none';
-				vslWrap.style.visibility = 'visible';
-				vslWrap.style.zIndex = '5';
-				vslWrap.classList.add('active');
-				vslVideo.muted = false;
-				volRange.value = 100;
-				vslVideo.play().catch(function() {
-					vslVideo.muted = true;
-					volIcon.innerHTML = mutedIconPath;
-					volRange.value = 0;
-					vslVideo.play();
-				});
+				var self = this;
+				function startVsl() {
+					self.style.display = 'none';
+					vslWrap.style.visibility = 'visible';
+					vslWrap.style.zIndex = '5';
+					vslWrap.classList.add('active');
+					vslVideo.muted = false;
+					volRange.value = 100;
+					vslVideo.play().catch(function() {
+						vslVideo.muted = true;
+						volIcon.innerHTML = mutedIconPath;
+						volRange.value = 0;
+						vslVideo.play();
+					});
+				}
+				if (vslVideo.readyState >= 3) {
+					startVsl();
+				} else {
+					var loadingHint = document.createElement('div');
+					loadingHint.textContent = 'Loading video...';
+					loadingHint.style.cssText = 'position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.75);color:#fff;padding:8px 16px;border-radius:6px;font:600 13px sans-serif;z-index:9;';
+					self.appendChild(loadingHint);
+					vslVideo.addEventListener('canplay', function onVslCP() {
+						vslVideo.removeEventListener('canplay', onVslCP);
+						if (loadingHint.parentNode) loadingHint.parentNode.removeChild(loadingHint);
+						startVsl();
+					});
+					setTimeout(function() {
+						if (self.style.display !== 'none') {
+							if (loadingHint.parentNode) loadingHint.parentNode.removeChild(loadingHint);
+							startVsl();
+						}
+					}, 3000);
+				}
 			});
 		})();
 	</script>
